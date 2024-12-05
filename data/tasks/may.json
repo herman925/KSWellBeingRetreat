@@ -1,0 +1,56 @@
+{
+    "role": "may",
+    "name": "May",
+    "title": "Event Coordinator",
+    "tasks": {
+        "pre-event": {
+            "Jan 3 Morning": [
+                { "id": "may-pre-1", "text": "Confirm venue arrangements", "category": "Venue", "tag": "Coordination" },
+                { "id": "may-pre-2", "text": "Review event timeline", "category": "Planning", "tag": "Coordination" },
+                { "id": "may-pre-3", "text": "Coordinate with team leads", "category": "Communication", "tag": "Coordination" }
+            ]
+        },
+        "transport-arrival": {
+            "Jan 4 Morning": [
+                { "id": "may-trans-1", "text": "Arrive at venue", "time": "09:00", "category": "Transport", "tag": "Self-Transport" }
+            ]
+        },
+        "site-setup": {
+            "Jan 4 Morning": [
+                { "id": "may-site-1", "text": "Registration area setup", "category": "Setup", "tag": "Registration" },
+                { "id": "may-site-2", "text": "Coordinate team positions", "category": "Setup", "tag": "Coordination" }
+            ]
+        },
+        "event-support": {
+            "Morning Session": [
+                { "id": "may-evt-1", "text": "Welcome & direct participants", "time": "09:45-10:15", "category": "Support", "tag": "Registration" },
+                { "id": "may-evt-2", "text": "Support seating arrangements", "time": "10:15-10:30", "category": "Support", "tag": "Coordination" },
+                { "id": "may-evt-3", "text": "Hall support", "time": "10:30-11:10", "category": "Support", "tag": "Coordination" },
+                { "id": "may-evt-4", "text": "Join activity", "time": "11:10-11:50", "category": "Support", "tag": "Activities" },
+                { "id": "may-evt-5", "text": "Join activity", "time": "11:50-12:30", "category": "Support", "tag": "Activities" }
+            ],
+            "Lunch Break": [
+                { "id": "may-evt-6", "text": "Break & lunch", "time": "12:30-13:45", "category": "Break", "tag": "Break" }
+            ],
+            "Afternoon Session": [
+                { "id": "may-evt-7", "text": "Hall support", "time": "13:45-14:00", "category": "Support", "tag": "Coordination" },
+                { "id": "may-evt-8", "text": "Join group activity", "time": "14:00-14:40", "category": "Support", "tag": "Activities" },
+                { "id": "may-evt-9", "text": "Join group activity", "time": "14:40-15:20", "category": "Support", "tag": "Activities" },
+                { "id": "may-evt-10", "text": "Pack materials", "time": "15:20-15:45", "category": "Support", "tag": "Materials" }
+            ]
+        },
+        "post-event": {
+            "Clean Up": [
+                { "id": "may-post-1", "text": "Supervise cleanup", "time": "15:45-16:00", "category": "Cleanup", "tag": "Coordination" }
+            ],
+            "Final Checks": [
+                { "id": "may-post-2", "text": "Clean Registration Area with Herman", "time": "16:00-16:15", "category": "Cleanup", "tag": "Venue" },
+                { "id": "may-post-3", "text": "Final Walkthrough", "time": "16:15-16:30", "category": "Cleanup", "tag": "Venue" },
+                { "id": "may-post-4", "text": "Pack and Go", "time": "16:30-17:00", "category": "Cleanup", "tag": "Venue" }
+            ]
+        },
+        "transport-departure": [
+            { "id": "may-trans-1", "text": "Depart by own transport", "time": "17:00", "category": "Transport", "tag": "Self-Transport" }
+        ]
+    }
+} 

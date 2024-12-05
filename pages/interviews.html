@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Focus Group Interviews - Teacher Well-Being Retreat</title>
+    <link rel="stylesheet" href="../styles/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .interview-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            padding: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .info-card {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .info-card h2 {
+            color: #2c3e50;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #e9ecef;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .info-card h2 i {
+            color: #3498db;
+        }
+
+        .schedule-grid {
+            display: grid;
+            gap: 20px;
+        }
+
+        .schedule-item {
+            background: #f8f9fa;
+            padding: 16px;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+        }
+
+        .schedule-item h3 {
+            color: #2c3e50;
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .schedule-item ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 0 24px;
+        }
+
+        .schedule-item li {
+            color: #576574;
+            padding: 8px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .schedule-item li i {
+            color: #7f8c8d;
+            width: 16px;
+            text-align: center;
+        }
+
+        .important-note {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 12px 16px;
+            margin: 16px 0;
+            border-radius: 4px;
+        }
+
+        .important-note i {
+            color: #ffc107;
+        }
+
+        .download-section {
+            margin-top: 20px;
+            padding: 16px;
+            background: #e9ecef;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .download-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #3498db;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .download-button:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+        }
+
+        .download-button.disabled {
+            background: #95a5a6;
+            cursor: not-allowed;
+        }
+
+        @media (max-width: 768px) {
+            .interview-content {
+                grid-template-columns: 1fr;
+                padding: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="nav-wrapper">
+            <a href="../index.html" class="back-button">
+                <i class="fas fa-arrow-left"></i> Back to Dashboard
+            </a>
+            <div class="person-selector">
+                <select id="roleSelect">
+                    <option value="">Select Your Role</option>
+                </select>
+            </div>
+        </nav>
+    </header>
+
+    <main class="content-wrapper">
+        <section class="page-header">
+            <h1><i class="fas fa-comments"></i> Focus Group Interviews</h1>
+            <p class="subtitle">KeySteps@JC (Phase Two)</p>
+            <p class="subtitle">Teacher Well-Being Round 1 Retreat</p>
+            <div class="date-info"><i class="far fa-clock"></i> January 4, 2025 (Saturday)</div>
+        </section>
+
+        <section class="interview-content">
+            <div class="info-card">
+                <h2><i class="fas fa-calendar-alt"></i> Interview Schedule</h2>
+                <div class="important-note" style="margin-bottom: 20px;">
+                    <i class="fas fa-users"></i> Each group consists of 4-6 participants
+                </div>
+                <div class="schedule-grid">
+                    <div class="schedule-item">
+                        <h3><i class="fas fa-sun"></i> Morning Session</h3>
+                        <ul>
+                            <li><i class="far fa-clock"></i> Group 1: 10:30 - 11:10</li>
+                            <li><i class="far fa-clock"></i> Group 2: 11:10 - 11:50</li>
+                            <li><i class="far fa-clock"></i> Group 3: 11:50 - 12:30</li>
+                        </ul>
+                    </div>
+                    <div class="schedule-item">
+                        <h3><i class="fas fa-moon"></i> Afternoon Session</h3>
+                        <ul>
+                            <li><i class="far fa-clock"></i> Group 4: 14:10 - 14:40</li>
+                            <li><i class="far fa-clock"></i> Group 5: 14:40 - 15:20</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-card">
+                <h2><i class="fas fa-clipboard-list"></i> Interview Guidelines</h2>
+                <div class="guidelines-content">
+                    <div class="schedule-item">
+                        <h3><i class="fas fa-users"></i> Participant Selection</h3>
+                        <ul>
+                            <li><i class="fas fa-random"></i> Random selection during activities</li>
+                            <li><i class="fas fa-user-check"></i> Selected by interview leads</li>
+                            <li><i class="fas fa-users"></i> 4-6 participants per group</li>
+                        </ul>
+                    </div>
+                    <div class="schedule-item">
+                        <h3><i class="fas fa-user-tie"></i> Interview Leadership</h3>
+                        <ul>
+                            <li><i class="fas fa-crown"></i> Primary: Catalina/Hou Wai Kai (if present)</li>
+                            <li><i class="fas fa-user"></i> Support: Christine</li>
+                            <li><i class="fas fa-exchange-alt"></i> Christine leads if others absent</li>
+                        </ul>
+                    </div>
+                    <div class="important-note">
+                        <i class="fas fa-exclamation-circle"></i> All interviews will be recorded. Participants will be informed and consent obtained.
+                    </div>
+                </div>
+                <div class="download-section">
+                    <a href="#" class="download-button disabled">
+                        <i class="fas fa-download"></i> Interview Questions (Coming Soon)
+                    </a>
+                </div>
+            </div>
+
+            <div class="info-card">
+                <h2><i class="fas fa-cogs"></i> Setup Requirements</h2>
+                <div class="schedule-item">
+                    <h3><i class="fas fa-clipboard-check"></i> Pre-Interview Checklist</h3>
+                    <ul>
+                        <li><i class="fas fa-microphone"></i> Recording equipment setup</li>
+                        <li><i class="fas fa-chair"></i> Room arrangement (6-8 seats)</li>
+                        <li><i class="fas fa-file-alt"></i> Consent forms prepared</li>
+                        <li><i class="fas fa-volume-up"></i> Audio check</li>
+                        <li><i class="fas fa-door-closed"></i> "Interview in Progress" sign</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', async function() {
+            const roleSelect = document.getElementById('roleSelect');
+            
+            try {
+                const response = await fetch('../data/roles.json');
+                const data = await response.json();
+                
+                roleSelect.innerHTML = '<option value="">Select Your Role</option>';
+                
+                data.roles.forEach(role => {
+                    const option = document.createElement('option');
+                    option.value = role.id;
+                    option.textContent = `${role.name}${role.title ? ` (${role.title})` : ''}`;
+                    roleSelect.appendChild(option);
+                });
+                
+                const savedRole = localStorage.getItem('selectedRole');
+                if (savedRole) {
+                    roleSelect.value = savedRole;
+                }
+            } catch (error) {
+                console.error('Error loading roles:', error);
+            }
+
+            roleSelect.addEventListener('change', function() {
+                const selectedRole = this.value;
+                localStorage.setItem('selectedRole', selectedRole);
+            });
+        });
+    </script>
+</body>
+</html> 

@@ -1,0 +1,16 @@
+{
+    "role": "prep-vincent",
+    "name": "Vincent",
+    "title": "Preparation Assistant",
+    "tasks": {
+        "pre-event": {
+            "Jan 3 Afternoon": [
+                { "id": "vin-pre-1", "text": "Pack Health & Safety Materials", "category": "Material Sorting", "tag": "Packing" },
+                { "id": "vin-pre-2", "text": "Test Walkie-talkies", "category": "Equipment Testing", "tag": "Comms Check" },
+                { "id": "vin-pre-3", "text": "Check battery levels", "category": "Equipment Testing", "tag": "Comms Check" },
+                { "id": "vin-pre-4", "text": "Test range in office", "category": "Equipment Testing", "tag": "Comms Check" },
+                { "id": "vin-pre-5", "text": "Set channels", "category": "Equipment Testing", "tag": "Comms Check" }
+            ]
+        }
+    }
+} 

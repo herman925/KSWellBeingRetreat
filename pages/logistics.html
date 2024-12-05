@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logistics - Teacher Well-Being Retreat</title>
+    <link rel="stylesheet" href="../styles/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .logistics-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            padding: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .info-card {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .info-card h2 {
+            color: #2c3e50;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #e9ecef;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .info-card h2 i {
+            color: #3498db;
+        }
+
+        .info-section {
+            background: #ffffff;
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 16px;
+            border-left: 4px solid #3498db;
+        }
+
+        .info-section h3 {
+            color: #2c3e50;
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .info-section h3 i {
+            color: #3498db;
+        }
+
+        /* Venue Details Styling */
+        .venue-section {
+            border-left-color: #9b59b6;
+        }
+
+        .venue-section .detail-item {
+            display: grid;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        .venue-section .detail-item strong {
+            color: #34495e;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .venue-section .detail-item strong i {
+            color: #9b59b6;
+            width: 16px;
+            text-align: center;
+        }
+
+        /* Transportation Styling */
+        .shuttle-section {
+            border-left-color: #e67e22;
+        }
+
+        .shuttle-route {
+            background: #f8f9fa;
+            padding: 16px;
+            border-radius: 8px;
+            margin-bottom: 16px;
+            border-left: 4px solid #e67e22;
+        }
+
+        .shuttle-route h4 {
+            color: #e67e22;
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .shuttle-route h4 i {
+            color: #e67e22;
+        }
+
+        .shuttle-route p {
+            color: #576574;
+            margin: 8px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding-left: 24px;
+        }
+
+        .shuttle-route p i {
+            color: #7f8c8d;
+            width: 16px;
+            text-align: center;
+        }
+
+        /* Contact Sections */
+        .contact-section {
+            background: #ffffff;
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 16px;
+        }
+
+        .contact-section.activities {
+            border-left: 4px solid #e74c3c;
+        }
+
+        .contact-section.coordination {
+            border-left: 4px solid #3498db;
+        }
+
+        .contact-section.support {
+            border-left: 4px solid #2ecc71;
+        }
+
+        .contact-section.venue-contact {
+            border-left: 4px solid #f1c40f;
+        }
+
+        .contact-section.floor-ops {
+            border-left: 4px solid #1abc9c;
+        }
+
+        .contact-section h4 {
+            color: #2c3e50;
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .contact-section h4 i {
+            color: inherit;
+        }
+
+        .contact-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 0 24px;
+        }
+
+        .contact-section li {
+            color: #576574;
+            padding: 8px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contact-section li i {
+            color: #7f8c8d;
+            width: 16px;
+            text-align: center;
+        }
+
+        /* Quick Links Styling */
+        .quick-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+        }
+
+        .link-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            background: #3498db;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .link-button:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+        }
+
+        .link-button i {
+            font-size: 1.1em;
+        }
+
+        @media (max-width: 768px) {
+            .logistics-content {
+                grid-template-columns: 1fr;
+                padding: 16px;
+            }
+
+            .quick-links {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="nav-wrapper">
+            <a href="../index.html" class="back-button">
+                <i class="fas fa-arrow-left"></i> Back to Dashboard
+            </a>
+            <div class="person-selector">
+                <select id="roleSelect">
+                    <option value="">Select Your Role</option>
+                </select>
+            </div>
+        </nav>
+    </header>
+
+    <main class="content-wrapper">
+        <section class="page-header">
+            <h1><i class="fas fa-map-marker-alt"></i> Logistics</h1>
+            <p class="subtitle">KeySteps@JC (Phase Two)</p>
+            <p class="subtitle">Teacher Well-Being Round 1 Retreat</p>
+            <div class="date-info"><i class="far fa-clock"></i> January 4, 2025 (Saturday)</div>
+        </section>
+
+        <div class="logistics-content">
+            <div class="info-card">
+                <h2><i class="fas fa-building"></i> Venue Details</h2>
+                <div class="info-section venue-section">
+                    <div class="detail-item">
+                        <strong><i class="fas fa-map-marker-alt"></i> Location</strong>
+                        <span>HKAYP Jockey Club Duke of Edinburgh Training<br>
+                        90 Lam Kam Road, Tai Po, N.T.</span>
+                    </div>
+                    <div class="detail-item">
+                        <strong><i class="fas fa-door-open"></i> Rooms</strong>
+                        <span>Ground Floor Hub 3 & Hall 2</span>
+                    </div>
+                    <div class="detail-item">
+                        <strong><i class="fas fa-parking"></i> Parking</strong>
+                        <span>Reserved parking for Activities Lead (TB8200)</span>
+                    </div>
+                    <div class="detail-item">
+                        <strong><i class="fas fa-sign-in-alt"></i> Access</strong>
+                        <span>Main entrance through Hub 3</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-card">
+                <h2><i class="fas fa-bus"></i> Transportation</h2>
+                <div class="shuttle-section">
+                    <div class="shuttle-route">
+                        <h4><i class="fas fa-map-marker-alt"></i> Yuen Long Route</h4>
+                        <p><i class="fas fa-clock"></i> Morning Departure: 09:00</p>
+                        <p><i class="fas fa-map-signs"></i> Location: Yuen Long MTR Station Exit E</p>
+                        <p><i class="fas fa-clock"></i> Afternoon Departure: 16:00</p>
+                    </div>
+                    <div class="shuttle-route">
+                        <h4><i class="fas fa-map-marker-alt"></i> Kowloon Tong Route</h4>
+                        <p><i class="fas fa-clock"></i> Morning Departure: 08:35</p>
+                        <p><i class="fas fa-map-signs"></i> Location: EdUHK Kowloon Tong Satellite Campus</p>
+                        <p><i class="fas fa-clock"></i> Afternoon Departure: 16:00</p>
+                    </div>
+                    <div class="shuttle-route">
+                        <h4><i class="fas fa-map-marker-alt"></i> Tai Po Route</h4>
+                        <p><i class="fas fa-clock"></i> Morning Pickup: 09:25</p>
+                        <p><i class="fas fa-map-signs"></i> Location: Tai Po Market MTR Station Exit A</p>
+                        <p><i class="fas fa-clock"></i> Return: 16:00</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-card">
+                <h2><i class="fas fa-phone"></i> Contact Information</h2>
+                <div class="contact-section venue-contact">
+                    <h4><i class="fas fa-hotel"></i> Venue Contact</h4>
+                    <ul>
+                        <li><i class="fas fa-user"></i> Mr. Mok (HKAYP Camp Service)</li>
+                        <li><i class="fas fa-phone"></i> +852 2627 2000</li>
+                        <li><i class="fas fa-envelope"></i> campservice@ayp.org.hk</li>
+                        <li><i class="fas fa-globe"></i> <a href="https://www.ayp.org.hk" target="_blank">www.ayp.org.hk</a></li>
+                    </ul>
+                </div>
+                <div class="contact-section activities">
+                    <h4><i class="fas fa-star"></i> Activities Lead</h4>
+                    <ul>
+                        <li><i class="fas fa-user"></i> Doris Woo</li>
+                        <li><i class="fas fa-phone"></i> 6764 5211</li>
+                        <li><i class="fas fa-car"></i> Vehicle: TB8200</li>
+                    </ul>
+                </div>
+                <div class="contact-section coordination">
+                    <h4><i class="fas fa-tasks"></i> Coordination</h4>
+                    <ul>
+                        <li><i class="fas fa-calendar"></i> May (Event Coordinator): 6206 4525</li>
+                        <li><i class="fas fa-chalkboard-teacher"></i> Herman (Program Facilitator): 9727 8202</li>
+                        <li><i class="fas fa-building"></i> Vincent (Venue Liaison): vcwng@eduhk.hk</li>
+                    </ul>
+                </div>
+                <div class="contact-section support">
+                    <h4><i class="fas fa-hands-helping"></i> Support</h4>
+                    <ul>
+                        <li><i class="fas fa-users"></i> Cathy (Core Team): 5931 4632</li>
+                    </ul>
+                </div>
+                <div class="contact-section floor-ops">
+                    <h4><i class="fas fa-walking"></i> Floor Operations</h4>
+                    <ul>
+                        <li><i class="fas fa-bus"></i> Karindi Cheng Ka Yin (YL Route): 9171 5770</li>
+                        <li><i class="fas fa-bus"></i> Bonnie Li Sze Man (KLT Route): 6102 8965</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="info-card">
+                <h2><i class="fas fa-link"></i> Quick Links</h2>
+                <div class="quick-links">
+                    <a href="schedule.html" class="link-button">
+                        <i class="fas fa-calendar-alt"></i> View Schedule
+                    </a>
+                    <a href="tasks.html" class="link-button">
+                        <i class="fas fa-tasks"></i> My Tasks
+                    </a>
+                    <a href="resources.html" class="link-button">
+                        <i class="fas fa-box-open"></i> Resources
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', async function() {
+            const roleSelect = document.getElementById('roleSelect');
+            
+            try {
+                const response = await fetch('../data/roles.json');
+                const data = await response.json();
+                
+                roleSelect.innerHTML = '<option value="">Select Your Role</option>';
+                
+                data.roles.forEach(role => {
+                    const option = document.createElement('option');
+                    option.value = role.id;
+                    option.textContent = `${role.name}${role.title ? ` (${role.title})` : ''}`;
+                    roleSelect.appendChild(option);
+                });
+                
+                const savedRole = localStorage.getItem('selectedRole');
+                if (savedRole) {
+                    roleSelect.value = savedRole;
+                }
+            } catch (error) {
+                console.error('Error loading roles:', error);
+            }
+
+            roleSelect.addEventListener('change', function() {
+                const selectedRole = this.value;
+                localStorage.setItem('selectedRole', selectedRole);
+            });
+        });
+    </script>
+</body>
+</html> 

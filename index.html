@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Well-Being Retreat</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="person-selector">
+                <select id="roleSelect">
+                    <option value="">Select Your Role</option>
+                </select>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Teacher Well-Being Retreat</h1>
+            <p class="subtitle">Navigation Dashboard</p>
+        </section>
+
+        <div class="dashboard-grid">
+            <div class="card" data-section="overview">
+                <i class="fas fa-info-circle"></i>
+                <h2>Overview</h2>
+                <p>Key objectives and general information</p>
+            </div>
+
+            <div class="card" data-section="schedule">
+                <i class="fas fa-calendar-alt"></i>
+                <h2>Schedule</h2>
+                <p>Detailed timeline of activities</p>
+            </div>
+
+            <div class="card" data-section="tasks">
+                <i class="fas fa-tasks"></i>
+                <h2>My Tasks</h2>
+                <p>Role-specific responsibilities</p>
+            </div>
+
+            <div class="card" data-section="resources">
+                <i class="fas fa-box-open"></i>
+                <h2>Resources</h2>
+                <p>Materials and digital assets</p>
+            </div>
+
+            <div class="card" data-section="logistics">
+                <i class="fas fa-map-marker-alt"></i>
+                <h2>Logistics</h2>
+                <p>Venue details and contacts</p>
+            </div>
+
+            <div class="card" data-section="interviews">
+                <i class="fas fa-comments"></i>
+                <h2>Focus Group</h2>
+                <p>Interview schedules and guides</p>
+            </div>
+
+            <div class="card" data-section="participants">
+                <i class="fas fa-users"></i>
+                <h2>Participants</h2>
+                <p>Registration and attendance details</p>
+            </div>
+
+            <div class="card" data-section="budget">
+                <i class="fas fa-dollar-sign"></i>
+                <h2>Budget</h2>
+                <p>Financial planning and tracking</p>
+            </div>
+
+            <div class="card" data-section="reporting">
+                <i class="fas fa-file-export"></i>
+                <h2>Reporting</h2>
+                <p>Data export and analytics</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>Last Updated: December 04, 2024</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', async function() {
+            const roleSelect = document.getElementById('roleSelect');
+            
+            // Load roles from JSON
+            try {
+                const response = await fetch('data/roles.json');
+                const data = await response.json();
+                
+                // Clear existing options except the default one
+                roleSelect.innerHTML = '<option value="">Select Your Role</option>';
+                
+                // Add roles from JSON
+                data.roles.forEach(role => {
+                    const option = document.createElement('option');
+                    option.value = role.id;
+                    option.textContent = `${role.name}${role.title ? ` (${role.title})` : ''}`;
+                    roleSelect.appendChild(option);
+                });
+                
+                // Load saved role from localStorage
+                const savedRole = localStorage.getItem('selectedRole');
+                if (savedRole) {
+                    roleSelect.value = savedRole;
+                }
+            } catch (error) {
+                console.error('Error loading roles:', error);
+            }
+
+            // Role selection handler
+            roleSelect.addEventListener('change', function() {
+                const selectedRole = this.value;
+                localStorage.setItem('selectedRole', selectedRole);
+            });
+
+            // Card click handler
+            document.querySelectorAll('.card').forEach(card => {
+                card.addEventListener('click', function() {
+                    const section = this.dataset.section;
+                    // Navigation logic
+                    switch(section) {
+                        case 'overview':
+                            window.location.href = 'pages/overview.html';
+                            break;
+                        case 'schedule':
+                            window.location.href = 'pages/schedule.html';
+                            break;
+                        case 'tasks':
+                            window.location.href = 'pages/tasks.html';
+                            break;
+                        case 'resources':
+                            window.location.href = 'pages/resources.html';
+                            break;
+                        case 'logistics':
+                            window.location.href = 'pages/logistics.html';
+                            break;
+                        case 'interviews':
+                            window.location.href = 'pages/interviews.html';
+                            break;
+                        case 'participants':
+                            window.location.href = 'pages/participants.html';
+                            break;
+                        case 'budget':
+                            window.location.href = 'pages/budget.html';
+                            break;
+                        case 'reporting':
+                            window.location.href = 'pages/reporting.html';
+                            break;
+                        default:
+                            console.log('Page not yet implemented:', section);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

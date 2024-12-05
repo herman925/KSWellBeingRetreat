@@ -1,0 +1,11 @@
+categoryid,name,order,zoneid
+outdoor-signs,Outdoor Signs,1,outdoor
+registration-materials,Registration Materials,2,registration
+indoor-signs,Indoor Signs,3,main-hall
+mindfulness-items,Mindfulness Practice Items,4,main-hall
+group-discussion,Group Discussion,5,main-hall
+av-equipment,A/V Equipment,6,av-station
+supplies,General Supplies,7,refreshment
+refreshments,Refreshment Items,8,refreshment
+staff-items,Staff Items,9,registration
+transport-materials,Transport Materials,10,transport

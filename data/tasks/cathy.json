@@ -1,0 +1,57 @@
+{
+    "role": "cathy",
+    "name": "Cathy",
+    "title": "Core Team",
+    "tasks": {
+        "pre-event": {
+            "Jan 3 Morning": [
+                { "id": "cat-pre-1", "text": "Review program materials", "category": "Program", "tag": "Preparation" },
+                { "id": "cat-pre-2", "text": "Check activity supplies", "category": "Materials", "tag": "Preparation" }
+            ]
+        },
+        "transport-arrival": {
+            "Jan 4 Morning": [
+                { "id": "cat-trans-1", "text": "Arrive at Kowloon Tong pickup point", "time": "08:15", "category": "Transportation" },
+                { "id": "cat-trans-2", "text": "Depart from Kowloon Tong", "time": "08:35", "category": "Transportation" }
+            ]
+        },
+        "site-setup": {
+            "Jan 4 Morning": [
+                { "id": "cat-site-1", "text": "Activity area setup", "category": "Setup", "tag": "Activities" },
+                { "id": "cat-site-2", "text": "Materials distribution", "category": "Setup", "tag": "Materials" }
+            ]
+        },
+        "event-support": {
+            "Morning Session": [
+                { "id": "cat-evt-1", "text": "Lead registration desk", "time": "9:45-10:15", "category": "Support", "tag": "Registration" },
+                { "id": "cat-evt-2", "text": "Handle late registrations", "time": "10:15-10:30", "category": "Support", "tag": "Registration" },
+                { "id": "cat-evt-3", "text": "Administrative support", "time": "10:30-11:10", "category": "Support", "tag": "Admin" },
+                { "id": "cat-evt-4", "text": "Document activities", "time": "11:10-11:50", "category": "Documentation", "tag": "Records" },
+                { "id": "cat-evt-5", "text": "Administrative support", "time": "11:50-12:30", "category": "Support", "tag": "Admin" }
+            ],
+            "Lunch Break": [
+                { "id": "cat-evt-6", "text": "Check meal options", "time": "12:30-13:45", "category": "Support", "tag": "Meals" }
+            ],
+            "Afternoon Session": [
+                { "id": "cat-evt-7", "text": "Support room transitions", "time": "13:45-14:00", "category": "Support", "tag": "Coordination" },
+                { "id": "cat-evt-8", "text": "Document activities", "time": "14:00-14:40", "category": "Documentation", "tag": "Records" },
+                { "id": "cat-evt-9", "text": "Administrative support", "time": "14:40-15:20", "category": "Support", "tag": "Admin" },
+                { "id": "cat-evt-10", "text": "Pack up registration materials", "time": "15:20-15:45", "category": "Cleanup", "tag": "Registration" },
+                { "id": "cat-evt-11", "text": "Coordinate bus departures", "time": "15:45-16:00", "category": "Support", "tag": "Transport" },
+                { "id": "cat-evt-12", "text": "Complete materials inventory", "time": "16:00-16:30", "category": "Documentation", "tag": "Materials" }
+            ]
+        },
+        "post-event": {
+            "Clean Up": [
+                { "id": "cat-post-1", "text": "Pack activity materials", "time": "15:45-16:00", "category": "Cleanup", "tag": "Materials" }
+            ],
+            "Final Checks": [
+                { "id": "cat-post-2", "text": "Final Walkthrough", "time": "16:15-16:30", "category": "Cleanup", "tag": "Venue" },
+                { "id": "cat-post-3", "text": "Pack and Go", "time": "16:30-17:00", "category": "Cleanup", "tag": "Venue" }
+            ]
+        },
+        "transport-departure": [
+            { "id": "cat-trans-1", "text": "Depart by Kowloon Tong Shuttle", "time": "16:00", "category": "Transport", "tag": "Kowloon Tong Shuttle" }
+        ]
+    }
+} 

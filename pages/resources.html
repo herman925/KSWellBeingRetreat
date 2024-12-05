@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources - Teacher Well-Being Retreat</title>
+    <link rel="stylesheet" href="../styles/resources.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="nav-wrapper">
+            <a href="../index.html" class="back-button">
+                <i class="fas fa-arrow-left"></i> Back to Dashboard
+            </a>
+            <div class="nav-right">
+                <select id="roleSelect" class="role-select">
+                    <option value="viewer">Viewer</option>
+                    <option value="editor">Editor</option>
+                    <option value="admin">Admin</option>
+                </select>
+            </div>
+        </nav>
+    </header>
+
+    <main class="content-wrapper">
+        <section class="page-header">
+            <h1><i class="fas fa-box"></i> Resources</h1>
+            <p class="subtitle">KeySteps@JC (Phase Two)</p>
+            <p class="subtitle">Teacher Well-Being Round 1 Retreat</p>
+        </section>
+
+        <div class="content full-width">
+            <div class="section">
+                <h2><i class="fas fa-map-marker-alt"></i> Zones</h2>
+                <div id="zones-list"></div>
+            </div>
+        </div>
+
+        <div class="content two-columns">
+            <div class="section">
+                <div class="section-header">
+                    <h2><i class="fas fa-warehouse"></i> Inventory</h2>
+                    <div class="import-export-buttons">
+                        <input type="file" id="csvFileInput" accept=".csv" style="display: none" onchange="resourceManager.importFromCSV(event)">
+                        <button onclick="document.getElementById('csvFileInput').click()" class="icon-btn import-btn" title="Import CSV">
+                            <i class="fas fa-file-import"></i>
+                        </button>
+                        <button onclick="resourceManager.exportToCSV()" class="icon-btn export-btn" title="Export CSV">
+                            <i class="fas fa-file-export"></i>
+                        </button>
+                    </div>
+                </div>
+                <div id="inventory-list"></div>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-boxes"></i> Boxes</h2>
+                <div id="boxes-list"></div>
+            </div>
+        </div>
+    </main>
+
+    <script src="../scripts/resources.js"></script>
+</body>
+</html>

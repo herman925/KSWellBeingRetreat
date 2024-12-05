@@ -1,0 +1,9 @@
+zoneid,name,description,order
+outdoor,Outdoor Signs,Signage for entrances bus stops and directions,1
+registration,Registration Booth,Check-in point and administrative materials,2
+main-hall,Main Hall,Primary activity space with mindfulness and group discussion areas,3
+interview,Interview Room,Interview room setup and materials,4
+av-station,A/V Control Station,Technical control area for audio/visual equipment,5
+refreshment,Refreshment Area,Space for refreshments and supplies,6
+transport,Transport,Shuttle pickup points and transportation materials,7
+ayp,Site Support,Overall Site Support,8

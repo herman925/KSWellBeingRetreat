@@ -1,0 +1,44 @@
+{
+    "roles": [
+        {
+            "id": "hwk",
+            "name": "Hou Wai Kai",
+            "title": "Project Oversight"
+        },
+        {
+            "id": "cat",
+            "name": "Catalina",
+            "title": "Project Oversight"
+        },
+        {
+            "id": "may",
+            "name": "May",
+            "title": "Event Coordinator"
+        },
+        {
+            "id": "herman",
+            "name": "Herman",
+            "title": "Program Facilitator"
+        },
+        {
+            "id": "christine",
+            "name": "Christine",
+            "title": "Group Interview Lead"
+        },
+        {
+            "id": "cathy",
+            "name": "Cathy",
+            "title": "Core Team"
+        },
+        {
+            "id": "karindi",
+            "name": "Karindi",
+            "title": "Floor Operations"
+        },
+        {
+            "id": "bonnie",
+            "name": "Bonnie",
+            "title": "Floor Operations"
+        }
+    ]
+} 

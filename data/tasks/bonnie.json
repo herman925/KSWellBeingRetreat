@@ -1,0 +1,61 @@
+{
+    "role": "bonnie",
+    "name": "Bonnie",
+    "title": "Floor Operations",
+    "tasks": {
+        "pre-event": {
+            "Jan 3 Morning": [
+                { "id": "bon-pre-1", "text": "Review floor plan", "category": "Planning", "tag": "Preparation" },
+                { "id": "bon-pre-2", "text": "Check signage materials", "category": "Materials", "tag": "Preparation" }
+            ]
+        },
+        "transport-arrival": {
+            "Jan 4 Morning - Kowloon Tong Stop": [
+                { "id": "bon-trans-1", "text": "Arrive at Kowloon Tong pickup point", "time": "08:15", "category": "Transportation" },
+                { "id": "bon-trans-2", "text": "Place signage at Kowloon Tong shuttle", "time": "08:20", "category": "Transportation" },
+                { "id": "bon-trans-3", "text": "Guide Kowloon Tong participants to shuttle", "time": "08:25-08:30", "category": "Transportation" },
+                { "id": "bon-trans-4", "text": "Mark Kowloon Tong attendance on passenger list", "time": "08:30", "category": "Transportation" },
+                { "id": "bon-trans-5", "text": "Take photo of Kowloon Tong passenger list", "time": "08:32", "category": "Transportation" },
+                { "id": "bon-trans-6", "text": "Report Kowloon Tong headcount to coordinator", "time": "08:35", "category": "Transportation" },
+                { "id": "bon-trans-7", "text": "Depart from Kowloon Tong", "time": "08:35", "category": "Transportation" }
+            ],
+            "Jan 4 Morning - Tai Po Stop": [
+                { "id": "bon-trans-8", "text": "Arrive at Tai Po pickup point", "time": "09:10", "category": "Transportation" },
+                { "id": "bon-trans-9", "text": "Place signage at Tai Po pickup point", "time": "09:15", "category": "Transportation" },
+                { "id": "bon-trans-10", "text": "Guide Tai Po participants to shuttle", "time": "09:15-09:20", "category": "Transportation" },
+                { "id": "bon-trans-11", "text": "Mark Tai Po attendance on passenger list", "time": "09:20", "category": "Transportation" },
+                { "id": "bon-trans-12", "text": "Take photo of final passenger list", "time": "09:22", "category": "Transportation" },
+                { "id": "bon-trans-13", "text": "Report final headcount to coordinator", "time": "09:25", "category": "Transportation" },
+                { "id": "bon-trans-14", "text": "Depart from Tai Po", "time": "09:25", "category": "Transportation" }
+            ]
+        },
+        "site-setup": {
+            "Jan 4 Morning": [
+                { "id": "bon-site-1", "text": "Place directional signs", "category": "Setup", "tag": "Signage" },
+                { "id": "bon-site-2", "text": "Set up refreshment area", "category": "Setup", "tag": "Refreshments" }
+            ]
+        },
+        "event-support": {
+            "Morning Session": [
+                { "id": "bon-evt-1", "text": "Refreshment setup", "time": "9:45-10:15", "category": "Support", "tag": "Refreshments" },
+                { "id": "bon-evt-2", "text": "Hall support", "time": "10:15-10:30", "category": "Support", "tag": "Floor" },
+                { "id": "bon-evt-3", "text": "Lunch preparation confirmation", "time": "11:50-12:30", "category": "Support", "tag": "Meals" }
+            ],
+            "Lunch Break": [
+                { "id": "bon-evt-4", "text": "Hall support", "time": "12:30-13:45", "category": "Support", "tag": "Floor" }
+            ],
+            "Afternoon Session": [
+                { "id": "bon-evt-5", "text": "Refreshment refill", "time": "14:00-14:40", "category": "Support", "tag": "Refreshments" },
+                { "id": "bon-evt-6", "text": "Water/tea service", "time": "14:40-15:20", "category": "Support", "tag": "Refreshments" },
+                { "id": "bon-evt-7", "text": "Final refreshments", "time": "15:20-15:45", "category": "Support", "tag": "Refreshments" }
+            ]
+        },
+        "transport-departure": [
+            { "id": "bon-trans-1", "text": "Check all passengers are onboard Kowloon Tong shuttle", "time": "15:45-15:55", "category": "Transport", "tag": "Kowloon Tong Shuttle" },
+            { "id": "bon-trans-2", "text": "Remove shuttle sticky sign and return forms to Herman", "time": "15:55-16:00", "category": "Transport", "tag": "Kowloon Tong Shuttle" },
+            { "id": "bon-trans-3", "text": "Depart by Kowloon Tong shuttle", "time": "16:00", "category": "Transport", "tag": "Kowloon Tong Shuttle" },
+            { "id": "bon-trans-4", "text": "Report trip completion at Tai Po", "time": "16:45", "category": "Transport", "tag": "Kowloon Tong Shuttle" },
+            { "id": "bon-trans-5", "text": "Report final trip completion at Kowloon Tong", "time": "17:30", "category": "Transport", "tag": "Tai Po Shuttle" }
+        ]
+    }
+}

@@ -1,0 +1,408 @@
+{
+    "zones": {
+        "outdoor": {
+            "id": "outdoor",
+            "name": "Outdoor Signs",
+            "description": "Signage for entrances, bus stops, and directions",
+            "order": 1
+        },
+        "registration": {
+            "id": "registration",
+            "name": "Registration Booth",
+            "description": "Check-in point and administrative materials",
+            "order": 2
+        },
+        "main-hall": {
+            "id": "main-hall",
+            "name": "Main Hall",
+            "description": "Primary activity space with mindfulness and group discussion areas",
+            "order": 3
+        },
+        "av-station": {
+            "id": "av-station",
+            "name": "A/V Control Station",
+            "description": "Technical control area for audio/visual equipment",
+            "order": 4
+        },
+        "refreshment": {
+            "id": "refreshment",
+            "name": "Refreshment Area",
+            "description": "Space for refreshments and supplies",
+            "order": 5
+        },
+        "transport": {
+            "id": "transport",
+            "name": "Transport",
+            "description": "Shuttle pickup points and transportation materials",
+            "order": 6
+        }
+    },
+    "categories": {
+        "outdoor-signs": {
+            "id": "outdoor-signs",
+            "name": "Outdoor Signs",
+            "order": 1,
+            "zoneId": "outdoor"
+        },
+        "registration-materials": {
+            "id": "registration-materials",
+            "name": "Registration Materials",
+            "order": 2,
+            "zoneId": "registration"
+        },
+        "indoor-signs": {
+            "id": "indoor-signs",
+            "name": "Indoor Signs",
+            "order": 3,
+            "zoneId": "main-hall"
+        },
+        "mindfulness-items": {
+            "id": "mindfulness-items",
+            "name": "Mindfulness Practice Items",
+            "order": 4,
+            "zoneId": "main-hall"
+        },
+        "group-discussion": {
+            "id": "group-discussion",
+            "name": "Group Discussion",
+            "order": 5,
+            "zoneId": "main-hall"
+        },
+        "av-equipment": {
+            "id": "av-equipment",
+            "name": "A/V Equipment",
+            "order": 6,
+            "zoneId": "av-station"
+        },
+        "supplies": {
+            "id": "supplies",
+            "name": "General Supplies",
+            "order": 7,
+            "zoneId": "refreshment"
+        },
+        "refreshments": {
+            "id": "refreshments",
+            "name": "Refreshment Items",
+            "order": 8,
+            "zoneId": "refreshment"
+        },
+        "staff-items": {
+            "id": "staff-items",
+            "name": "Staff Items",
+            "order": 9,
+            "zoneId": "registration"
+        },
+        "transport-materials": {
+            "id": "transport-materials",
+            "name": "Transport Materials",
+            "order": 10,
+            "zoneId": "transport"
+        }
+    },
+    "items": {
+        "entrance-banner": {
+            "name": "Main entrance banner",
+            "quantity": 1,
+            "categoryId": "outdoor-signs"
+        },
+        "bus-stop-signs": {
+            "name": "Bus drop-off point signs",
+            "quantity": 6,
+            "notes": "2 for each stop, laminated",
+            "categoryId": "outdoor-signs"
+        },
+        "bus-windshield-signs": {
+            "name": "Bus signs",
+            "quantity": 3,
+            "notes": "For car windshield",
+            "categoryId": "outdoor-signs"
+        },
+        "directional-arrows": {
+            "name": "Directional arrows to Hall",
+            "quantity": 4,
+            "categoryId": "outdoor-signs"
+        },
+        "sign-holders": {
+            "name": "Standing sign holders",
+            "quantity": 5,
+            "categoryId": "outdoor-signs"
+        },
+        "attendance-lists": {
+            "name": "Attendance lists",
+            "quantity": 3,
+            "categoryId": "registration-materials"
+        },
+        "name-badges": {
+            "name": "Name badges",
+            "quantity": 40,
+            "notes": "School name, Group (A-J), Food choice",
+            "categoryId": "registration-materials"
+        },
+        "info-packs": {
+            "name": "Participant info packs",
+            "quantity": 7,
+            "notes": "Rundown, lists, map, assignments",
+            "categoryId": "registration-materials"
+        },
+        "laptops-reg": {
+            "name": "Laptops",
+            "quantity": 2,
+            "categoryId": "registration-materials"
+        },
+        "group-signs": {
+            "name": "Group signs (A-J)",
+            "quantity": 10,
+            "categoryId": "indoor-signs"
+        },
+        "restroom-signs": {
+            "name": "Restroom directions",
+            "quantity": 4,
+            "categoryId": "indoor-signs"
+        },
+        "rundown-posters": {
+            "name": "Rundown poster A3",
+            "quantity": 2,
+            "categoryId": "indoor-signs"
+        },
+        "recording-signs": {
+            "name": "Now Recording signs",
+            "quantity": 4,
+            "categoryId": "indoor-signs"
+        },
+        "tea-set": {
+            "name": "Tea set (single use)",
+            "quantity": 40,
+            "categoryId": "mindfulness-items"
+        },
+        "tea-scale": {
+            "name": "Tea scale",
+            "quantity": 2,
+            "categoryId": "mindfulness-items"
+        },
+        "tea-bag": {
+            "name": "Tea bag (blank)",
+            "quantity": 60,
+            "categoryId": "mindfulness-items"
+        },
+        "tea-leaves": {
+            "name": "Tea leaves (4 flavours)",
+            "quantity": 10,
+            "categoryId": "mindfulness-items"
+        },
+        "clear-bags": {
+            "name": "Clear bags",
+            "quantity": 50,
+            "categoryId": "mindfulness-items"
+        },
+        "calligraphy-pens": {
+            "name": "Calligraphy pens",
+            "quantity": 40,
+            "categoryId": "mindfulness-items"
+        },
+        "practice-paper": {
+            "name": "Practice paper",
+            "quantity": 100,
+            "categoryId": "mindfulness-items"
+        },
+        "cue-cards": {
+            "name": "Cue cards",
+            "quantity": 50,
+            "categoryId": "mindfulness-items"
+        },
+        "hand-carry-bag": {
+            "name": "Hand carry bag",
+            "quantity": 40,
+            "categoryId": "mindfulness-items"
+        },
+        "seat-markers": {
+            "name": "Circular seat markers",
+            "quantity": 50,
+            "categoryId": "group-discussion"
+        },
+        "facilitator-badges": {
+            "name": "Group facilitator badges",
+            "quantity": 10,
+            "categoryId": "group-discussion"
+        },
+        "discussion-guides": {
+            "name": "Discussion guide cards",
+            "quantity": 10,
+            "notes": "One set per group",
+            "categoryId": "group-discussion"
+        },
+        "wireless-mics": {
+            "name": "Wireless microphones",
+            "quantity": 3,
+            "notes": "Check if supplied on site",
+            "categoryId": "av-equipment"
+        },
+        "laptops-av": {
+            "name": "Laptops",
+            "quantity": 2,
+            "notes": "1 for PPT/music, 1 for streaming",
+            "categoryId": "av-equipment"
+        },
+        "projector": {
+            "name": "Projector",
+            "quantity": 1,
+            "notes": "Check if supplied on site",
+            "categoryId": "av-equipment"
+        },
+        "tripods": {
+            "name": "Tripods",
+            "quantity": 4,
+            "notes": "1 webcam, 1 camcorder, 2 spare",
+            "categoryId": "av-equipment"
+        },
+        "sanitizer-stations": {
+            "name": "Hand sanitizer stations",
+            "quantity": 2,
+            "notes": "Registration and refreshment areas",
+            "categoryId": "supplies"
+        },
+        "face-masks": {
+            "name": "Face masks",
+            "quantity": 1,
+            "notes": "1 box",
+            "categoryId": "supplies"
+        },
+        "water-dispenser": {
+            "name": "Water dispenser",
+            "quantity": 1,
+            "notes": "Check if supplied on site",
+            "categoryId": "refreshments"
+        },
+        "paper-cups": {
+            "name": "Paper cups",
+            "quantity": 200,
+            "categoryId": "refreshments"
+        },
+        "staff-badges": {
+            "name": "Staff badges",
+            "quantity": 15,
+            "notes": "Including Doris and helpers",
+            "categoryId": "staff-items"
+        },
+        "walkie-talkies": {
+            "name": "Walkie-talkies",
+            "quantity": 10,
+            "categoryId": "staff-items"
+        },
+        "yl-pickup-signs": {
+            "name": "Yuen Long pickup point signs",
+            "quantity": 2,
+            "notes": "For YL pickup point",
+            "categoryId": "transport-materials"
+        },
+        "klt-pickup-signs": {
+            "name": "Kowloon Tong pickup point signs",
+            "quantity": 2,
+            "notes": "For KLT pickup point",
+            "categoryId": "transport-materials"
+        },
+        "tp-pickup-signs": {
+            "name": "Tai Po pickup point signs",
+            "quantity": 2,
+            "notes": "For TP pickup point",
+            "categoryId": "transport-materials"
+        },
+        "yl-passenger-list": {
+            "name": "Yuen Long passenger list",
+            "quantity": 1,
+            "notes": "For YL pickup point",
+            "categoryId": "transport-materials"
+        },
+        "klt-passenger-list": {
+            "name": "Kowloon Tong passenger list",
+            "quantity": 1,
+            "notes": "For KLT pickup point",
+            "categoryId": "transport-materials"
+        },
+        "tp-passenger-list": {
+            "name": "Tai Po passenger list",
+            "quantity": 1,
+            "notes": "For TP pickup point",
+            "categoryId": "transport-materials"
+        }
+    },
+    "boxes": {
+        "outdoor-signs-box-1": {
+            "name": "Outdoor Signs Box 1",
+            "zoneId": "outdoor",
+            "order": 1,
+            "items": ["entrance-banner", "bus-stop-signs"]
+        },
+        "outdoor-signs-box-2": {
+            "name": "Outdoor Signs Box 2",
+            "zoneId": "outdoor",
+            "order": 2,
+            "items": ["bus-windshield-signs", "directional-arrows", "sign-holders"]
+        },
+        "registration-box": {
+            "name": "Registration Box",
+            "zoneId": "registration",
+            "order": 3,
+            "items": ["attendance-lists", "name-badges", "info-packs", "laptops-reg"]
+        },
+        "staff-box": {
+            "name": "Staff Box",
+            "zoneId": "registration",
+            "order": 4,
+            "items": ["staff-badges"]
+        },
+        "indoor-signs-box": {
+            "name": "Indoor Signs Box",
+            "zoneId": "main-hall",
+            "order": 5,
+            "items": ["group-signs", "restroom-signs", "rundown-posters", "recording-signs"]
+        },
+        "tea-ceremony-box-1": {
+            "name": "Tea Ceremony Box 1",
+            "zoneId": "main-hall",
+            "order": 6,
+            "items": ["tea-set", "tea-scale", "tea-bag", "tea-leaves"]
+        },
+        "tea-ceremony-box-2": {
+            "name": "Tea Ceremony Box 2",
+            "zoneId": "main-hall",
+            "order": 7,
+            "items": ["clear-bags", "hand-carry-bag"]
+        },
+        "calligraphy-box": {
+            "name": "Calligraphy Box",
+            "zoneId": "main-hall",
+            "order": 8,
+            "items": ["calligraphy-pens", "practice-paper", "cue-cards"]
+        },
+        "group-discussion-box-1": {
+            "name": "Group Discussion Box 1",
+            "zoneId": "main-hall",
+            "order": 9,
+            "items": ["seat-markers"]
+        },
+        "group-discussion-box-2": {
+            "name": "Group Discussion Box 2",
+            "zoneId": "main-hall",
+            "order": 10,
+            "items": ["facilitator-badges", "discussion-guides"]
+        },
+        "av-equipment-box": {
+            "name": "A/V Equipment Box",
+            "zoneId": "av-station",
+            "order": 11,
+            "items": ["wireless-mics"]
+        },
+        "yuen-long-shuttle-box": {
+            "name": "Yuen Long Shuttle Box",
+            "zoneId": "transport",
+            "order": 12,
+            "items": ["yl-pickup-signs", "yl-passenger-list"]
+        },
+        "kowloon-tong-shuttle-box": {
+            "name": "Kowloon Tong & Tai Po Shuttle Box",
+            "zoneId": "transport",
+            "order": 13,
+            "items": ["klt-pickup-signs", "tp-pickup-signs", "klt-passenger-list", "tp-passenger-list"]
+        }
+    }
+}

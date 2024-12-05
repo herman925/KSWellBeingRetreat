@@ -1,0 +1,22 @@
+{
+    "role": "cat",
+    "name": "Catalina",
+    "title": "Project Oversight", 
+    "tasks": {
+        "pre-event": {
+            "Jan 3 Morning": [
+                { "id": "cat-pre-1", "text": "Review research protocols", "category": "Research", "tag": "Preparation" },
+                { "id": "cat-pre-2", "text": "Prepare observation sheets", "category": "Research", "tag": "Preparation" }
+            ]
+        },
+        "transport-arrival": {
+            "Jan 4 Morning - Kowloon Tong Stop": [
+                { "id": "cat-trans-2", "text": "Arrive at Kowloon Tong pickup point", "time": "08:15", "category": "Transportation" },
+                { "id": "cat-trans-3", "text": "Depart from Kowloon Tong", "time": "08:35", "category": "Transportation" }
+            ]
+        },
+        "transport-departure": [
+            { "id": "cat-trans-1", "text": "Depart by Kowloon Tong Shuttle", "time": "16:00", "category": "Transport", "tag": "Kowloon Tong Shuttle" }
+        ]
+    }
+}

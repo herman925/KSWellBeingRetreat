@@ -1,0 +1,56 @@
+{
+    "role": "karindi",
+    "name": "Karindi", 
+    "title": "Floor Operations",
+    "tasks": {
+        "pre-event": {
+            "Jan 3 Morning": [
+                { "id": "kar-pre-1", "text": "Review floor plan", "category": "Planning", "tag": "Preparation" },
+                { "id": "kar-pre-2", "text": "Check group room materials", "category": "Materials", "tag": "Preparation" }
+            ]
+        },
+        "transport-arrival": {
+            "Jan 4 Morning": [
+                { "id": "kar-trans-1", "text": "Arrive at Yuen Long pickup point", "time": "08:35", "category": "Transportation" },
+                { "id": "kar-trans-2", "text": "Place signage at Yuen Long shuttle", "time": "08:45", "category": "Transportation" },
+                { "id": "kar-trans-3", "text": "Guide participants to Yuen Long shuttle", "time": "08:50-09:20", "category": "Transportation" },
+                { "id": "kar-trans-4", "text": "Mark attendance on passenger list", "time": "09:15", "category": "Transportation" },
+                { "id": "kar-trans-5", "text": "Take photo of marked passenger list", "time": "09:20", "category": "Transportation" },
+                { "id": "kar-trans-6", "text": "Report final headcount to coordinator", "time": "09:25", "category": "Transportation" },
+                { "id": "kar-trans-7", "text": "Depart with Yuen Long shuttle", "time": "09:25", "category": "Transportation" }
+            ]
+        },
+        "site-setup": {
+            "Jan 4 Morning": [
+                { "id": "kar-site-1", "text": "Set up group rooms", "category": "Setup", "tag": "Rooms" },
+                { "id": "kar-site-2", "text": "Check room equipment", "category": "Setup", "tag": "Equipment" },
+                { "id": "kar-site-3", "text": "Prepare interview room (6-8 seats)", "category": "Setup", "tag": "Interview" },
+                { "id": "kar-site-4", "text": "Place 'Interview in Progress' signs", "category": "Setup", "tag": "Interview" }
+            ]
+        },
+        "event-support": {
+            "Morning Session": [
+                { "id": "kar-evt-1", "text": "Registration support", "time": "9:45-10:15", "category": "Support", "tag": "Floor" },
+                { "id": "kar-evt-2", "text": "Door management", "time": "10:15-10:30", "category": "Support", "tag": "Floor" },
+                { "id": "kar-evt-3", "text": "Interview Room support", "time": "10:30-11:10", "category": "Support", "tag": "Floor" },
+                { "id": "kar-evt-4", "text": "Interview Room support", "time": "11:10-11:50", "category": "Support", "tag": "Floor" },
+                { "id": "kar-evt-5", "text": "Interview Room support", "time": "11:50-12:30", "category": "Support", "tag": "Floor" }
+            ],
+            "Lunch Break": [
+                { "id": "kar-evt-6", "text": "Dining support", "time": "12:30-13:45", "category": "Support", "tag": "Floor" }
+            ],
+            "Afternoon Session": [
+                { "id": "kar-evt-7", "text": "Interview Room support", "time": "13:45-14:00", "category": "Support", "tag": "Floor" },
+                { "id": "kar-evt-8", "text": "Interview Room support", "time": "14:00-14:40", "category": "Support", "tag": "Floor" },
+                { "id": "kar-evt-9", "text": "Interview Room support", "time": "14:40-15:20", "category": "Support", "tag": "Floor" },
+                { "id": "kar-evt-10", "text": "Support departure", "time": "15:20-15:45", "category": "Support", "tag": "Floor" }
+            ]
+        },
+        "transport-departure": [
+            { "id": "kar-trans-1", "text": "Check all passengers are onboard Yuen Long shuttle", "time": "15:45-15:55", "category": "Transport", "tag": "Yuen Long Shuttle" },
+            { "id": "kar-trans-2", "text": "Remove shuttle sticky sign and return forms to Herman", "time": "15:55-16:00", "category": "Transport", "tag": "Yuen Long Shuttle" },
+            { "id": "kar-trans-3", "text": "Depart by Yuen Long shuttle", "time": "16:00", "category": "Transport", "tag": "Yuen Long Shuttle" },
+            { "id": "kar-trans-4", "text": "Report Trip Completion", "time": "16:30", "category": "Transport", "tag": "Yuen Long Shuttle" }
+        ]
+    }
+}

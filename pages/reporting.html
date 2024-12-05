@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reporting - Teacher Well-Being Retreat</title>
+    <link rel="stylesheet" href="../styles/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script src="../scripts/reporting.js"></script>
+</head>
+<body>
+    <header>
+        <nav class="nav-wrapper">
+            <a href="../index.html" class="back-button">
+                <i class="fas fa-arrow-left"></i> Back to Dashboard
+            </a>
+            <div class="person-selector">
+                <select id="roleSelect">
+                    <option value="">Select Your Role</option>
+                </select>
+            </div>
+        </nav>
+    </header>
+
+    <main class="content-wrapper">
+        <section class="page-header">
+            <h1><i class="fas fa-file-export"></i> Reporting</h1>
+            <p class="subtitle">KeySteps@JC (Phase Two)</p>
+            <p class="subtitle">Teacher Well-Being Round 1 Retreat</p>
+            <div class="date-info"><i class="far fa-clock"></i> January 4, 2025 (Saturday)</div>
+        </section>
+
+        <section class="reporting-content">
+            <div class="info-card">
+                <h2><i class="fas fa-database"></i> Data Export</h2>
+                <div class="export-grid">
+                    <!-- Participant Data -->
+                    <div class="export-card">
+                        <h3><i class="fas fa-users"></i> Participant Data</h3>
+                        <p>Export registration details and attendance information.</p>
+                        <div class="export-controls">
+                            <button class="export-button xlsx" onclick="exportParticipants('xlsx')">
+                                <i class="fas fa-file-excel"></i> Export Summary (XLSX)
+                            </button>
+                            <button class="export-button csv" onclick="exportParticipants('csv')">
+                                <i class="fas fa-file-csv"></i> Export Summary (CSV)
+                            </button>
+                            <button class="export-button attendance" onclick="exportAttendanceList()">
+                                <i class="fas fa-clipboard-check"></i> Create Attendance List
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Task Assignments -->
+                    <div class="export-card">
+                        <h3><i class="fas fa-tasks"></i> Task Assignments</h3>
+                        <p>Export staff task assignments and schedules.</p>
+                        <div class="export-controls">
+                            <button class="export-button xlsx" onclick="exportTasks('xlsx')">
+                                <i class="fas fa-file-excel"></i> Export Tasks (XLSX)
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Programme Rundown -->
+                    <div class="export-card">
+                        <h3><i class="fas fa-calendar-alt"></i> Programme Rundown</h3>
+                        <p>Export detailed schedule and activities.</p>
+                        <div class="export-controls">
+                            <button class="export-button xlsx" onclick="exportSchedule('xlsx')">
+                                <i class="fas fa-file-excel"></i> Export Schedule (XLSX)
+                            </button>
+                            <button class="export-button csv" onclick="exportSchedule('csv')">
+                                <i class="fas fa-file-csv"></i> Export Schedule (CSV)
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Budget Data -->
+                    <div class="export-card">
+                        <h3><i class="fas fa-dollar-sign"></i> Budget Data</h3>
+                        <p>Export budget items and financial summary.</p>
+                        <div class="export-controls">
+                            <button class="export-button xlsx" onclick="exportBudget('xlsx')">
+                                <i class="fas fa-file-excel"></i> Export Budget (XLSX)
+                            </button>
+                            <button class="export-button csv" onclick="exportBudget('csv')">
+                                <i class="fas fa-file-csv"></i> Export Budget (CSV)
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Inventory List -->
+                    <div class="export-card">
+                        <h3><i class="fas fa-boxes"></i> Inventory List</h3>
+                        <p>Export complete inventory list from all resource categories.</p>
+                        <div class="export-controls">
+                            <button class="export-button xlsx" onclick="exportInventory('xlsx')">
+                                <i class="fas fa-file-excel"></i> Export Inventory (XLSX)
+                            </button>
+                            <button class="export-button csv" onclick="exportInventory('csv')">
+                                <i class="fas fa-file-csv"></i> Export Inventory (CSV)
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

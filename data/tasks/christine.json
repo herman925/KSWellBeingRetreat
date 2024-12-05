@@ -1,0 +1,52 @@
+{
+    "role": "christine",
+    "name": "Christine",
+    "title": "Group Interview Lead",
+    "tasks": {
+        "pre-event": {
+            "Jan 3 Morning": [
+                { "id": "int-pre-1", "text": "Review interview questions", "category": "Research", "tag": "Preparation" },
+                { "id": "int-pre-2", "text": "Prepare recording equipment", "category": "Equipment", "tag": "Preparation" },
+                { "id": "int-pre-3", "text": "Check consent forms", "category": "Documentation", "tag": "Preparation" }
+            ]
+        },
+        "transport-arrival": {
+            "Jan 4 Morning - Tai Po Stop": [
+                { "id": "int-trans-1", "text": "Arrive at Tai Po pickup point", "time": "09:15", "category": "Transportation", "tag": "Tai Po Shuttle" },
+                { "id": "int-trans-2", "text": "Depart from Tai Po", "time": "09:25", "category": "Transportation", "tag": "Tai Po Shuttle" }
+            ]
+        },
+        "site-setup": {
+            "Jan 4 Morning": [
+                { "id": "chr-site-1", "text": "Interview Room setup", "category": "Setup", "tag": "Interview" }
+            ]
+        },
+        "event-support": {
+            "Morning Session": [
+                { "id": "chr-evt-1", "text": "Group 1 Interview", "time": "10:30-11:10", "category": "Support", "tag": "Interview" },
+                { "id": "chr-evt-2", "text": "Group 2 Interview", "time": "11:10-11:50", "category": "Support", "tag": "Interview" },
+                { "id": "chr-evt-3", "text": "Group 3 Interview", "time": "11:50-12:30", "category": "Support", "tag": "Interview" }
+            ],
+            "Lunch Break": [
+                { "id": "chr-evt-4", "text": "Review morning data", "time": "12:30-13:45", "category": "Support", "tag": "Documentation" }
+            ],
+            "Afternoon Session": [
+                { "id": "chr-evt-5", "text": "Group 4 Interview", "time": "14:10-14:40", "category": "Support", "tag": "Interview" },
+                { "id": "chr-evt-6", "text": "Group 5 Interview", "time": "14:40-15:20", "category": "Support", "tag": "Interview" }
+            ],
+            "Closing": [
+                { "id": "chr-evt-7", "text": "Pack interview equipment", "time": "15:20-15:45", "category": "Support", "tag": "Equipment" },
+                { "id": "chr-evt-8", "text": "Secure interview data", "time": "15:45-16:00", "category": "Support", "tag": "Documentation" }
+            ]
+        },
+        "post-event": {
+            "Clean Up": [
+                { "id": "chr-post-1", "text": "Clean Group Rooms with Karindi", "time": "15:45-16:00", "category": "Cleanup", "tag": "Venue" }
+            ],
+            "Final Checks": [
+                { "id": "chr-post-2", "text": "Final Walkthrough", "time": "16:15-16:30", "category": "Cleanup", "tag": "Venue" },
+                { "id": "chr-post-3", "text": "Pack and Go", "time": "16:30-17:00", "category": "Cleanup", "tag": "Venue" }
+            ]
+        }
+    }
+} 

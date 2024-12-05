@@ -1,0 +1,17 @@
+boxid,name,zoneid,order
+outdoor-signs-box-1,Outdoor Signs Box 1,outdoor,1
+registration-box-1,Registration Box 1,registration,2
+registration-box-2,Registration Box 2,registration,3
+mindfulness-box-1,Mindfulness Box 1,main-hall,4
+mindfulness-box-2,Mindfulness Box 2,main-hall,5
+mindfulness-box-3,Mindfulness Box 3,main-hall,6
+refreshments-box,Refreshments Box,refreshment,7
+av-box-1,A/V Equipment Box 1,av-station,8
+av-box-2,A/V Equipment Box 2,av-station,9
+supplies-box,Supplies Box 1,registration,10
+supplies-box-2,Supplies Box 2,registration,11
+staff-box,Staff Box,registration,12
+yuen-long-shuttle-box,Yuen Long Shuttle Box,transport,13
+kowloon-tong-shuttle-box,Kowloon Tong & Tai Po Shuttle Box,transport,14
+group-discussion-box,Group Discussion Box,interview,15
+ayp-box,Site Provision,ayp,16

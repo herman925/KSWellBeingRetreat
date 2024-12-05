@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Tasks - Teacher Well-Being Retreat</title>
+    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        .timeline-section {
+            margin-bottom: 30px;
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+        .timeline-section h3 {
+            color: #1a73e8;  /* Google Blue */
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e8f0fe;
+            font-size: 1.3em;
+            font-weight: 600;
+        }
+        .timeline-subsection {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+        .timeline-subsection h4 {
+            color: #188038;  /* Google Green */
+            margin-bottom: 10px;
+            font-size: 1.1em;
+            font-weight: 500;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #e6f4ea;
+        }
+        .task-item {
+            display: grid;
+            grid-template-columns: minmax(200px, 1fr) 100px 100px;
+            align-items: center;
+            margin-bottom: 8px;
+            padding: 8px 12px;
+            border-radius: 4px;
+            min-height: 32px;
+            gap: 12px;
+            transition: background-color 0.2s;
+        }
+        .task-item:hover {
+            background-color: #f8f9fa;
+        }
+        .task-text {
+            display: flex;
+            align-items: center;
+            min-width: 0;
+            padding-right: 8px;
+        }
+        .task-checkbox {
+            margin-right: 8px;
+            flex-shrink: 0;
+        }
+        .task-time {
+            color: #666;
+            font-size: 0.9em;
+            text-align: center;
+            justify-self: center;
+            width: 100px;
+            flex-shrink: 0;
+        }
+        .task-tag {
+            display: inline-block;
+            background: #e8f0fe;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.85em;
+            color: #1967d2;
+            justify-self: end;
+            flex-shrink: 0;
+            width: 100px;
+            text-align: center;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .task-role {
+            display: inline-block;
+            margin-left: 8px;
+            font-size: 0.9em;
+            color: #1967d2;  /* Darker Google Blue */
+            font-weight: 500;
+        }
+        .info-message {
+            background: #e3f2fd;
+            color: #1565c0;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            margin: 20px 0;
+        }
+        .error-message {
+            background: #ffebee;
+            color: #c62828;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            margin: 20px 0;
+        }
+        .time-group {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        .time-group h5 {
+            color: #c5221f;  /* Google Red */
+            font-size: 0.95em;
+            margin: 8px 0;
+            padding-bottom: 4px;
+            font-weight: 500;
+            border-bottom: 1px dashed #fce8e6;
+        }
+        /* Debug Panel Styles */
+        #debugPanel {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 15px;
+            max-width: 400px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            z-index: 1000;
+            display: none;
+        }
+        #debugPanel.visible {
+            display: block;
+        }
+        #jsonDisplay {
+            background: #fff;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            padding: 10px;
+            margin-top: 10px;
+            max-height: 300px;
+            overflow-y: auto;
+            font-family: monospace;
+            white-space: pre-wrap;
+        }
+        .debug-controls {
+            margin-bottom: 10px;
+            display: flex;
+            gap: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="nav-wrapper">
+            <a href="../index.html" class="back-button">
+                <i class="fas fa-arrow-left"></i> Back to Dashboard
+            </a>
+            <div class="person-selector">
+                <select id="roleSelect">
+                    <option value="">Select Your Role</option>
+                    <option value="hwk">Hou Wai Kai</option>
+                    <option value="catalina">Catalina</option>
+                    <option value="may">May (Event Coordinator)</option>
+                    <option value="herman">Herman (Program Facilitator)</option>
+                    <option value="christine">Christine (Group Interview Lead)</option>
+                    <option value="cathy">Cathy (Core Team)</option>
+                    <option value="vincent">Vincent (Preparation Assistant)</option>
+                    <option value="archie">Archie (Preparation Assistant)</option>
+                    <option value="karindi">Karindi (Floor Operations)</option>
+                    <option value="bonnie">Bonnie (Floor Operations)</option>
+                </select>
+            </div>
+        </nav>
+    </header>
+
+    <main class="content-wrapper">
+        <section class="page-header">
+            <h1><i class="fas fa-tasks"></i> My Tasks</h1>
+            <p class="subtitle">KeySteps@JC (Phase Two)</p>
+            <p class="subtitle">Teacher Well-Being Round 1 Retreat</p>
+            <div class="date-info"><i class="far fa-clock"></i> January 4, 2025 (Saturday)</div>
+        </section>
+
+        <div class="main-content">
+            <div id="tasksContainer" class="tasks-container">
+            </div>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', async function() {
+            const roleSelect = document.getElementById('roleSelect');
+            
+            // Load roles from JSON
+            try {
+                const response = await fetch('../data/roles.json');
+                const data = await response.json();
+                
+                // Clear existing options except the default one
+                roleSelect.innerHTML = '<option value="">Select Your Role</option>';
+                
+                // Add roles from JSON
+                data.roles.forEach(role => {
+                    const option = document.createElement('option');
+                    option.value = role.id;
+                    option.textContent = `${role.name}${role.title ? ` (${role.title})` : ''}`;
+                    roleSelect.appendChild(option);
+                });
+                
+                // Load saved role from localStorage
+                const savedRole = localStorage.getItem('selectedRole');
+                if (savedRole) {
+                    roleSelect.value = savedRole;
+                }
+                // Load tasks based on current selection (including empty for combined view)
+                loadTasksForRole(roleSelect.value);
+            } catch (error) {
+                console.error('Error loading roles:', error);
+            }
+
+            // Role selection handler
+            roleSelect.addEventListener('change', function() {
+                const selectedRole = this.value;
+                localStorage.setItem('selectedRole', selectedRole);
+                loadTasksForRole(selectedRole);
+            });
+        });
+
+        // Function to load tasks from JSON file
+        async function loadTasksForRole(role) {
+            const tasksContainer = document.getElementById('tasksContainer');
+            tasksContainer.innerHTML = '';
+
+            if (!role) {
+                // Load all roles when "Select Your Role" is chosen
+                const roles = ['hwk', 'catalina', 'may', 'herman', 'christine', 'cathy', 'karindi', 'bonnie'];
+                
+                try {
+                    const allTasks = await Promise.all(roles.map(async (roleId) => {
+                        try {
+                            const response = await fetch(`../data/tasks/${roleId}.json`);
+                            if (!response.ok) return null;
+                            const data = await response.json();
+                            return { roleId, ...data };
+                        } catch (error) {
+                            console.warn(`Error loading tasks for ${roleId}:`, error);
+                            return null;
+                        }
+                    }));
+
+                    // Filter out failed loads
+                    const validTasks = allTasks.filter(taskData => taskData !== null);
+                    
+                    // Create a unified task structure by category
+                    const tasksByCategory = {
+                        'pre-event': {},
+                        'transport-arrival': {},
+                        'site-setup': {},
+                        'event-support': {},
+                        'post-event': {},
+                        'transport-departure': []
+                    };
+
+                    // Process each role's tasks
+                    validTasks.forEach(roleData => {
+                        const tasks = roleData.tasks;
+                        if (!tasks) return;
+
+                        Object.entries(tasks).forEach(([category, categoryData]) => {
+                            if (category === 'transport-arrival' || category === 'transport-departure') {
+                                if (!tasksByCategory[category]) {
+                                    tasksByCategory[category] = {};
+                                }
+                                if (Array.isArray(categoryData)) {
+                                    // If it's an array, treat it as a single time slot
+                                    if (!tasksByCategory[category]['Scheduled']) {
+                                        tasksByCategory[category]['Scheduled'] = [];
+                                    }
+                                    categoryData.forEach(task => {
+                                        tasksByCategory[category]['Scheduled'].push({
+                                            ...task,
+                                            role: roleData.name || roleData.roleId
+                                        });
+                                    });
+                                } else {
+                                    // Handle object-style transport sections with time slots
+                                    Object.entries(categoryData).forEach(([timeSlot, timeSlotTasks]) => {
+                                        if (!tasksByCategory[category][timeSlot]) {
+                                            tasksByCategory[category][timeSlot] = [];
+                                        }
+                                        timeSlotTasks.forEach(task => {
+                                            tasksByCategory[category][timeSlot].push({
+                                                ...task,
+                                                role: roleData.name || roleData.roleId
+                                            });
+                                        });
+                                    });
+                                }
+                            } else if (tasksByCategory[category]) {
+                                // Handle regular sections with time slots
+                                Object.entries(categoryData).forEach(([timeSlot, timeSlotTasks]) => {
+                                    if (!tasksByCategory[category][timeSlot]) {
+                                        tasksByCategory[category][timeSlot] = [];
+                                    }
+                                    timeSlotTasks.forEach(task => {
+                                        tasksByCategory[category][timeSlot].push({
+                                            ...task,
+                                            role: roleData.name || roleData.roleId
+                                        });
+                                    });
+                                });
+                            }
+                        });
+                    });
+
+                    // Display combined tasks
+                    displayCombinedTasks(tasksByCategory, tasksContainer);
+
+                } catch (error) {
+                    console.error('Error loading tasks:', error);
+                    tasksContainer.innerHTML = '<div class="error-message">Unable to load tasks. Please try again later.</div>';
+                }
+            } else {
+                // Load single role as before
+                try {
+                    const response = await fetch(`../data/tasks/${role}.json`);
+                    if (!response.ok) {
+                        throw new Error('Tasks not found');
+                    }
+                    const taskData = await response.json();
+                    displayTasks(taskData);
+                } catch (error) {
+                    console.error('Error loading tasks:', error);
+                    tasksContainer.innerHTML = '<div class="error-message">Unable to load tasks. Please try again later.</div>';
+                }
+            }
+        }
+
+        // Helper function to parse time string into comparable value
+        function parseTimeString(timeStr) {
+            if (!timeStr) return Number.MAX_VALUE; // Tasks without time go last
+            
+            // Handle different time formats
+            if (timeStr.includes(':')) {
+                // Format: "10:00-10:15" or "10:00"
+                const startTime = timeStr.split('-')[0];
+                const [hours, minutes] = startTime.split(':').map(Number);
+                return hours * 60 + minutes;
+            }
+            return Number.MAX_VALUE; // Unparseable times go last
+        }
+
+        // Helper function to sort tasks by time
+        function sortTasksByTime(tasks) {
+            return [...tasks].sort((a, b) => {
+                const timeA = parseTimeString(a.time);
+                const timeB = parseTimeString(b.time);
+                return timeA - timeB;
+            });
+        }
+
+        // Helper function to group tasks by time
+        function groupTasksByTime(tasks) {
+            const timeGroups = {};
+            tasks.forEach(task => {
+                if (!task.time) {
+                    const key = 'Unscheduled';
+                    if (!timeGroups[key]) timeGroups[key] = [];
+                    timeGroups[key].push(task);
+                    return;
+                }
+
+                const timeKey = task.time;
+                if (!timeGroups[timeKey]) {
+                    timeGroups[timeKey] = [];
+                }
+                timeGroups[timeKey].push(task);
+            });
+            return timeGroups;
+        }
+
+        // Function to display combined tasks
+        function displayCombinedTasks(tasksByCategory, container) {
+            const displayOrder = [
+                'pre-event',
+                'transport-arrival',
+                'site-setup',
+                'event-support',
+                'post-event',
+                'transport-departure'
+            ];
+
+            const categoryTitles = {
+                'pre-event': 'Pre-Event Tasks',
+                'transport-arrival': 'Transport (Arrival)',
+                'site-setup': 'Site Setup',
+                'event-support': 'Event Support',
+                'post-event': 'Post-Event Tasks',
+                'transport-departure': 'Transport (Departure)'
+            };
+
+            // Display categories in order
+            displayOrder.forEach(category => {
+                if (category === 'event-support' || category === 'post-event' || 
+                    category === 'transport-arrival' || category === 'transport-departure') {
+                    // Special handling for sections that need chronological ordering
+                    if (Object.keys(tasksByCategory[category]).length > 0) {
+                        const section = document.createElement('div');
+                        section.className = 'timeline-section';
+                        section.innerHTML = `<h3>${categoryTitles[category]}</h3>`;
+                        
+                        Object.entries(tasksByCategory[category]).forEach(([timeSlot, tasks]) => {
+                            const timeSection = document.createElement('div');
+                            timeSection.className = 'timeline-subsection';
+                            timeSection.innerHTML = `<h4>${timeSlot}</h4>`;
+                            
+                            // Group tasks by time
+                            const tasksByTime = groupTasksByTime(tasks);
+                            
+                            // Sort time groups chronologically
+                            const sortedTimes = Object.keys(tasksByTime).sort((a, b) => {
+                                return parseTimeString(a) - parseTimeString(b);
+                            });
+
+                            // Create subsections for each time group
+                            sortedTimes.forEach(timeGroup => {
+                                const timeGroupTasks = tasksByTime[timeGroup];
+                                
+                                const timeGroupDiv = document.createElement('div');
+                                timeGroupDiv.className = 'time-group';
+                                timeGroupDiv.innerHTML = `<h5>${timeGroup === 'Unscheduled' ? 'Unscheduled Tasks' : timeGroup}</h5>`;
+                                
+                                timeGroupTasks.forEach(task => {
+                                    const taskElement = createTaskElement(task, true, true);
+                                    timeGroupDiv.appendChild(taskElement);
+                                });
+                                
+                                timeSection.appendChild(timeGroupDiv);
+                            });
+                            
+                            section.appendChild(timeSection);
+                        });
+                        
+                        container.appendChild(section);
+                    }
+                } else {
+                    // Regular handling for other categories
+                    if (Object.keys(tasksByCategory[category]).length > 0) {
+                        const section = document.createElement('div');
+                        section.className = 'timeline-section';
+                        section.innerHTML = `<h3>${categoryTitles[category]}</h3>`;
+                        
+                        Object.entries(tasksByCategory[category]).forEach(([timeSlot, tasks]) => {
+                            const timeSection = document.createElement('div');
+                            timeSection.className = 'timeline-subsection';
+                            timeSection.innerHTML = `<h4>${timeSlot}</h4>`;
+                            
+                            tasks.forEach(task => {
+                                const taskElement = createTaskElement(task, true);
+                                timeSection.appendChild(taskElement);
+                            });
+                            
+                            section.appendChild(timeSection);
+                        });
+                        
+                        container.appendChild(section);
+                    }
+                }
+            });
+        }
+
+        // Function to display tasks for individual role
+        function displayTasks(data) {
+            const tasksContainer = document.getElementById('tasksContainer');
+            tasksContainer.innerHTML = '';
+            
+            if (data.tasks) {
+                const displayOrder = [
+                    'pre-event',
+                    'transport-arrival',
+                    'site-setup',
+                    'event-support',
+                    'post-event',
+                    'transport-departure'
+                ];
+
+                const categoryTitles = {
+                    'pre-event': 'Pre-Event Tasks',
+                    'transport-arrival': 'Transport (Arrival)',
+                    'site-setup': 'Site Setup',
+                    'event-support': 'Event Support',
+                    'post-event': 'Post-Event Tasks',
+                    'transport-departure': 'Transport (Departure)'
+                };
+
+                // Display sections in the correct order
+                displayOrder.forEach(category => {
+                    if (!data.tasks[category]) return;
+
+                    const section = document.createElement('div');
+                    section.className = 'timeline-section';
+                    section.innerHTML = `<h3>${categoryTitles[category]}</h3>`;
+
+                    if (category === 'event-support' || category === 'post-event' || 
+                        category === 'transport-arrival' || category === 'transport-departure') {
+                        // Handle sections that need chronological ordering
+                        if (Array.isArray(data.tasks[category])) {
+                            // Handle array format
+                            const tasks = data.tasks[category];
+                            const tasksByTime = groupTasksByTime(tasks);
+                            
+                            // Sort time groups chronologically
+                            const sortedTimes = Object.keys(tasksByTime).sort((a, b) => {
+                                return parseTimeString(a) - parseTimeString(b);
+                            });
+
+                            // Create time groups
+                            sortedTimes.forEach(timeGroup => {
+                                const timeGroupTasks = tasksByTime[timeGroup];
+                                const timeGroupDiv = document.createElement('div');
+                                timeGroupDiv.className = 'time-group';
+                                timeGroupDiv.innerHTML = `<h5>${timeGroup === 'Unscheduled' ? 'Unscheduled Tasks' : timeGroup}</h5>`;
+                                
+                                timeGroupTasks.forEach(task => {
+                                    const taskElement = createTaskElement(task, false, true);
+                                    timeGroupDiv.appendChild(taskElement);
+                                });
+                                
+                                section.appendChild(timeGroupDiv);
+                            });
+                        } else {
+                            // Handle object format with time slots
+                            Object.entries(data.tasks[category]).forEach(([timeSlot, tasks]) => {
+                                const timeSection = document.createElement('div');
+                                timeSection.className = 'timeline-subsection';
+                                timeSection.innerHTML = `<h4>${timeSlot}</h4>`;
+                                
+                                // Group tasks by time
+                                const tasksByTime = groupTasksByTime(tasks);
+                                
+                                // Sort time groups chronologically
+                                const sortedTimes = Object.keys(tasksByTime).sort((a, b) => {
+                                    return parseTimeString(a) - parseTimeString(b);
+                                });
+
+                                // Create time groups
+                                sortedTimes.forEach(timeGroup => {
+                                    const timeGroupTasks = tasksByTime[timeGroup];
+                                    const timeGroupDiv = document.createElement('div');
+                                    timeGroupDiv.className = 'time-group';
+                                    timeGroupDiv.innerHTML = `<h5>${timeGroup === 'Unscheduled' ? 'Unscheduled Tasks' : timeGroup}</h5>`;
+                                    
+                                    timeGroupTasks.forEach(task => {
+                                        const taskElement = createTaskElement(task, false, true);
+                                        timeGroupDiv.appendChild(taskElement);
+                                    });
+                                    
+                                    timeSection.appendChild(timeGroupDiv);
+                                });
+                                
+                                section.appendChild(timeSection);
+                            });
+                        }
+                    } else {
+                        // Handle regular sections
+                        Object.entries(data.tasks[category]).forEach(([timeSlot, tasks]) => {
+                            const timeSection = document.createElement('div');
+                            timeSection.className = 'timeline-subsection';
+                            timeSection.innerHTML = `<h4>${timeSlot}</h4>`;
+                            
+                            tasks.forEach(task => {
+                                const taskElement = createTaskElement(task);
+                                timeSection.appendChild(taskElement);
+                            });
+                            
+                            section.appendChild(timeSection);
+                        });
+                    }
+
+                    tasksContainer.appendChild(section);
+                });
+            }
+        }
+
+        // Task completion state management
+        const taskCompletionState = {
+            // Load saved state or initialize empty
+            loadState() {
+                const savedState = localStorage.getItem('taskCompletionState');
+                return savedState ? JSON.parse(savedState) : {
+                    tasks: {},
+                    metadata: {
+                        lastUpdated: new Date().toISOString(),
+                        version: '1.0'
+                    }
+                };
+            },
+
+            // Save state to localStorage
+            saveState(state) {
+                state.metadata.lastUpdated = new Date().toISOString();
+                localStorage.setItem('taskCompletionState', JSON.stringify(state));
+            },
+
+            // Update task completion
+            updateTask(taskId, isCompleted, role) {
+                const state = this.loadState();
+                state.tasks[taskId] = {
+                    completed: isCompleted,
+                    completedAt: isCompleted ? new Date().toISOString() : null,
+                    role: role,
+                    lastModified: new Date().toISOString()
+                };
+                this.saveState(state);
+            },
+
+            // Check if task is completed
+            isTaskCompleted(taskId) {
+                const state = this.loadState();
+                return state.tasks[taskId]?.completed || false;
+            },
+
+            // Get task completion details
+            getTaskDetails(taskId) {
+                const state = this.loadState();
+                return state.tasks[taskId];
+            },
+
+            // Get all completed tasks for a role
+            getCompletedTasksByRole(role) {
+                const state = this.loadState();
+                return Object.entries(state.tasks)
+                    .filter(([_, details]) => details.role === role && details.completed)
+                    .map(([taskId, details]) => ({
+                        taskId,
+                        ...details
+                    }));
+            },
+
+            // Clear all completion states
+            clearAll() {
+                const state = {
+                    tasks: {},
+                    metadata: {
+                        lastUpdated: new Date().toISOString(),
+                        version: '1.0'
+                    }
+                };
+                this.saveState(state);
+            }
+        };
+
+        // Update createTaskElement to use the new state management
+        function createTaskElement(task, showRole = false, hideTime = false) {
+            const div = document.createElement('div');
+            div.className = 'task-item';
+            const isCompleted = taskCompletionState.isTaskCompleted(task.id);
+            
+            div.innerHTML = `
+                <div class="task-text">
+                    <input type="checkbox" class="task-checkbox" id="${task.id}" 
+                        ${isCompleted ? 'checked' : ''}>
+                    <label for="${task.id}">
+                        ${task.text}
+                        ${showRole ? `<span class="task-role">(${task.role})</span>` : ''}
+                    </label>
+                </div>
+                ${hideTime ? '<span class="task-time"></span>' : `<span class="task-time">${task.time || ''}</span>`}
+                ${task.tag ? `<span class="task-tag">${task.tag}</span>` : '<span></span>'}
+            `;
+            
+            // Add checkbox event listener with new state management
+            const checkbox = div.querySelector('input[type="checkbox"]');
+            checkbox.addEventListener('change', function() {
+                const role = task.role || document.getElementById('roleSelect').value;
+                taskCompletionState.updateTask(task.id, this.checked, role);
+            });
+            
+            return div;
+        }
+
+        // Add export/import functionality for task states
+        function exportTaskStates() {
+            const state = taskCompletionState.loadState();
+            const dataStr = JSON.stringify(state, null, 2);
+            const blob = new Blob([dataStr], { type: 'application/json' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `task-states-${getFormattedDate()}.json`;
+            document.body.appendChild(a);
+            a.click();
+            window.URL.revokeObjectURL(url);
+            document.body.removeChild(a);
+        }
+
+        function importTaskStates(jsonFile) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const state = JSON.parse(e.target.result);
+                    taskCompletionState.saveState(state);
+                    // Refresh the display
+                    const currentRole = document.getElementById('roleSelect').value;
+                    loadTasksForRole(currentRole);
+                } catch (error) {
+                    console.error('Error importing task states:', error);
+                    alert('Failed to import task states. Invalid file format.');
+                }
+            };
+            reader.readAsText(jsonFile);
+        }
+
+        // Add debug panel to body
+        const debugPanel = document.createElement('div');
+        debugPanel.id = 'debugPanel';
+        debugPanel.innerHTML = `
+            <div class="debug-controls">
+                <button onclick="toggleDebugPanel()">Toggle Debug Panel</button>
+                <button onclick="refreshDebugPanel()">Refresh Data</button>
+                <button onclick="taskCompletionState.clearAll()">Clear All Data</button>
+            </div>
+            <div id="jsonDisplay"></div>
+        `;
+        document.body.appendChild(debugPanel);
+
+        // Debug panel functions
+        function toggleDebugPanel() {
+            debugPanel.classList.toggle('visible');
+            if (debugPanel.classList.contains('visible')) {
+                refreshDebugPanel();
+            }
+        }
+
+        function refreshDebugPanel() {
+            const state = taskCompletionState.loadState();
+            const jsonDisplay = document.getElementById('jsonDisplay');
+            jsonDisplay.textContent = JSON.stringify(state, null, 2);
+        }
+
+        // Add keyboard shortcut (Ctrl/Cmd + Shift + D) to toggle debug panel
+        document.addEventListener('keydown', function(e) {
+            if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key === 'D') {
+                e.preventDefault();
+                toggleDebugPanel();
+            }
+        });
+    </script>
+</body>
+</html>

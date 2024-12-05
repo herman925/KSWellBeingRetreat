@@ -1,0 +1,18 @@
+{
+    "role": "prep-archie",
+    "name": "Archie",
+    "title": "Preparation Assistant",
+    "tasks": {
+        "pre-event": {
+            "Jan 3 Morning": [
+                { "id": "arc-pre-1", "text": "Transportation - Final confirmation with bus company", "category": "Transportation" },
+                { "id": "arc-pre-2", "text": "Transportation - Verify pickup times", "category": "Transportation" },
+                { "id": "arc-pre-3", "text": "Transportation - Confirm driver contacts", "category": "Transportation" },
+                { "id": "arc-pre-4", "text": "Transportation - Estimate passenger count", "category": "Transportation" }
+            ],
+            "Jan 3 Afternoon": [
+                { "id": "arc-pre-5", "text": "Verify Technical Equipment Packing", "category": "Material Check" }
+            ]
+        }
+    }
+} 

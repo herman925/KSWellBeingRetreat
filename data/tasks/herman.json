@@ -1,0 +1,63 @@
+{
+    "role": "herman",
+    "name": "Herman",
+    "title": "Program Facilitator",
+    "tasks": {
+        "pre-event": {
+            "Jan 3 Morning": [
+                { "id": "her-pre-1", "text": "Review program flow", "category": "Program", "tag": "Preparation" },
+                { "id": "her-pre-2", "text": "Check activity materials", "category": "Materials", "tag": "Preparation" },
+                { "id": "her-pre-3", "text": "Prepare facilitator notes", "category": "Documentation", "tag": "Preparation" }
+            ]
+        },
+        "transport-arrival": {
+            "Jan 4 Morning": [
+                { "id": "her-trans-1", "text": "Arrive at Office", "time": "07:45", "category": "Transport", "tag": "Transport" },
+                { "id": "her-trans-2", "text": "Take materials by GoGo Van", "time": "08:00", "category": "Transport", "tag": "Transport" },
+                { "id": "her-trans-3", "text": "Arrival", "time": "08:30", "category": "Transport", "tag": "Transport" }
+            ]
+        },
+        "site-setup": {
+            "Jan 4 Morning": [
+                { "id": "her-site-1", "text": "Secure retreat location", "time": "08:30", "category": "Setup", "tag": "Venue" },
+                { "id": "her-site-2", "text": "Seek help for A/V general setup", "time": "08:45", "category": "Setup", "tag": "Technical" },
+                { "id": "her-site-3", "text": "Main Hall setup", "category": "Setup", "tag": "Venue" },
+                { "id": "her-site-4", "text": "Check A/V equipment", "category": "Setup", "tag": "Equipment" }
+            ]
+        },
+        "event-support": {
+            "Morning Session": [
+                { "id": "her-evt-1", "text": "Final venue and equipment check", "time": "09:45-10:15", "category": "Setup", "tag": "Venue" },
+                { "id": "her-evt-2", "text": "Provide technical support", "time": "10:15-10:30", "category": "Support", "tag": "Technical" },
+                { "id": "her-evt-3", "text": "Administrative support", "time": "10:30-11:10", "category": "Support", "tag": "Admin" },
+                { "id": "her-evt-4", "text": "Document activities and take photos", "time": "11:10-11:50", "category": "Documentation", "tag": "Records" },
+                { "id": "her-evt-5", "text": "Administrative support", "time": "11:50-12:30", "category": "Support", "tag": "Admin" }
+            ],
+            "Lunch Break": [
+                { "id": "her-evt-6", "text": "Coordinate lunch distribution", "time": "12:30-13:45", "category": "Support", "tag": "Meals" }
+            ],
+            "Afternoon Session": [
+                { "id": "her-evt-7", "text": "Floor coordination", "time": "13:45-14:00", "category": "Support", "tag": "Coordination" },
+                { "id": "her-evt-8", "text": "Group activity support", "time": "14:00-14:40", "category": "Support", "tag": "Activities" },
+                { "id": "her-evt-9", "text": "Technical support", "time": "14:40-15:20", "category": "Support", "tag": "Technical" },
+                { "id": "her-evt-10", "text": "AV equipment support", "time": "15:20-15:45", "category": "Support", "tag": "Technical" }
+            ]
+        },
+        "post-event": {
+            "Clean Up": [
+                { "id": "her-post-1", "text": "Clean Main Hall with Bonnie", "time": "15:45-16:00", "category": "Cleanup", "tag": "Venue" }
+            ],
+            "Final Checks": [
+                { "id": "her-post-2", "text": "Clean Registration Area with May", "time": "16:00-16:15", "category": "Cleanup", "tag": "Venue" },
+                { "id": "her-post-3", "text": "Final Walkthrough", "time": "16:15-16:30", "category": "Cleanup", "tag": "Venue" },
+                { "id": "her-post-4", "text": "Pack and Go", "time": "16:30-17:00", "category": "Cleanup", "tag": "Venue" }
+            ],
+            "Office Return": [
+                { "id": "her-post-5", "text": "Return to Office to store items", "time": "17:30-18:00", "category": "Cleanup", "tag": "Storage" }
+            ]
+        },
+        "transport-departure": [
+            { "id": "her-trans-1", "text": "Depart by own transport", "time": "18:00", "category": "Transport", "tag": "Self-Transport" }
+        ]
+    }
+} 

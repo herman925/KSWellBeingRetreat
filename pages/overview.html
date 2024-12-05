@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overview - Teacher Well-Being Retreat</title>
+    <link rel="stylesheet" href="../styles/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .overview-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            padding: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .info-card {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .info-card h2 {
+            color: #2c3e50;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #e9ecef;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .info-card h2 i {
+            color: #3498db;
+        }
+
+        .details-grid {
+            display: grid;
+            gap: 16px;
+        }
+
+        .detail-item {
+            display: grid;
+            gap: 8px;
+        }
+
+        .detail-item strong {
+            color: #34495e;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .detail-item strong i {
+            color: #9b59b6;
+            width: 16px;
+            text-align: center;
+        }
+
+        .detail-item span {
+            color: #576574;
+            line-height: 1.5;
+            padding-left: 24px;
+        }
+
+        .team-grid {
+            display: grid;
+            gap: 24px;
+        }
+
+        .team-member {
+            background: #ffffff;
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 16px;
+            border-left: 4px solid #3498db;
+        }
+
+        .team-member h3 {
+            color: #2c3e50;
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .team-member h3 i {
+            color: #3498db;
+        }
+
+        .team-member ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 0 24px;
+        }
+
+        .team-member li {
+            color: #576574;
+            padding: 8px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .team-member li i {
+            color: #7f8c8d;
+            width: 16px;
+            text-align: center;
+        }
+
+        .team-member.oversight {
+            border-left-color: #e74c3c;
+        }
+
+        .team-member.core {
+            border-left-color: #3498db;
+        }
+
+        .team-member.operations {
+            border-left-color: #2ecc71;
+        }
+
+        .quick-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+        }
+
+        .link-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            background: #3498db;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .link-button:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+        }
+
+        .link-button.registration {
+            background: #e74c3c;
+            margin-top: 20px;
+        }
+
+        .link-button.registration:hover {
+            background: #c0392b;
+        }
+
+        .link-button i {
+            font-size: 1.1em;
+        }
+
+        @media (max-width: 768px) {
+            .overview-content {
+                grid-template-columns: 1fr;
+                padding: 16px;
+            }
+
+            .quick-links {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="nav-wrapper">
+            <a href="../index.html" class="back-button">
+                <i class="fas fa-arrow-left"></i> Back to Dashboard
+            </a>
+            <div class="person-selector">
+                <select id="roleSelect">
+                    <option value="">Select Your Role</option>
+                </select>
+            </div>
+        </nav>
+    </header>
+
+    <main class="content-wrapper">
+        <section class="page-header">
+            <h1><i class="fas fa-info-circle"></i> Overview</h1>
+            <p class="subtitle">KeySteps@JC (Phase Two)</p>
+            <p class="subtitle">Teacher Well-Being Round 1 Retreat</p>
+            <div class="date-info"><i class="far fa-calendar"></i> January 4, 2025 (Saturday)</div>
+        </section>
+
+        <section class="overview-content">
+            <div class="info-card">
+                <h2><i class="fas fa-info-circle"></i> Program Details</h2>
+                <div class="details-grid">
+                    <div class="detail-item">
+                        <strong><i class="far fa-calendar"></i> Date</strong>
+                        <span>January 4, 2025 (Saturday)</span>
+                    </div>
+                    <div class="detail-item">
+                        <strong><i class="far fa-clock"></i> Time</strong>
+                        <span>10:00 AM - 3:45 PM</span>
+                    </div>
+                    <div class="detail-item">
+                        <strong><i class="fas fa-clipboard-check"></i> Registration</strong>
+                        <span>Starts at 9:45 AM</span>
+                    </div>
+                    <div class="detail-item">
+                        <strong><i class="fas fa-map-marker-alt"></i> Location</strong>
+                        <span>HKAYP Jockey Club Duke of Edinburgh Training Camp,<br>
+                        90 Lam Kam Road, Tai Po, N.T.</span>
+                    </div>
+                    <div class="detail-item">
+                        <strong><i class="fas fa-door-open"></i> Venue</strong>
+                        <span>Ground Floor Hub 3 & Hall 2</span>
+                    </div>
+                    <div class="detail-item">
+                        <strong><i class="fas fa-users"></i> Capacity</strong>
+                        <span>40-50 persons</span>
+                    </div>
+                </div>
+                <div class="registration-button">
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfLgf9JX9hgeMEUA3id5KZgjwEMEfW5hozTYoSPhEzjFxR8og/viewform" 
+                       target="_blank" 
+                       class="link-button registration">
+                        <i class="fas fa-edit"></i> Register Now
+                    </a>
+                </div>
+            </div>
+
+            <div class="info-card">
+                <h2><i class="fas fa-bullseye"></i> Key Objectives</h2>
+                <div class="details-grid">
+                    <div class="detail-item">
+                        <strong><i class="fas fa-heart"></i> Well-being</strong>
+                        <span>Foster teacher well-being through mindfulness activities</span>
+                    </div>
+                    <div class="detail-item">
+                        <strong><i class="fas fa-users"></i> Community</strong>
+                        <span>Build supportive teacher networks</span>
+                    </div>
+                    <div class="detail-item">
+                        <strong><i class="fas fa-tools"></i> Practice</strong>
+                        <span>Learn practical mindfulness techniques</span>
+                    </div>
+                    <div class="detail-item">
+                        <strong><i class="fas fa-lightbulb"></i> Reflection</strong>
+                        <span>Create space for personal reflection and growth</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-card">
+                <h2><i class="fas fa-users"></i> Team Structure</h2>
+                <div class="team-grid">
+                    <div class="team-member oversight">
+                        <h3><i class="fas fa-crown"></i> Project Oversight</h3>
+                        <ul>
+                            <li><i class="fas fa-user"></i> Hou Wai Kai</li>
+                            <li><i class="fas fa-user"></i> Catalina</li>
+                        </ul>
+                    </div>
+                    <div class="team-member core">
+                        <h3><i class="fas fa-star"></i> Core Team</h3>
+                        <ul>
+                            <li><i class="fas fa-calendar"></i> May (Event Coordinator)</li>
+                            <li><i class="fas fa-chalkboard-teacher"></i> Herman (Program Facilitator)</li>
+                            <li><i class="fas fa-comments"></i> Christine (Group Interview Lead)</li>
+                            <li><i class="fas fa-hands-helping"></i> Cathy (Core Team)</li>
+                        </ul>
+                    </div>
+                    <div class="team-member operations">
+                        <h3><i class="fas fa-walking"></i> Floor Operations</h3>
+                        <ul>
+                            <li><i class="fas fa-user"></i> Karindi</li>
+                            <li><i class="fas fa-user"></i> Bonnie</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-card">
+                <h2><i class="fas fa-link"></i> Quick Links</h2>
+                <div class="quick-links">
+                    <a href="schedule.html" class="link-button">
+                        <i class="fas fa-calendar-alt"></i> View Schedule
+                    </a>
+                    <a href="tasks.html" class="link-button">
+                        <i class="fas fa-tasks"></i> My Tasks
+                    </a>
+                    <a href="resources.html" class="link-button">
+                        <i class="fas fa-box-open"></i> Resources
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', async function() {
+            const roleSelect = document.getElementById('roleSelect');
+            
+            try {
+                const response = await fetch('../data/roles.json');
+                const data = await response.json();
+                
+                roleSelect.innerHTML = '<option value="">Select Your Role</option>';
+                
+                data.roles.forEach(role => {
+                    const option = document.createElement('option');
+                    option.value = role.id;
+                    option.textContent = `${role.name}${role.title ? ` (${role.title})` : ''}`;
+                    roleSelect.appendChild(option);
+                });
+                
+                const savedRole = localStorage.getItem('selectedRole');
+                if (savedRole) {
+                    roleSelect.value = savedRole;
+                }
+            } catch (error) {
+                console.error('Error loading roles:', error);
+            }
+
+            roleSelect.addEventListener('change', function() {
+                const selectedRole = this.value;
+                localStorage.setItem('selectedRole', selectedRole);
+            });
+        });
+    </script>
+</body>
+</html>

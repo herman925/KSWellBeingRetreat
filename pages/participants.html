@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Participant Details - Teacher Well-Being Retreat</title>
+    <link rel="stylesheet" href="../styles/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.sheetjs.com/xlsx-0.20.1/package/dist/xlsx.full.min.js"></script>
+    <link rel="stylesheet" href="../styles/participants.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <nav class="nav-wrapper">
+            <a href="../index.html" class="back-button">
+                <i class="fas fa-arrow-left"></i> Back to Dashboard
+            </a>
+            <div class="person-selector">
+                <select id="roleSelect">
+                    <option value="">Select Your Role</option>
+                </select>
+            </div>
+        </nav>
+    </header>
+
+    <main class="content-wrapper">
+        <section class="page-header">
+            <h1><i class="fas fa-users"></i> Participant Details</h1>
+            <p class="subtitle">KeySteps@JC (Phase Two)</p>
+            <p class="subtitle">Teacher Well-Being Round 1 Retreat</p>
+            <div class="date-info"><i class="far fa-clock"></i> January 4, 2025 (Saturday)</div>
+        </section>
+
+        <section class="participant-content">
+            <div class="info-card">
+                <div class="section-header">
+                    <h2><i class="fas fa-list"></i> Registration List</h2>
+                    <div class="section-controls">
+                        <button class="control-button export-button" onclick="showExportMenu('registration', this)">
+                            <i class="fas fa-download"></i> Export
+                        </button>
+                    </div>
+                </div>
+                <div class="table-container">
+                    <table class="participant-table" id="participantTable">
+                        <thead>
+                            <tr>
+                                <th>Registration Time</th>
+                                <th>Name</th>
+                                <th>School</th>
+                                <th>Phone</th>
+                                <th>Pick-up Point</th>
+                                <th>Drop-off Point</th>
+                            </tr>
+                        </thead>
+                        <tbody id="participantTableBody">
+                            <!-- Participant data will be loaded here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Statistics Panel -->
+            <div class="info-card">
+                <div class="section-header">
+                    <h2><i class="fas fa-chart-pie"></i> Registration Statistics</h2>
+                </div>
+                <div class="stats-panel">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-info">
+                            <div class="stat-value" id="totalRegistrations">0</div>
+                            <div class="stat-label">Total Registrations</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                        </div>
+                        <div class="stat-info">
+                            <div class="stat-value" id="totalTeachers">0</div>
+                            <div class="stat-label">Total Registered Teachers</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- School Breakdown Table -->
+                <div class="section-subheader">
+                    <h3><i class="fas fa-school"></i> Registrations by School</h3>
+                </div>
+                <div class="table-container">
+                    <table class="breakdown-table" id="schoolBreakdownTable">
+                        <thead>
+                            <tr>
+                                <th>Organisation</th>
+                                <th>Number of Registrations</th>
+                            </tr>
+                        </thead>
+                        <tbody id="schoolBreakdownBody">
+                            <!-- School breakdown data will be loaded here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="info-card">
+                <div class="section-header">
+                    <h2><i class="fas fa-utensils"></i> Meal Preferences</h2>
+                    <div class="section-controls">
+                        <button class="control-button export-button" onclick="showExportMenu('meals', this)">
+                            <i class="fas fa-download"></i> Export
+                        </button>
+                    </div>
+                </div>
+                <div id="mealSummary" class="summary-grid">
+                    <!-- Meal summary will be loaded here -->
+                </div>
+            </div>
+
+            <div class="info-card">
+                <div class="section-header">
+                    <h2><i class="fas fa-bus"></i> Transport Summary</h2>
+                    <div class="section-controls">
+                        <button class="control-button export-button" onclick="showExportMenu('transport', this)">
+                            <i class="fas fa-download"></i> Export
+                        </button>
+                    </div>
+                </div>
+                <div class="transport-summary">
+                    <div class="transport-card">
+                        <h3>Pick-up Points</h3>
+                        <ul class="transport-list" id="pickupList">
+                            <!-- Pick-up points summary will be loaded here -->
+                        </ul>
+                    </div>
+                    <div class="transport-card">
+                        <h3>Drop-off Points</h3>
+                        <ul class="transport-list" id="dropoffList">
+                            <!-- Drop-off points summary will be loaded here -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Add popup overlay -->
+    <div class="popup-overlay" id="popupOverlay">
+        <div class="popup-content">
+            <div class="popup-header">
+                <h3 id="popupTitle"></h3>
+                <button class="popup-close" onclick="closePopup()">&times;</button>
+            </div>
+            <div class="popup-body">
+                <ul class="name-list" id="popupList">
+                    <!-- Names will be loaded here -->
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Export Menu Template -->
+    <div class="export-menu" id="exportMenu">
+        <div class="export-option" onclick="exportData('xlsx')">
+            <i class="fas fa-file-excel"></i> Export as XLSX
+        </div>
+        <div class="export-option" onclick="exportData('csv')">
+            <i class="fas fa-file-csv"></i> Export as CSV
+        </div>
+        <div class="export-option" id="shuttleExportOption" style="display: none;" onclick="exportShuttleAttendance()">
+            <i class="fas fa-clipboard-check"></i> Attendance Checklist
+        </div>
+    </div>
+
+    <script src="../scripts/participants.js"></script>
+</body>
+</html> 

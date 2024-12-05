@@ -1,0 +1,13 @@
+{
+    "role": "hwk",
+    "name": "Kai",
+    "title": "Project Oversight",
+    "tasks": {
+        "pre-event": {
+            "Jan 3 Morning": [
+                { "id": "hwk-pre-1", "text": "Review interview protocols", "category": "Research", "tag": "Preparation" },
+                { "id": "hwk-pre-2", "text": "Finalize observation schedule", "category": "Research", "tag": "Preparation" }
+            ]
+        }
+    }
+} 
