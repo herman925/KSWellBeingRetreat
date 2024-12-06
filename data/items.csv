@@ -1,74 +1,74 @@
 itemid,name,totalquantity,remainingquantity,notes,categoryid,boxid,quantityinbox
-entrance-banner,Main entrance banner,1,0,,outdoor-signs,outdoor-signs-box-1,1
-bus-drop-signs,Bus drop-off point signs,6,0,,outdoor-signs,outdoor-signs-box-1,6
-bus-sign,Bus sign,3,0,,outdoor-signs,outdoor-signs-box-1,3
-hall2-arrows,Directional arrows to Hall 2,1,0,,outdoor-signs,outdoor-signs-box-1,1
-reg-desk-dir,Registration desk direction signs,1,0,,outdoor-signs,outdoor-signs-box-1,1
-sign-holders,Sign holders,5,0,,outdoor-signs,outdoor-signs-box-1,5
-sign-covers,Sign covers,10,0,,outdoor-signs,outdoor-signs-box-1,10
-attendance-list,Attendance list,3,0,,registration-materials,registration-box-1,3
-name-badges,Name badges,40,0,,registration-materials,registration-box-1,40
-info-pack,Information pack,7,0,,registration-materials,registration-box-1,7
-survey-qr,Survey QR codes,3,0,,registration-materials,registration-box-1,3
-certificates,Certificates,30,0,,registration-materials,registration-box-1,30
-reg-desk-sign,Registration desk sign,1,0,,indoor-signs,registration-box-2,1
-refresh-sign,Refreshment area sign,1,0,,indoor-signs,registration-box-2,1
-group-signs,Group signs (A-J),10,0,,indoor-signs,registration-box-2,10
-restroom-signs,Restroom directions,4,0,,indoor-signs,registration-box-2,4
-rundown-posters,Rundown poster A3,2,0,,indoor-signs,mindfulness-box-1,2
-recording-signs,Now Recording signs,4,0,,indoor-signs,mindfulness-box-1,4
-tea-set,Tea set (single use),40,0,,mindfulness-items,mindfulness-box-1,40
-tea-scale,Tea scale,2,0,,mindfulness-items,mindfulness-box-1,2
-tea-bag,Tea bag (blank),60,0,,mindfulness-items,mindfulness-box-1,60
-tea-leaves,Tea leaves (4 flavours),16,0,,mindfulness-items,mindfulness-box-3,16
-clear-bags,Clear bags,50,0,,mindfulness-items,mindfulness-box-2,50
-calligraphy-pens,Calligraphy pens,40,0,,mindfulness-items,mindfulness-box-2,40
-practice-paper,Practice paper,100,0,,mindfulness-items,mindfulness-box-2,100
-tea-leaves,Tea leaves,16,0,,mindfulness-items,mindfulness-box-3,16
-cue-cards,Cue cards,50,0,,mindfulness-items,mindfulness-box-3,50
-hand-carry-bag,Hand carry bag,40,0,,mindfulness-items,mindfulness-box-3,40
-seat-markers,Group markers,5,0,1 per group,group-discussion,group-discussion-box,5
-facilitator-badges,Group facilitator badges,10,0,,group-discussion,group-discussion-box,10
-discussion-guides,Discussion guide cards,10,0,One set per group,group-discussion,group-discussion-box,10
-wireless-mic,Wireless microphones,3,0,Check if supplied on site,av-equipment,ayp-box,3
-laptop,Laptop,2,0,1 for PPT/music 1 for streaming,av-equipment,av-box-1,2
-projector,Projector,1,0,Check if supplied on site,av-equipment,ayp-box,1
-proj-screen,Projection screen,1,0,,av-equipment,ayp-box,1
-hdmi-cables,HDMI cables,2,0,,av-equipment,av-box-1,2
-usbc-cable,USB-C cable,1,0,,av-equipment,av-box-1,1
-power-strips,Power strips,3,0,,av-equipment,av-box-2,3
-tripod,Tripods,4,0,,av-equipment,av-box-2,4
-memory-card,Memory cards,4,0,,av-equipment,av-box-2,4
-card-reader,Card reader,1,0,,av-equipment,av-box-2,1
-blutack,Blutack for securing signs,1,0,pack,supplies,outdoor-signs-box-1,1
-highlighters,Highlighters,3,0,,supplies,registration-box-2,3
-clipboard,Clipboard,2,0,,supplies,registration-box-2,2
-paperclips,Paperclips,1,0,box,supplies,supplies-box,1
-rubber-bands,Rubber bands,1,0,pack,supplies,supplies-box,1
-clear-tape,Clear tape,1,0,roll,supplies,supplies-box,1
-scissors,Scissors,4,0,pairs,supplies,supplies-box,4
-pens,Pens,30,0,,supplies,registration-box-2,30
-backup-batteries,Backup batteries (AA AAA),2,0,packs,supplies,supplies-box,2
-portable-charger,Portable charger,2,0,,supplies,supplies-box,2
-wet-wipes,Wet wipes,3,0,boxes,supplies,supplies-box,3
-tissue-boxes,Tissue boxes,4,0,boxes,supplies,supplies-box,4
-alcohol-wipes,Alcohol wipes,3,0,boxes,supplies,supplies-box,3
-disp-gloves,Disposable gloves,3,0,packs,supplies,supplies-box,3
-sanitizer-stations,Hand sanitizer stations,2,0,,supplies,supplies-box-2,2
-face-masks,Face masks,1,0,box,supplies,supplies-box-2,1
-hot-water,Water boiler,1,0,unit,refreshments,ayp-box,1
-water-bottles,Water bottles,40,0,,refreshments,refreshments-box,40
-snack-boxes,Snack boxes,40,0,,refreshments,refreshments-box,40
-teabags,Tea bags assortment,2,0,boxes,refreshments,refreshments-box,2
-coffee,Coffee sachets,2,0,boxes,refreshments,refreshments-box,2
-stirrer,Stirrers,1,0,box,refreshments,refreshments-box,1
-plates,Small plates,50,0,,refreshments,refreshments-box,50
-trashbag,Trash bags,5,0,,refreshments,refreshments-box,5
-tablecloth,Single-use table cloth,1,0,pack,refreshments,refreshments-box,1
-staff-badges,Staff badges,8,0,Including Doris and helpers,staff-items,staff-box,8
-yl-pickup-signs,Yuen Long pickup point signs,1,0,For YL pickup point,transport-materials,yuen-long-shuttle-box,1
-klt-pickup-signs,Kowloon Tong pickup point signs,1,0,For KLT pickup point,transport-materials,kowloon-tong-shuttle-box,1
-tp-pickup-signs,Tai Po pickup point signs,1,0,For TP pickup point,transport-materials,kowloon-tong-shuttle-box,1
-yl-passenger-list,Yuen Long passenger list,1,0,For YL pickup point,transport-materials,yuen-long-shuttle-box,1
-klt-passenger-list,Kowloon Tong passenger list,1,0,For KLT pickup point,transport-materials,kowloon-tong-shuttle-box,1
-tp-passenger-list,Tai Po passenger list,1,0,For TP pickup point,transport-materials,kowloon-tong-shuttle-box,1
+entrance-banner,Main entrance banner,1,1,,outdoor-signs,outdoor-signs-box-1,0
+bus-drop-signs,Bus drop-off point signs,6,6,,outdoor-signs,outdoor-signs-box-1,0
+bus-sign,Bus sign,3,3,,outdoor-signs,outdoor-signs-box-1,0
+hall2-arrows,Directional arrows to Hall 2,1,1,,outdoor-signs,outdoor-signs-box-1,0
+reg-desk-dir,Registration desk direction signs,1,1,,outdoor-signs,outdoor-signs-box-1,0
+sign-holders,Sign holders,5,5,,outdoor-signs,outdoor-signs-box-1,0
+sign-covers,Sign covers,10,10,,outdoor-signs,outdoor-signs-box-1,0
+attendance-list,Attendance list,3,3,,registration-materials,registration-box-1,0
+name-badges,Name badges,40,40,,registration-materials,registration-box-1,0
+info-pack,Information pack,7,7,,registration-materials,registration-box-1,0
+survey-qr,Survey QR codes,3,3,,registration-materials,registration-box-1,0
+certificates,Certificates,30,30,,registration-materials,registration-box-1,0
+reg-desk-sign,Registration desk sign,1,1,,indoor-signs,registration-box-2,0
+refresh-sign,Refreshment area sign,1,1,,indoor-signs,registration-box-2,0
+group-signs,Group signs (A-J),10,10,,indoor-signs,registration-box-2,0
+restroom-signs,Restroom directions,4,4,,indoor-signs,registration-box-2,0
+rundown-posters,Rundown poster A3,2,2,,indoor-signs,mindfulness-box-1,0
+recording-signs,Now Recording signs,4,4,,indoor-signs,mindfulness-box-1,0
+tea-set,Tea set (single use),40,40,,mindfulness-items,mindfulness-box-1,0
+tea-scale,Tea scale,2,2,,mindfulness-items,mindfulness-box-1,0
+tea-bag,Tea bag (blank),60,60,,mindfulness-items,mindfulness-box-1,0
+tea-leaves-workshop,Tea leaves (4 flavours),16,16,,mindfulness-items,mindfulness-box-3,0
+clear-bags,Clear bags,50,50,,mindfulness-items,mindfulness-box-2,0
+calligraphy-pens,Calligraphy pens,40,40,,mindfulness-items,mindfulness-box-2,0
+practice-paper,Practice paper,100,100,,mindfulness-items,mindfulness-box-2,0
+tea-leaves,Tea leaves,16,16,,mindfulness-items,mindfulness-box-3,0
+cue-cards,Cue cards,50,50,,mindfulness-items,mindfulness-box-3,0
+hand-carry-bag,Hand carry bag,40,40,,mindfulness-items,mindfulness-box-3,0
+seat-markers,Group markers,5,5,1 per group,group-discussion,group-discussion-box,0
+facilitator-badges,Group facilitator badges,10,10,,group-discussion,group-discussion-box,0
+discussion-guides,Discussion guide cards,10,10,One set per group,group-discussion,group-discussion-box,0
+wireless-mic,Wireless microphones,3,3,Check if supplied on site,av-equipment,ayp-box,0
+laptop,Laptop,2,2,1 for PPT/music 1 for streaming,av-equipment,av-box-1,0
+projector,Projector,1,1,Check if supplied on site,av-equipment,ayp-box,0
+proj-screen,Projection screen,1,1,,av-equipment,ayp-box,0
+hdmi-cables,HDMI cables,2,2,,av-equipment,av-box-1,0
+usbc-cable,USB-C cable,1,1,,av-equipment,av-box-1,0
+power-strips,Power strips,3,3,,av-equipment,av-box-2,0
+tripod,Tripods,4,4,,av-equipment,av-box-2,0
+memory-card,Memory cards,4,4,,av-equipment,av-box-2,0
+card-reader,Card reader,1,1,,av-equipment,av-box-2,0
+blutack,Blutack for securing signs,1,1,pack,supplies,outdoor-signs-box-1,0
+highlighters,Highlighters,3,3,,supplies,registration-box-2,0
+clipboard,Clipboard,2,2,,supplies,registration-box-2,0
+paperclips,Paperclips,1,1,box,supplies,supplies-box,0
+rubber-bands,Rubber bands,1,1,pack,supplies,supplies-box,0
+clear-tape,Clear tape,1,1,roll,supplies,supplies-box,0
+scissors,Scissors,4,4,pairs,supplies,supplies-box,0
+pens,Pens,30,30,,supplies,registration-box-2,0
+backup-batteries,Backup batteries (AA AAA),2,2,packs,supplies,supplies-box,0
+portable-charger,Portable charger,2,2,,supplies,supplies-box,0
+wet-wipes,Wet wipes,3,3,boxes,supplies,supplies-box,0
+tissue-boxes,Tissue boxes,4,4,boxes,supplies,supplies-box,0
+alcohol-wipes,Alcohol wipes,3,3,boxes,supplies,supplies-box,0
+disp-gloves,Disposable gloves,3,3,packs,supplies,supplies-box,0
+sanitizer-stations,Hand sanitizer stations,2,2,,supplies,supplies-box-2,0
+face-masks,Face masks,1,1,box,supplies,supplies-box-2,0
+hot-water,Water boiler,1,1,unit,refreshments,ayp-box,0
+water-bottles,Water bottles,40,40,,refreshments,refreshments-box,0
+snack-boxes,Snack boxes,40,40,,refreshments,refreshments-box,0
+teabags,Tea bags assortment,2,2,boxes,refreshments,refreshments-box,0
+coffee,Coffee sachets,2,2,boxes,refreshments,refreshments-box,0
+stirrer,Stirrers,1,1,box,refreshments,refreshments-box,0
+plates,Small plates,50,50,,refreshments,refreshments-box,0
+trashbag,Trash bags,5,5,,refreshments,refreshments-box,0
+tablecloth,Single-use table cloth,1,1,pack,refreshments,refreshments-box,0
+staff-badges,Staff badges,8,8,Including Doris and helpers,staff-items,staff-box,0
+yl-pickup-signs,Yuen Long pickup point signs,1,1,For YL pickup point,transport-materials,yuen-long-shuttle-box,0
+klt-pickup-signs,Kowloon Tong pickup point signs,1,1,For KLT pickup point,transport-materials,kowloon-tong-shuttle-box,0
+tp-pickup-signs,Tai Po pickup point signs,1,1,For TP pickup point,transport-materials,kowloon-tong-shuttle-box,0
+yl-passenger-list,Yuen Long passenger list,1,1,For YL pickup point,transport-materials,yuen-long-shuttle-box,0
+klt-passenger-list,Kowloon Tong passenger list,1,1,For KLT pickup point,transport-materials,kowloon-tong-shuttle-box,0
+tp-passenger-list,Tai Po passenger list,1,1,For TP pickup point,transport-materials,kowloon-tong-shuttle-box,0
