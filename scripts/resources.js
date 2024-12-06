@@ -144,11 +144,12 @@ class ResourceManager {
 
     renderQuantityBox(item, field) {
         const value = parseInt(item[field] || 0);
-        const isEmpty = field === 'remainingquantity' && value === 0;
+        const isEmpty = value === 0;
         return `
             <span class="item-quantity editable" data-itemid="${item.itemid}" data-field="${field}">
                 <input type="number" value="${value}" min="0" 
                     class="quantity-input ${isEmpty ? 'empty-quantity' : ''}"
+                    style="${isEmpty ? 'color: red;' : ''}"
                     onfocus="this.select();"
                     onblur="window.resourceManager.updateItemQuantity('${item.itemid}', '${field}', this.value);"
                     onkeypress="if(event.key === 'Enter') this.blur();">
