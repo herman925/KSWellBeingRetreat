@@ -333,6 +333,39 @@ class ResourceManager {
     }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async function() {
+    const roleSelect = document.getElementById('roleSelect');
+    
+    // Load roles from JSON
+    try {
+        const response = await fetch('../data/roles.json');
+        const data = await response.json();
+        
+        // Clear existing options except the default one
+        roleSelect.innerHTML = '<option value="">Select Your Role</option>';
+        
+        // Add roles from JSON
+        data.roles.forEach(role => {
+            const option = document.createElement('option');
+            option.value = role.id;
+            option.textContent = `${role.name}${role.title ? ` (${role.title})` : ''}`;
+            roleSelect.appendChild(option);
+        });
+        
+        // Load saved role from localStorage
+        const savedRole = localStorage.getItem('selectedRole');
+        if (savedRole) {
+            roleSelect.value = savedRole;
+        }
+    } catch (error) {
+        console.error('Error loading roles:', error);
+    }
+
+    // Role selection handler
+    roleSelect.addEventListener('change', function() {
+        const selectedRole = this.value;
+        localStorage.setItem('selectedRole', selectedRole);
+    });
+
     window.resourceManager = new ResourceManager();
 });

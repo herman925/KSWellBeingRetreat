@@ -7,6 +7,24 @@
     <link rel="stylesheet" href="../styles/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .activity-header {
+            text-align: left;
+            margin-bottom: 8px;
+        }
+        .activity-item {
+            text-align: left;
+            padding-left: 20px;
+            margin: 4px 0;
+        }
+        .activity-header i.icon-mindfulness { color: #4CAF50 !important; }
+        .activity-header i.icon-jar { color: #9C27B0 !important; }
+        .activity-header i.icon-tea { color: #FF9800 !important; }
+        td i.icon-lunch { color: #E91E63 !important; }
+        td i.icon-centering { color: #2196F3 !important; }
+        .activity-header i.icon-calligraphy { color: #795548 !important; }
+        .activity-header i.icon-closing { color: #607D8B !important; }
+    </style>
 </head>
 <body>
     <header>
@@ -53,35 +71,35 @@
                     <tr>
                         <td>10:30~11:10 (40min)</td>
                         <td>
-                            <div class="activity-header"><i class="fas fa-wind"></i> Mindfulness Session</div>
-                            <div class="activity-item">1. Guiding breathing (10)</div>
-                            <div class="activity-item">2. Body scan (15)</div>
-                            <div class="activity-item">3. Introspection/intention setting (15)</div>
+                            <div class="activity-header"><i class="fas fa-wind icon-mindfulness"></i> Mindfulness Session</div>
+                            <div class="activity-item">→ Guiding breathing (10)</div>
+                            <div class="activity-item">→ Body scan (15)</div>
+                            <div class="activity-item">→ Introspection/intention setting (15)</div>
                         </td>
-                        <td>Group 1</td>
+                        <td>Group 1 (40)</td>
                     </tr>
                     <tr>
                         <td>11:10~11:50 (40min)</td>
                         <td>
-                            <div class="activity-header"><i class="fas fa-glass-whiskey"></i> Mindful Jar Creation</div>
+                            <div class="activity-header"><i class="fas fa-glass-whiskey icon-jar"></i> Mindful Jar Creation</div>
                             <div class="activity-item">→ Creation (30)</div>
                             <div class="activity-item">→ Sharing (10)</div>
                         </td>
-                        <td>Group 2</td>
+                        <td>Group 2 (40)</td>
                     </tr>
                     <tr>
                         <td>11:50~12:30 (40min)</td>
                         <td>
-                            <div class="activity-header"><i class="fas fa-mug-hot"></i> Tea Mindfulness</div>
+                            <div class="activity-header"><i class="fas fa-mug-hot icon-tea"></i> Tea Mindfulness</div>
                             <div class="activity-item">→ Mindful tea tasting (10)</div>
                             <div class="activity-item">→ Tea bag making (20)</div>
                             <div class="activity-item">→ Reflection (10)</div>
                         </td>
-                        <td>Group 3</td>
+                        <td>Group 3 (40)</td>
                     </tr>
                     <tr class="lunch-break">
                         <td>12:30~14:00 (90min)</td>
-                        <td><i class="fas fa-utensils"></i> Mindful Lunch*</td>
+                        <td><i class="fas fa-utensils icon-lunch"></i> Mindful Lunch*</td>
                         <td></td>
                     </tr>
                     <tr class="lunch-note">
@@ -91,185 +109,24 @@
                     </tr>
                     <tr>
                         <td>14:00~14:10 (10min)</td>
-                        <td><i class="fas fa-spa"></i> Post-lunch Centering (10)</td>
-                        <td>Group 4</td>
+                        <td><i class="fas fa-spa icon-centering"></i> Post-lunch Centering (10)</td>
+                        <td rowspan="2">Group 4 (40)<br>Group 5 (40)</td>
                     </tr>
                     <tr>
                         <td>14:10~15:20 (70min)</td>
                         <td>
-                            <div class="activity-header"><i class="fas fa-paint-brush"></i> Mindful Calligraphy</div>
-                            <div class="activity-item">1. Practice (50)</div>
-                            <div class="activity-item">2. Gallery walk (10)</div>
+                            <div class="activity-header"><i class="fas fa-paint-brush icon-calligraphy"></i> Mindful Calligraphy</div>
+                            <div class="activity-item">→ Practice (60)</div>
+                            <div class="activity-item">→ Gallery walk (10)</div>
                         </td>
-                        <td>Group 5</td>
                     </tr>
                     <tr>
                         <td>15:20~15:45 (25min)</td>
                         <td>
-                            <div class="activity-header"><i class="fas fa-circle-notch"></i> Closing Circle (25)</div>
-                            <div class="activity-item">1. Centering practice (10)</div>
-                            <div class="activity-item">2. Personal reflections (10)</div>
-                            <div class="activity-item">3. Gentle closure (5)</div>
-                        </td>
-                        <td></td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
-    </main>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', async function() {
-            const roleSelect = document.getElementById('roleSelect');
-            
-            // Load roles from JSON
-            try {
-                const response = await fetch('../data/roles.json');
-                const data = await response.json();
-                
-                // Clear existing options except the default one
-                roleSelect.innerHTML = '<option value="">Select Your Role</option>';
-                
-                // Add roles from JSON
-                data.roles.forEach(role => {
-                    const option = document.createElement('option');
-                    option.value = role.id;
-                    option.textContent = `${role.name}${role.title ? ` (${role.title})` : ''}`;
-                    roleSelect.appendChild(option);
-                });
-                
-                // Load saved role from localStorage
-                const savedRole = localStorage.getItem('selectedRole');
-                if (savedRole) {
-                    roleSelect.value = savedRole;
-                }
-            } catch (error) {
-                console.error('Error loading roles:', error);
-            }
-
-            // Role selection handler
-            roleSelect.addEventListener('change', function() {
-                const selectedRole = this.value;
-                localStorage.setItem('selectedRole', selectedRole);
-            });
-        });
-    </script>
-</body>
-</html>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
-    <link rel="stylesheet" href="../styles/styles.css">
-    <link rel="stylesheet" href="../styles/schedule.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-</head>
-<body>
-    <header>
-        <nav class="nav-wrapper">
-            <a href="../index.html" class="back-button">
-                <i class="fas fa-arrow-left"></i> Back to Dashboard
-            </a>
-            <div class="person-selector">
-                <select id="roleSelect">
-                    <option value="">Select Your Role</option>
-                </select>
-            </div>
-        </nav>
-    </header>
-
-    <main class="content-wrapper">
-        <section class="page-header">
-            <h1><i class="far fa-calendar-alt"></i> Schedule</h1>
-            <p class="subtitle">KeySteps@JC (Phase Two)</p>
-            <p class="subtitle">Teacher Well-Being Round 1 Retreat</p>
-            <div class="date-info"><i class="far fa-clock"></i> January 4, 2025 (Saturday)</div>
-        </section>
-
-        <section class="schedule-table">
-            <table>
-                <thead>
-                    <tr>
-                        <th><i class="far fa-clock"></i> Time</th>
-                        <th><i class="fas fa-tasks"></i> Activity</th>
-                        <th><i class="fas fa-users"></i> Focused Group</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>10:00~10:15 (15min)</td>
-                        <td><i class="fas fa-clipboard-check"></i> Registration</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>10:15~10:30 (15min)</td>
-                        <td><i class="fas fa-hands-helping"></i> Welcome & Introduction (15)</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>10:30~11:10 (40min)</td>
-                        <td>
-                            <div class="activity-header"><i class="fas fa-wind"></i> Mindfulness Session</div>
-                            <div class="activity-item">1. Guiding breathing (10)</div>
-                            <div class="activity-item">2. Body scan (15)</div>
-                            <div class="activity-item">3. Introspection/intention setting (15)</div>
-                        </td>
-                        <td>Group 1</td>
-                    </tr>
-                    <tr>
-                        <td>11:10~11:50 (40min)</td>
-                        <td>
-                            <div class="activity-header"><i class="fas fa-glass-whiskey"></i> Mindful Jar Creation</div>
-                            <div class="activity-item">→ Creation (30)</div>
-                            <div class="activity-item">→ Sharing (10)</div>
-                        </td>
-                        <td>Group 2</td>
-                    </tr>
-                    <tr>
-                        <td>11:50~12:30 (40min)</td>
-                        <td>
-                            <div class="activity-header"><i class="fas fa-mug-hot"></i> Tea Mindfulness</div>
-                            <div class="activity-item">→ Mindful tea tasting (10)</div>
-                            <div class="activity-item">→ Tea bag making (20)</div>
-                            <div class="activity-item">→ Reflection (10)</div>
-                        </td>
-                        <td>Group 3</td>
-                    </tr>
-                    <tr class="lunch-break">
-                        <td>12:30~14:00 (90min)</td>
-                        <td><i class="fas fa-utensils"></i> Mindful Lunch*</td>
-                        <td></td>
-                    </tr>
-                    <tr class="lunch-note">
-                        <td colspan="3">
-                            <i class="fas fa-info-circle"></i> *AYP's lunch time from 13:15 to 14:00
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>14:00~14:10 (10min)</td>
-                        <td><i class="fas fa-spa"></i> Post-lunch Centering (10)</td>
-                        <td>Group 4</td>
-                    </tr>
-                    <tr>
-                        <td>14:10~15:20 (70min)</td>
-                        <td>
-                            <div class="activity-header"><i class="fas fa-paint-brush"></i> Mindful Calligraphy</div>
-                            <div class="activity-item">1. Practice (50)</div>
-                            <div class="activity-item">2. Gallery walk (10)</div>
-                        </td>
-                        <td>Group 5</td>
-                    </tr>
-                    <tr>
-                        <td>15:20~15:45 (25min)</td>
-                        <td>
-                            <div class="activity-header"><i class="fas fa-circle-notch"></i> Closing Circle (25)</div>
-                            <div class="activity-item">1. Centering practice (10)</div>
-                            <div class="activity-item">2. Personal reflections (10)</div>
-                            <div class="activity-item">3. Gentle closure (5)</div>
+                            <div class="activity-header"><i class="fas fa-circle-notch icon-closing"></i> Closing Circle</div>
+                            <div class="activity-item">→ Centering practice (10)</div>
+                            <div class="activity-item">→ Personal reflections (10)</div>
+                            <div class="activity-item">→ Gentle closure (5)</div>
                         </td>
                         <td></td>
                     </tr>
