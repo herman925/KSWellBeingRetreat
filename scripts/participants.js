@@ -44,20 +44,15 @@ function exportData(format) {
     
     switch (currentExportSection) {
         case 'registration':
-            data = currentData.map(p => {
-                const mappedData = {
-                    'Registration Time': p['Timestamp'],
-                    'Name': p['參加者中文全名'],
-                    'School': p['參加者所屬學校'],
-                    'Phone': p['參加者手提電話'],
-                    'Pick-up Point': p['去程集合點 (箭咀位置附近停車。實際停車位置視乎路況。)'],
-                    'Drop-off Point': p['回程解散點 (箭咀位置附近停車。實際停車位置視乎路況。)'],
-                    'Lunch Choice': p['午餐']
-                };
-                console.log('Mapped data:', mappedData); // Debug log
-                return mappedData;
-            });
-            console.log('Full export data:', data); // Debug log
+            data = currentData.map(p => ({
+                'Registration Time': p['Timestamp'],
+                'Name': p['參加者中文全名'],
+                'School': p['參加者所屬學校'],
+                'Phone': p['參加者手提電話'],
+                'Pick-up Point': p['去程集合點 (箭咀位置附近停車。實際停車位置視乎路況。)'],
+                'Drop-off Point': p['回程解散點 (箭咀位置附近停車。實際停車位置視乎路況。)'],
+                'Lunch Choice': p['午餐']
+            }));
             filename = 'registration_list';
             break;
             
@@ -228,10 +223,8 @@ async function loadParticipantData() {
         }
         
         const csvText = await response.text();
-        console.log('Raw CSV data:', csvText); // Debug log
         
         currentData = parseCSV(csvText);
-        console.log('Parsed data:', currentData); // Debug log
         
         renderParticipantTable(currentData);
         updateStatistics(currentData);
