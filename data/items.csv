@@ -12,7 +12,7 @@ cu-survey,CU Survey QR codes,1,0,1 set of CU Survey QR codes,registration-materi
 reg-desk-sign,Registration desk sign,1,0,,indoor-signs,registration-box-2,1
 refresh-sign,Refreshment area sign,1,0,,indoor-signs,registration-box-2,1
 restroom-signs,Restroom directions,4,0,,indoor-signs,registration-box-2,4
-meal-sign,Meal A to D table stand,30,30,,indoor-signs,registration-box-2,0
+meal-sign,Meal A to D table stand,30,0,,indoor-signs,registration-box-2,30
 rundown-posters,Rundown (A3 version),2,2,stick to front door and in Hub 3,indoor-signs,mindfulness-box-1,0
 recording-signs,Now Recording signs,4,0,,indoor-signs,mindfulness-box-1,4
 silence-signs,Mobile silence signs,4,0,,indoor-signs,mindfulness-box-1,4
@@ -53,7 +53,8 @@ sanitizer-stations,Hand sanitizer stations,2,2,bottle,supplies,supplies-box-2,0
 face-masks,Face masks,1,0,box,supplies,supplies-box-2,1
 hot-water,Water boiler,3,3,unit,refreshments,ayp-box,0
 cups,Paper cups,40,0,,refreshments,refreshments-box,40
-snack-boxes,Snack boxes,5,4,,refreshments,refreshments-box,1
+snack-boxes,Snacks,120,0,Around 3-4 items per pax,refreshments,refreshments-box,120
+package-drinks,Packaged drinks,80,0,Around 2 items per pax,refreshments,refreshments-box,80
 teabags,Tea bags assortment,2,0,boxes,refreshments,refreshments-box,2
 coffee,Coffee sachets,1,0,boxes (38 packs),refreshments,refreshments-box,1
 plates,Small plates,50,0,For food/holding tea leaves,refreshments,refreshments-box,50
