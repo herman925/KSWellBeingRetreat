@@ -5,18 +5,18 @@
     "tasks": {
         "pre-event": {
             "Jan 3 Morning": [
-                { "id": "bon-pre-1", "text": "Review floor plan", "category": "Planning", "tag": "Preparation" },
+                { "id": "bon-pre-1", "text": "Confirm personal tasks & schedule", "category": "Planning", "tag": "Preparation" },
                 { "id": "bon-pre-2", "text": "Check signage materials", "category": "Materials", "tag": "Preparation" }
             ]
         },
         "transport-arrival": {
             "Jan 4 Morning - Kowloon Tong Stop": [
-                { "id": "bon-trans-1", "text": "Arrive at Kowloon Tong pickup point", "time": "08:15", "category": "Transportation" },
-                { "id": "bon-trans-2", "text": "Place signage at Kowloon Tong shuttle", "time": "08:20", "category": "Transportation" },
-                { "id": "bon-trans-3", "text": "Guide Kowloon Tong participants to shuttle", "time": "08:25-08:30", "category": "Transportation" },
-                { "id": "bon-trans-4", "text": "Mark Kowloon Tong attendance on passenger list", "time": "08:30", "category": "Transportation" },
-                { "id": "bon-trans-5", "text": "Take photo of Kowloon Tong passenger list", "time": "08:32", "category": "Transportation" },
-                { "id": "bon-trans-6", "text": "Report Kowloon Tong headcount to coordinator", "time": "08:35", "category": "Transportation" },
+                { "id": "bon-trans-1", "text": "Arrive at Kowloon Tong pickup point", "time": "08:30", "category": "Transportation" },
+                { "id": "bon-trans-2", "text": "Place signage at Kowloon Tong shuttle", "time": "08:35", "category": "Transportation" },
+                { "id": "bon-trans-3", "text": "Guide Kowloon Tong participants to shuttle", "time": "08:35-08:40", "category": "Transportation" },
+                { "id": "bon-trans-4", "text": "Mark Kowloon Tong attendance on passenger list", "time": "08:40", "category": "Transportation" },
+                { "id": "bon-trans-5", "text": "Take photo of Kowloon Tong passenger list", "time": "08:45", "category": "Transportation" },
+                { "id": "bon-trans-6", "text": "Report Kowloon Tong headcount to coordinator", "time": "08:45", "category": "Transportation" },
                 { "id": "bon-trans-7", "text": "Depart from Kowloon Tong", "time": "08:50", "category": "Transportation" }
             ],
             "Jan 4 Morning - Tai Po Stop": [

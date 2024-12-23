@@ -11,8 +11,8 @@
         },
         "transport-arrival": {
             "Jan 4 Morning - Kowloon Tong Stop": [
-                { "id": "cat-trans-2", "text": "Arrive at Kowloon Tong pickup point", "time": "08:15", "category": "Transportation" },
-                { "id": "cat-trans-3", "text": "Depart from Kowloon Tong", "time": "08:35", "category": "Transportation" }
+                { "id": "cat-trans-2", "text": "Arrive at Kowloon Tong pickup point", "time": "08:30", "category": "Transportation" },
+                { "id": "cat-trans-3", "text": "Depart from Kowloon Tong", "time": "08:50", "category": "Transportation" }
             ]
         },
         "transport-departure": [
