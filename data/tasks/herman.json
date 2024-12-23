@@ -48,7 +48,7 @@
                 { "id": "her-post-1", "text": "Clean Main Hall with Bonnie", "time": "15:45-16:00", "category": "Cleanup", "tag": "Venue" }
             ],
             "Final Checks": [
-                { "id": "her-post-2", "text": "Clean Registration Area with May", "time": "16:00-16:15", "category": "Cleanup", "tag": "Venue" },
+                { "id": "her-post-2", "text": "Clean Registration Area with May and Alvin", "time": "16:00-16:15", "category": "Cleanup", "tag": "Venue" },
                 { "id": "her-post-3", "text": "Final Walkthrough", "time": "16:15-16:30", "category": "Cleanup", "tag": "Venue" },
                 { "id": "her-post-4", "text": "Pack and Go", "time": "16:30-17:00", "category": "Cleanup", "tag": "Venue" }
             ],

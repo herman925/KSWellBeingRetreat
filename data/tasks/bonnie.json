@@ -17,14 +17,14 @@
                 { "id": "bon-trans-4", "text": "Mark Kowloon Tong attendance on passenger list", "time": "08:30", "category": "Transportation" },
                 { "id": "bon-trans-5", "text": "Take photo of Kowloon Tong passenger list", "time": "08:32", "category": "Transportation" },
                 { "id": "bon-trans-6", "text": "Report Kowloon Tong headcount to coordinator", "time": "08:35", "category": "Transportation" },
-                { "id": "bon-trans-7", "text": "Depart from Kowloon Tong", "time": "08:35", "category": "Transportation" }
+                { "id": "bon-trans-7", "text": "Depart from Kowloon Tong", "time": "08:50", "category": "Transportation" }
             ],
             "Jan 4 Morning - Tai Po Stop": [
-                { "id": "bon-trans-8", "text": "Arrive at Tai Po pickup point", "time": "09:10", "category": "Transportation" },
-                { "id": "bon-trans-9", "text": "Place signage at Tai Po pickup point", "time": "09:15", "category": "Transportation" },
-                { "id": "bon-trans-10", "text": "Guide Tai Po participants to shuttle", "time": "09:15-09:20", "category": "Transportation" },
-                { "id": "bon-trans-11", "text": "Mark Tai Po attendance on passenger list", "time": "09:20", "category": "Transportation" },
-                { "id": "bon-trans-12", "text": "Take photo of final passenger list", "time": "09:22", "category": "Transportation" },
+                { "id": "bon-trans-8", "text": "Arrive at Tai Po pickup point", "time": "09:20", "category": "Transportation" },
+                { "id": "bon-trans-9", "text": "Place signage at Tai Po pickup point", "time": "09:20", "category": "Transportation" },
+                { "id": "bon-trans-10", "text": "Guide Tai Po participants to shuttle", "time": "09:20-09:22", "category": "Transportation" },
+                { "id": "bon-trans-11", "text": "Mark Tai Po attendance on passenger list", "time": "09:23", "category": "Transportation" },
+                { "id": "bon-trans-12", "text": "Take photo of final passenger list", "time": "09:24", "category": "Transportation" },
                 { "id": "bon-trans-13", "text": "Report final headcount to coordinator", "time": "09:25", "category": "Transportation" },
                 { "id": "bon-trans-14", "text": "Depart from Tai Po", "time": "09:25", "category": "Transportation" }
             ]

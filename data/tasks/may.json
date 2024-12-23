@@ -44,7 +44,7 @@
                 { "id": "may-post-1", "text": "Supervise cleanup", "time": "15:45-16:00", "category": "Cleanup", "tag": "Coordination" }
             ],
             "Final Checks": [
-                { "id": "may-post-2", "text": "Clean Registration Area with Herman", "time": "16:00-16:15", "category": "Cleanup", "tag": "Venue" },
+                { "id": "may-post-2", "text": "Clean Registration Area with Herman and Alvin", "time": "16:00-16:15", "category": "Cleanup", "tag": "Venue" },
                 { "id": "may-post-3", "text": "Final Walkthrough", "time": "16:15-16:30", "category": "Cleanup", "tag": "Venue" },
                 { "id": "may-post-4", "text": "Pack and Go", "time": "16:30-17:00", "category": "Cleanup", "tag": "Venue" }
             ]

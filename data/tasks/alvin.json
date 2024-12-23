@@ -1,0 +1,50 @@
+{
+    "role": "alvin",
+    "name": "Alvin",
+    "title": "Core Team",
+    "tasks": {
+        "pre-event": {
+            "Jan 3 Morning": [
+                { "id": "alvin-pre-1", "text": "Review venue arrangements", "category": "Planning", "tag": "Final Checking" },
+                { "id": "alvin-pre-2", "text": "Support final check on item list", "category": "Planning", "tag": "Final Checking" }            ]
+        },
+        "transport-arrival": {
+            "Jan 4 Morning": [
+                { "id": "alvin-trans-1", "text": "Arrive at venue", "time": "09:00", "category": "Transport", "tag": "Self-Transport" }
+            ]
+        },
+        "site-setup": {
+            "Jan 4 Morning": [
+                { "id": "alvin-site-1", "text": "Registration area setup", "category": "Setup", "tag": "Registration" },
+                { "id": "alvin-site-2", "text": "Coordinate team positions", "category": "Setup", "tag": "Coordination" }
+            ]
+        },
+        "event-support": {
+            "Morning Session": [
+                { "id": "alvin-evt-1", "text": "Welcome & direct participants", "time": "09:45-10:15", "category": "Support", "tag": "Registration" },
+                { "id": "alvin-evt-2", "text": "Support seating arrangements", "time": "10:15-10:30", "category": "Support", "tag": "Coordination" },
+                { "id": "alvin-evt-3", "text": "Hall support", "time": "10:30-12:30", "category": "Support", "tag": "Coordination" }
+            ],
+            "Lunch Break": [
+                { "id": "alvin-evt-6", "text": "Break & lunch", "time": "12:30-13:45", "category": "Break", "tag": "Break" }
+            ],
+            "Afternoon Session": [
+                { "id": "alvin-evt-7", "text": "Hall support", "time": "13:45-15:20", "category": "Support", "tag": "Coordination" },
+                { "id": "alvin-evt-8", "text": "Pack materials", "time": "15:20-15:45", "category": "Support", "tag": "Materials" }
+            ]
+        },
+        "post-event": {
+            "Clean Up": [
+                { "id": "alvin-post-1", "text": "Pack materials", "time": "15:45-16:00", "category": "Cleanup", "tag": "Materials" }
+            ],
+            "Final Checks": [
+                { "id": "alvin-post-2", "text": "Clean Registration Area with May and Herman ", "time": "16:00-16:15", "category": "Cleanup", "tag": "Venue" },
+                { "id": "alvin-post-3", "text": "Final Walkthrough", "time": "16:15-16:30", "category": "Cleanup", "tag": "Venue" },
+                { "id": "alvin-post-4", "text": "Pack and Go", "time": "16:30-17:00", "category": "Cleanup", "tag": "Venue" }
+            ]
+        },
+        "transport-departure": [
+            { "id": "alvin-trans-1", "text": "Depart by own transport", "time": "17:00", "category": "Transport", "tag": "Self-Transport" }
+        ]
+    }
+} 

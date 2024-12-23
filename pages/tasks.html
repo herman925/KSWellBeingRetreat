@@ -170,6 +170,7 @@
                     <option value="herman">Herman (Program Facilitator)</option>
                     <option value="christine">Christine (Group Interview Lead)</option>
                     <option value="cathy">Cathy (Core Team)</option>
+                    <option value="alvin">Alvin (Core Team)</option>
                     <option value="vincent">Vincent (Preparation Assistant)</option>
                     <option value="archie">Archie (Preparation Assistant)</option>
                     <option value="karindi">Karindi (Floor Operations)</option>
@@ -239,7 +240,7 @@
 
             if (!role) {
                 // Load all roles when "Select Your Role" is chosen
-                const roles = ['hwk', 'catalina', 'may', 'herman', 'christine', 'cathy', 'karindi', 'bonnie'];
+                const roles = ['hwk', 'catalina', 'may', 'herman', 'christine', 'cathy', 'alvin', 'vincent', 'archie', 'karindi', 'bonnie'];
                 
                 try {
                     const allTasks = await Promise.all(roles.map(async (roleId) => {

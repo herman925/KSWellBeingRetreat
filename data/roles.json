@@ -31,6 +31,11 @@
             "title": "Core Team"
         },
         {
+            "id": "alvin",
+            "name": "Alvin",
+            "title": "Core Team"
+        },
+        {
             "id": "karindi",
             "name": "Karindi",
             "title": "Floor Operations"
@@ -41,4 +46,4 @@
             "title": "Floor Operations"
         }
     ]
-} 
+}
