@@ -51,6 +51,7 @@ function exportData(format) {
                 'Phone': p['參加者手提電話'],
                 'Pick-up Point': p['去程集合點 (箭咀位置附近停車。實際停車位置視乎路況。)'],
                 'Drop-off Point': p['回程解散點 (箭咀位置附近停車。實際停車位置視乎路況。)'],
+                'Meal Letter': mealLetterMap[p['午餐']] || '',
                 'Lunch Choice': p['午餐']
             }));
             filename = 'registration_list';
@@ -66,11 +67,14 @@ function exportData(format) {
                 mealParticipants[meal].push(p['參加者中文全名']);
             });
             
-            data = Object.entries(mealParticipants).map(([meal, names]) => ({
-                'Meal Type': meal,
-                'Count': mealCounts[meal],
-                'Participants': names.join(', ')
-            }));
+            data = Object.entries(mealParticipants)
+                .sort((a, b) => (mealLetterMap[a[0]] || '').localeCompare(mealLetterMap[b[0]] || ''))
+                .map(([meal, names]) => ({
+                    'Meal Letter': mealLetterMap[meal] || '',
+                    'Meal Type': meal,
+                    'Count': mealCounts[meal],
+                    'Participants': names.join(', ')
+                }));
             filename = 'meal_preferences';
             break;
             
@@ -275,6 +279,22 @@ function renderParticipantTable(data) {
     });
 }
 
+// Meal letter mapping
+const mealLetterMap = {
+    '蕃茄牛面脥肉醬長通粉': 'A',
+    '香煎豬柳配蘑茹伴薯角': 'B',
+    '香烤魚柳伴忌廉蔬菜螺絲粉': 'C',
+    '青醬蘑茹長通粉': 'D'
+};
+
+// Meal icon mapping
+const mealIconMap = {
+    'A': '<i class="fas fa-drumstick-bite"></i>',  // Beef
+    'B': '<i class="fas fa-piggy-bank"></i>',  // Pork
+    'C': '<i class="fas fa-fish"></i>',  // Fish
+    'D': '<i class="fas fa-seedling"></i>'  // Mushroom
+};
+
 // Render meal summary
 function renderMealSummary(data) {
     const mealCounts = {};
@@ -293,12 +313,22 @@ function renderMealSummary(data) {
     const summaryContainer = document.getElementById('mealSummary');
     summaryContainer.innerHTML = '';
     
-    Object.entries(mealCounts).forEach(([meal, count]) => {
+    // Sort meals by their letter
+    const sortedMeals = Object.entries(mealCounts).sort((a, b) => {
+        const letterA = mealLetterMap[a[0]] || '';
+        const letterB = mealLetterMap[b[0]] || '';
+        return letterA.localeCompare(letterB);
+    });
+    
+    sortedMeals.forEach(([meal, count]) => {
+        const letter = mealLetterMap[meal] || '';
+        const icon = mealIconMap[letter] || '';
         const card = document.createElement('div');
         card.className = 'summary-card';
-        card.onclick = () => showPopup(`${meal}`, mealParticipants[meal]);
+        card.onclick = () => showPopup(`Meal ${letter}: ${meal}`, mealParticipants[meal]);
         card.innerHTML = `
-            <h3>${meal}</h3>
+            <h3 class="meal-letter">${icon} Meal ${letter}</h3>
+            <div class="meal-name">${meal}</div>
             <div class="value">${count}</div>
         `;
         summaryContainer.appendChild(card);

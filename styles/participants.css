@@ -157,21 +157,43 @@
 
 .summary-card {
     background: #f8f9fa;
-    padding: 16px;
+    padding: 20px;
     border-radius: 8px;
     text-align: center;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
 
-.summary-card h3 {
-    color: #7f8c8d;
-    font-size: 0.9rem;
-    margin-bottom: 8px;
+.summary-card:hover {
+    background: #e9ecef;
+}
+
+.summary-card .meal-letter {
+    color: #1976d2;
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+.summary-card .meal-letter i {
+    margin-right: 8px;
+    font-size: 1.2rem;
+}
+
+.summary-card .meal-name {
+    color: #2c3e50;
+    font-size: 0.95rem;
+    line-height: 1.4;
 }
 
 .summary-card .value {
     font-size: 1.5rem;
     font-weight: 600;
     color: #2c3e50;
+    margin-top: 4px;
 }
 
 .meal-details {
