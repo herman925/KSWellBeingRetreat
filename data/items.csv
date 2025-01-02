@@ -5,7 +5,7 @@ hall2-arrows,Directional arrows to Hall 2 (Interview Room),1,0,,outdoor-signs,ou
 reg-desk-dir,Registration desk direction signs,1,0,,outdoor-signs,outdoor-signs-box-1,1
 sign-covers,Sign covers/Paper Folder,100,0,Clear soft folders,outdoor-signs,outdoor-signs-box-1,100
 attendance-list,Attendance list,2,0,,registration-materials,registration-box-1,2
-name-badges,Name badges,40,0,,registration-materials,registration-box-1,40
+name-badges,Name badges,40,0,Food choice label included,registration-materials,registration-box-1,40
 info-pack,Information pack,5,5,,registration-materials,registration-box-1,0
 survey-qr,Survey QR codes,3,0,Pre- Post and Round 2 Registration QR Codes,registration-materials,registration-box-1,3
 cu-survey,CU Survey QR codes,1,0,1 set of CU Survey QR codes,registration-materials,registration-box-1,3
@@ -29,7 +29,7 @@ hand-carry-bag,Hand carry bag,40,0,,mindfulness-items,mindfulness-box-3,40
 group-markers,Group markers (A to E),5,0,1 per group,group-discussion,group-discussion-box,5
 participant-sticker,Blank stickers (for interviewee),5,0,1 set (5 stickers) per group,group-discussion,group-discussion-box,5
 discussion-guides,Discussion guide (& interview questions),10,0,2 per group,group-discussion,group-discussion-box,10
-demographic,Participant Demographics,2,2,1 set for Christine & 1 for Cat,group-discussion,group-discussion-box,0
+info-sheet,Participant Information Sheet,2,0,1 set for Christine & 1 for Cat,group-discussion,group-discussion-box,2
 wireless-mic,Wireless microphones,2,0,Check if supplied on site,av-equipment,ayp-box,2
 laptop,Laptop,2,0,1 for PPT/music 1 for streaming,av-equipment,av-box-1,2
 projector,Projector,1,0,Check if supplied on site,av-equipment,ayp-box,1
@@ -49,7 +49,7 @@ pens,Pens,30,0,,supplies,registration-box-2,30
 wet-wipes,Wet wipes,3,0,boxes,supplies,supplies-box,3
 tissue-boxes,Tissue boxes,4,0,boxes,supplies,supplies-box,4
 alcohol-wipes,Alcohol wipes,3,0,boxes,supplies,supplies-box,3
-sanitizer-stations,Hand sanitizer stations,2,2,bottle,supplies,supplies-box-2,0
+sanitizer-stations,Hand sanitizer stations,2,0,bottle,supplies,supplies-box-2,2
 face-masks,Face masks,1,0,box,supplies,supplies-box-2,1
 hot-water,Water boiler,3,3,unit,refreshments,ayp-box,0
 cups,Paper cups,40,0,,refreshments,refreshments-box,40
