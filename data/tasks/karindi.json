@@ -13,11 +13,11 @@
             "Jan 4 Morning": [
                 { "id": "kar-trans-1", "text": "Arrive at Yuen Long pickup point", "time": "08:35", "category": "Transportation" },
                 { "id": "kar-trans-2", "text": "Place signage at Yuen Long shuttle", "time": "08:45", "category": "Transportation" },
-                { "id": "kar-trans-3", "text": "Guide participants to Yuen Long shuttle", "time": "08:50-09:20", "category": "Transportation" },
-                { "id": "kar-trans-4", "text": "Mark attendance on passenger list", "time": "09:15", "category": "Transportation" },
-                { "id": "kar-trans-5", "text": "Take photo of marked passenger list", "time": "09:20", "category": "Transportation" },
-                { "id": "kar-trans-6", "text": "Report final headcount to coordinator", "time": "09:25", "category": "Transportation" },
-                { "id": "kar-trans-7", "text": "Depart with Yuen Long shuttle", "time": "09:25", "category": "Transportation" }
+                { "id": "kar-trans-3", "text": "Guide participants to Yuen Long shuttle", "time": "08:50-09:00", "category": "Transportation" },
+                { "id": "kar-trans-4", "text": "Mark attendance on passenger list", "time": "08:55", "category": "Transportation" },
+                { "id": "kar-trans-5", "text": "Take photo of marked passenger list", "time": "08:58", "category": "Transportation" },
+                { "id": "kar-trans-6", "text": "Report final headcount to coordinator", "time": "09:00", "category": "Transportation" },
+                { "id": "kar-trans-7", "text": "Depart with Yuen Long shuttle", "time": "09:00", "category": "Transportation" }
             ]
         },
         "site-setup": {
