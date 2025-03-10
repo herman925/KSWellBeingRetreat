@@ -1,7 +1,7 @@
 itemid,name,totalquantity,remainingquantity,notes,categoryid,boxid,quantityinbox
 entrance-banner,Main entrance banner,1,1,,outdoor-signs,outdoor-signs-box-1,0
 bus-sign,Bus sign,2,2,,outdoor-signs,outdoor-signs-box-1,0
-hall2-arrows,Directional arrows to Hall 2 (Interview Room),1,1,,outdoor-signs,outdoor-signs-box-1,0
+hall2-arrows,Directional arrows to Room 112 (Interview Room),1,1,,outdoor-signs,outdoor-signs-box-1,0
 reg-desk-dir,Registration desk direction signs,1,1,,outdoor-signs,outdoor-signs-box-1,0
 sign-covers,Sign covers/Paper Folder,100,100,Clear soft folders,outdoor-signs,outdoor-signs-box-1,0
 attendance-list,Attendance list,2,2,,registration-materials,registration-box-1,0
