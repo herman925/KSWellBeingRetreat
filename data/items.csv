@@ -29,14 +29,14 @@ group-markers,Group markers (A & B),2,2,1 per group,group-discussion,group-discu
 participant-sticker,Blank stickers (for interviewee),2,2,1 set (6 stickers) per group,group-discussion,group-discussion-box,0
 discussion-guides,Discussion guide (& interview questions),4,4,2 per group,group-discussion,group-discussion-box,0
 info-sheet,Participant Information Sheet,1,1,For Christine,group-discussion,group-discussion-box,0
-wireless-mic,Wireless microphones,2,2,Check if supplied on site,av-equipment,ayp-box,0
+wireless-mic,Wireless microphones,3,3,1 for spare. Must confirm if supplied on site,av-equipment,ayp-box,0
 laptop,Laptop,2,2,1 for PPT/music 1 for streaming,av-equipment,av-box-1,0
 projector,Projector,1,1,Check if supplied on site,av-equipment,ayp-box,0
 proj-screen,Projection screen,1,1,,av-equipment,ayp-box,0
 hdmi-cables,HDMI cables,2,2,,av-equipment,av-box-1,0
 usbc-cable,USB-C cable,3,3,,av-equipment,av-box-1,0
 power-strips,Power strips,2,2,,av-equipment,av-box-2,0
-tripod,Tripods,4,4,,av-equipment,av-box-2,0
+tripod,Tripods,2,2,,av-equipment,av-box-2,0
 blutack,Blutack for securing signs,1,1,pack,supplies,outdoor-signs-box-1,0
 highlighters,Highlighters,3,3,,supplies,registration-box-2,0
 clipboard,Clipboard,2,2,,supplies,registration-box-2,0
@@ -51,15 +51,15 @@ alcohol-wipes,Alcohol wipes,3,3,boxes,supplies,supplies-box,0
 sanitizer-stations,Hand sanitizer stations,2,2,bottle,supplies,supplies-box-2,0
 face-masks,Face masks,1,1,box,supplies,supplies-box-2,0
 hot-water,Water boiler,3,3,unit,refreshments,ayp-box,0
-cups,Paper cups,40,40,,refreshments,refreshments-box,0
+cups,Paper cups,50,50,,refreshments,refreshments-box,0
 snack-boxes,Snacks,120,120,Around 3-4 items per pax,refreshments,refreshments-box,0
-package-drinks,Packaged drinks,80,80,Around 2 items per pax,refreshments,refreshments-box,0
+package-drinks,Packaged drinks,90,90,Around 2-3 items per pax,refreshments,refreshments-box,0
 teabags,Tea bags assortment,2,2,boxes,refreshments,refreshments-box,0
 coffee,Coffee sachets,1,1,boxes (38 packs),refreshments,refreshments-box,0
-plates,Small plates,50,50,For food/holding tea leaves,refreshments,refreshments-box,0
+plates,Small plates,50,50,For snacks,refreshments,refreshments-box,0
 trashbag,Trash bags,1,1,roll,refreshments,refreshments-box,0
 tablecloth,Single-use table cloth,1,1,pack,refreshments,refreshments-box,0
-staff-badges,Staff badges,9,9,Including Doris and helpers,staff-items,staff-box,0
+staff-badges,Staff badges,8,8,Including Doris and helpers,staff-items,staff-box,0
 yl-pickup-signs,Yuen Long pickup point signs,1,1,For YL pickup point (Logo & station name),transport-materials,yuen-long-shuttle-box,0
 klt-pickup-signs,Kowloon Tong pickup point signs,1,1,For KLT pickup point (Logo & station name),transport-materials,kowloon-tong-shuttle-box,0
 tp-pickup-signs,Shatin pickup point signs,2,2,For ST pickup point (Logo & station name),transport-materials,kowloon-tong-shuttle-box,0
