@@ -213,7 +213,7 @@ async function loadRoles() {
 // Load and process participant data
 async function loadParticipantData() {
     try {
-        const response = await fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vR13cBu2nSz3Aj6QTXaTy6M4yz8nrZ0NWRkfcxABlUUDJ0L-zZUKY9qS1at7mvw4joyh2ihFndmTz2V/pub?gid=1115087104&single=true&output=csv', {
+        const response = await fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vQPxa_um6ooJ5f_H_kQQVcAuyGc-TgSmN1BeT019G-gcGwEQUWztwRHu_Xc_W1LRkj9AZIa-fvplTQm/pub?gid=2081403343&single=true&output=csv', {
             method: 'GET',
             headers: {
                 'Cache-Control': 'no-cache',
@@ -281,18 +281,20 @@ function renderParticipantTable(data) {
 
 // Meal letter mapping
 const mealLetterMap = {
-    '蕃茄牛面脥肉醬長通粉': 'A',
-    '香煎豬柳配蘑茹伴薯角': 'B',
-    '香烤魚柳伴忌廉蔬菜螺絲粉': 'C',
-    '青醬蘑茹長通粉': 'D'
+    '香茄肉醬意粉': 'A',
+    '黑椒雞扒飯': 'B',
+    '香草魚柳飯': 'C',
+    '蘑菇素肉意粉': 'D',
+    '其他': 'E'
 };
 
 // Meal icon mapping
 const mealIconMap = {
     'A': '<i class="fas fa-drumstick-bite"></i>',  // Beef
-    'B': '<i class="fas fa-piggy-bank"></i>',  // Pork
+    'B': '<i class="fas fa-drumstick-bite"></i>',  // Chicken
     'C': '<i class="fas fa-fish"></i>',  // Fish
-    'D': '<i class="fas fa-seedling"></i>'  // Mushroom
+    'D': '<i class="fas fa-seedling"></i>',  // Vegetarian
+    'E': '<i class="fas fa-utensils"></i>'   // Other
 };
 
 // Render meal summary
@@ -342,10 +344,35 @@ function renderTransportSummary(data) {
     const pickupParticipants = {};
     const dropoffParticipants = {};
 
+    // Define the expected pickup locations (without time prefixes)
+    const locationMappings = {
+        '元朗站H出口朗明街 (形點I 外)': '元朗站',
+        '沙田站B出口排頭街 突破青年村穿梭巴士候車處': '沙田站',
+        '九龍塘站E出口教育局九龍塘教育服務中心門外': '九龍塘站',
+        '自行前往': '自行前往'
+    };
+
     data.forEach(participant => {
-        const pickup = participant['去程集合點 (箭咀位置附近停車。實際停車位置視乎路況。)'];
-        const dropoff = participant['回程解散點 (箭咀位置附近停車。實際停車位置視乎路況。)'];
+        const pickupRaw = participant['去程集合點 (箭咀位置附近停車。實際停車位置視乎路況。)'];
+        const dropoffRaw = participant['回程解散點 (箭咀位置附近停車。實際停車位置視乎路況。)'];
         const name = participant['參加者中文全名'];
+        
+        // Normalize pickup point by removing time prefix if present
+        let pickup = pickupRaw;
+        let pickupLocation = '其他';
+        
+        // Find which standard location this pickup point belongs to
+        for (const [location, shortName] of Object.entries(locationMappings)) {
+            if (pickupRaw.includes(location)) {
+                pickupLocation = shortName;
+                pickup = pickupRaw; // Keep the original for display
+                break;
+            }
+        }
+        
+        // Handle dropoff points similarly
+        let dropoff = dropoffRaw;
+        
         // Handle pickup points
         pickupPoints[pickup] = (pickupPoints[pickup] || 0) + 1;
         if (!pickupParticipants[pickup]) {
@@ -422,6 +449,10 @@ function exportShuttleAttendance() {
         
         currentData.forEach(p => {
             const pickup = p['去程集合點 (箭咀位置附近停車。實際停車位置視乎路況。)'];
+            
+            // Skip self-transport participants
+            if (pickup.includes('自行前往')) return;
+            
             if (!pickupLocations[pickup]) {
                 pickupLocations[pickup] = [];
             }
@@ -461,12 +492,25 @@ function exportShuttleAttendance() {
                 { wch: 20 }  // Signature
             ];
             
+            // Extract location name for sheet name
+            let sheetName = location;
+            
+            // If location has time prefix, extract the main location
+            if (location.includes(' - ')) {
+                sheetName = location.split(' - ')[1];
+            }
+            
+            // Further clean up sheet name for station locations
+            if (sheetName.includes('站')) {
+                sheetName = sheetName.split('站')[0] + '站';
+            }
+            
             // Clean sheet name
-            const safeLocation = location
-                .replace(/[\\\/\[\]\:\*\?]/g, ' ') // Replace invalid chars with space
-                .replace(/\s+/g, ' ')              // Replace multiple spaces with single space
-                .trim()                            // Remove leading/trailing spaces
-                .substring(0, 31);                 // Excel sheet name length limit
+            const safeLocation = sheetName
+                .replace(/[\\\/:*?]/g, ' ') // Replace invalid chars with space
+                .replace(/\s+/g, ' ')         // Replace multiple spaces with single space
+                .trim()                       // Remove leading/trailing spaces
+                .substring(0, 31);            // Excel sheet name length limit
             
             XLSX.utils.book_append_sheet(wb, ws, safeLocation);
         });
