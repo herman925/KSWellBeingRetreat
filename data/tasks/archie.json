@@ -11,7 +11,12 @@
                 { "id": "arc-pre-4", "text": "Transportation - Estimate passenger count", "category": "Transportation" }
             ],
             "Jan 3 Afternoon": [
-                { "id": "arc-pre-5", "text": "Verify Technical Equipment Packing", "category": "Material Check" }
+                { "id": "arc-pre-5", "text": "Verify Technical Equipment Packing", "category": "Material Check" },
+                { "id": "arc-pre-6", "text": "Pack Health & Safety Materials", "category": "Material Sorting", "tag": "Packing" },
+                { "id": "arc-pre-7", "text": "Test Walkie-talkies", "category": "Equipment Testing", "tag": "Comms Check" },
+                { "id": "arc-pre-8", "text": "Check battery levels", "category": "Equipment Testing", "tag": "Comms Check" },
+                { "id": "arc-pre-9", "text": "Test range in office", "category": "Equipment Testing", "tag": "Comms Check" },
+                { "id": "arc-pre-10", "text": "Set channels", "category": "Equipment Testing", "tag": "Comms Check" }
             ]
         }
     }
