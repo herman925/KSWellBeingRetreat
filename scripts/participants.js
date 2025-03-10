@@ -58,24 +58,57 @@ function exportData(format) {
             break;
             
         case 'meals':
-            const mealCounts = {};
-            const mealParticipants = {};
+            // Create a flat list of all participants with their preference status
+            data = [];
             currentData.forEach(p => {
-                const meal = p['午餐'];
-                mealCounts[meal] = (mealCounts[meal] || 0) + 1;
-                if (!mealParticipants[meal]) mealParticipants[meal] = [];
-                mealParticipants[meal].push(p['參加者中文全名']);
+                const meal = p['Meal Preferences'];
+                const hasPreference = meal && meal.trim() ? 'Y' : 'N';
+                data.push({
+                    'Preference': hasPreference,
+                    'Participant': p['參加者中文全名'],
+                    'School': p['參加者所屬學校'],
+                    'Food Preference': meal && meal.trim() ? meal.trim() : ''
+                });
             });
             
-            data = Object.entries(mealParticipants)
-                .sort((a, b) => (mealLetterMap[a[0]] || '').localeCompare(mealLetterMap[b[0]] || ''))
-                .map(([meal, names]) => ({
-                    'Meal Letter': mealLetterMap[meal] || '',
-                    'Meal Type': meal,
-                    'Count': mealCounts[meal],
-                    'Participants': names.join(', ')
-                }));
             filename = 'meal_preferences';
+            break;
+
+        case 'workshop':
+            // Create a flat list of all participants with their workshop attendance
+            data = [];
+            currentData.forEach(p => {
+                // Check both possible column names for workshop attendance
+                const attendance = (p['Workshop Attendance'] === 'Y' || p['Attended Workshop'] === 'Y') ? 'Y' : 'N';
+                data.push({
+                    'Attendance': attendance,
+                    'Participant': p['參加者中文全名'],
+                    'School': p['參加者所屬學校']
+                });
+            });
+            
+            filename = 'workshop_attendance';
+            break;
+
+        case 'round':
+            // Create a flat list of all participants with their round attendance
+            data = [];
+            currentData.forEach(p => {
+                let roundStatus = 'Never Attended';
+                if (p['Round Attended'] === '1') {
+                    roundStatus = 'Round 1';
+                } else if (p['Round Attended'] === '2') {
+                    roundStatus = 'Round 2';
+                }
+                
+                data.push({
+                    'Round': roundStatus,
+                    'Participant': p['參加者中文全名'],
+                    'School': p['參加者所屬學校']
+                });
+            });
+            
+            filename = 'round_attendance';
             break;
             
         case 'transport':
@@ -178,6 +211,30 @@ function getFormattedDate() {
 document.addEventListener('DOMContentLoaded', function() {
     loadRoles();
     loadParticipantData();
+    
+    // Add CSS for the meal preference styling
+    const style = document.createElement('style');
+    style.textContent = `
+        .name-with-preference {
+            position: relative;
+            border-bottom: 1px dashed #666;
+        }
+        
+        .has-preference {
+            display: flex;
+            align-items: center;
+        }
+        
+        .has-preference::after {
+            content: '\f129';
+            font-family: 'Font Awesome\\ 5 Free';
+            font-weight: 900;
+            margin-left: 8px;
+            font-size: 0.8em;
+            color: #666;
+        }
+    `;
+    document.head.appendChild(style);
 });
 
 // Load roles for the selector
@@ -233,6 +290,8 @@ async function loadParticipantData() {
         renderParticipantTable(currentData);
         updateStatistics(currentData);
         renderMealSummary(currentData);
+        renderWorkshopSummary(currentData);
+        renderRoundSummary(currentData);
         renderTransportSummary(currentData);
     } catch (error) {
         console.error('Error loading participant data:', error);
@@ -262,21 +321,60 @@ function parseCSV(csvText) {
 
 // Render participant table
 function renderParticipantTable(data) {
-    const tbody = document.getElementById('participantTableBody');
-    tbody.innerHTML = '';
-
+    const tableContainer = document.getElementById('participantTable');
+    tableContainer.innerHTML = '';
+    
+    if (data.length === 0) {
+        tableContainer.innerHTML = '<p class="no-data">No participants found.</p>';
+        return;
+    }
+    
+    const table = document.createElement('table');
+    table.className = 'data-table';
+    
+    // Create table header
+    const thead = document.createElement('thead');
+    const headerRow = document.createElement('tr');
+    
+    const headers = [
+        { text: 'Registration Time', width: '20%' },
+        { text: 'Name', width: '20%' },
+        { text: 'School', width: '20%' },
+        { text: 'Pickup Point', width: '20%' },
+        { text: 'Dropoff Point', width: '20%' }
+    ];
+    
+    headers.forEach(header => {
+        const th = document.createElement('th');
+        th.textContent = header.text;
+        th.style.width = header.width;
+        headerRow.appendChild(th);
+    });
+    
+    thead.appendChild(headerRow);
+    table.appendChild(thead);
+    
+    const tbody = document.createElement('tbody');
+    
     data.forEach(participant => {
         const tr = document.createElement('tr');
+        
+        // Format timestamp if it exists
+        let timestamp = participant['Timestamp'] || '';
+        
         tr.innerHTML = `
-            <td>${participant['Timestamp']}</td>
+            <td>${timestamp}</td>
             <td>${participant['參加者中文全名']}</td>
             <td>${participant['參加者所屬學校']}</td>
-            <td>${participant['參加者手提電話']}</td>
-            <td>${participant['去程集合點 (箭咀位置附近停車。實際停車位置視乎路況。)']}</td>
-            <td>${participant['回程解散點 (箭咀位置附近停車。實際停車位置視乎路況。)']}</td>
+            <td>${participant['去程集合點 (箭咀位置附近停車。實際停車位置視乎路況。)'] || ''}</td>
+            <td>${participant['回程解散點 (箭咀位置附近停車。實際停車位置視乎路況。)'] || ''}</td>
         `;
+        
         tbody.appendChild(tr);
     });
+    
+    table.appendChild(tbody);
+    tableContainer.appendChild(table);
 }
 
 // Meal letter mapping
@@ -299,38 +397,166 @@ const mealIconMap = {
 
 // Render meal summary
 function renderMealSummary(data) {
-    const mealCounts = {};
-    const mealParticipants = {};
+    const mealCounts = {
+        'With Preference': 0,
+        'No Preference': 0
+    };
+    const mealParticipants = {
+        'With Preference': [],
+        'No Preference': []
+    };
+    const mealPreferenceDetails = {}; // Store the actual preference text for each participant
     
     data.forEach(participant => {
-        const meal = participant['午餐'];
-        mealCounts[meal] = (mealCounts[meal] || 0) + 1;
+        const meal = participant['Meal Preferences'];
+        const name = participant['參加者中文全名'];
         
-        if (!mealParticipants[meal]) {
-            mealParticipants[meal] = [];
+        if (meal && meal.trim()) {
+            mealCounts['With Preference']++;
+            mealParticipants['With Preference'].push(name);
+            mealPreferenceDetails[name] = meal.trim(); // Store the preference text
+        } else {
+            mealCounts['No Preference']++;
+            mealParticipants['No Preference'].push(name);
         }
-        mealParticipants[meal].push(participant['參加者中文全名']);
     });
 
     const summaryContainer = document.getElementById('mealSummary');
     summaryContainer.innerHTML = '';
     
-    // Sort meals by their letter
-    const sortedMeals = Object.entries(mealCounts).sort((a, b) => {
-        const letterA = mealLetterMap[a[0]] || '';
-        const letterB = mealLetterMap[b[0]] || '';
-        return letterA.localeCompare(letterB);
-    });
-    
-    sortedMeals.forEach(([meal, count]) => {
-        const letter = mealLetterMap[meal] || '';
-        const icon = mealIconMap[letter] || '';
+    // Create cards for meal preferences
+    Object.entries(mealCounts).forEach(([preference, count]) => {
+        const icon = preference === 'With Preference' ? 
+            '<i class="fas fa-utensils"></i>' : 
+            '<i class="fas fa-minus-circle"></i>';
+        
         const card = document.createElement('div');
         card.className = 'summary-card';
-        card.onclick = () => showPopup(`Meal ${letter}: ${meal}`, mealParticipants[meal]);
+        card.onclick = () => showMealPreferencePopup(`Meal Preference: ${preference}`, mealParticipants[preference], preference === 'With Preference' ? mealPreferenceDetails : null);
         card.innerHTML = `
-            <h3 class="meal-letter">${icon} Meal ${letter}</h3>
-            <div class="meal-name">${meal}</div>
+            <h3 class="meal-preference">${icon} ${preference}</h3>
+            <div class="value">${count}</div>
+        `;
+        summaryContainer.appendChild(card);
+    });
+}
+
+// Show popup with meal preference details
+function showMealPreferencePopup(title, names, preferenceDetails) {
+    const popupOverlay = document.getElementById('popupOverlay');
+    const popupTitle = document.getElementById('popupTitle');
+    const popupList = document.getElementById('popupList');
+    
+    popupTitle.textContent = title;
+    popupList.innerHTML = '';
+    
+    names.forEach(name => {
+        const li = document.createElement('li');
+        li.className = 'name-tag';
+        
+        if (preferenceDetails && preferenceDetails[name]) {
+            // Create a clickable name that shows the preference in a tooltip
+            li.innerHTML = `<span class="name-with-preference" title="${preferenceDetails[name]}">${name}</span>`;
+            
+            // Add click handler to show preference details
+            li.addEventListener('click', function() {
+                alert(`${name}'s Meal Preference: ${preferenceDetails[name]}`);
+            });
+            
+            // Add a visual indicator that this is clickable
+            li.style.cursor = 'pointer';
+            li.classList.add('has-preference');
+        } else {
+            li.textContent = name;
+        }
+        
+        popupList.appendChild(li);
+    });
+    
+    popupOverlay.classList.add('active');
+}
+
+// Render workshop attendance summary
+function renderWorkshopSummary(data) {
+    const workshopCounts = {
+        'Y': 0,
+        'N': 0
+    };
+    const workshopParticipants = {
+        'Y': [],
+        'N': []
+    };
+    
+    data.forEach(participant => {
+        // Check both possible column names for workshop attendance
+        const attendance = (participant['Workshop Attendance'] === 'Y' || participant['Attended Workshop'] === 'Y') ? 'Y' : 'N';
+        workshopCounts[attendance]++;
+        workshopParticipants[attendance].push(participant['參加者中文全名']);
+    });
+
+    const summaryContainer = document.getElementById('workshopSummary');
+    summaryContainer.innerHTML = '';
+    
+    // Create cards for workshop attendance
+    Object.entries(workshopCounts).forEach(([status, count]) => {
+        const displayStatus = status === 'Y' ? 'Yes' : 'No';
+        const icon = status === 'Y' ? 
+            '<i class="fas fa-check-circle"></i>' : 
+            '<i class="fas fa-times-circle"></i>';
+        
+        const card = document.createElement('div');
+        card.className = 'summary-card';
+        card.onclick = () => showPopup(`Workshop Attendance: ${displayStatus}`, workshopParticipants[status]);
+        card.innerHTML = `
+            <h3 class="attendance-status">${icon} ${displayStatus}</h3>
+            <div class="value">${count}</div>
+        `;
+        summaryContainer.appendChild(card);
+    });
+}
+
+// Render workshop round attendance summary
+function renderRoundSummary(data) {
+    const roundCounts = {
+        '1': 0,
+        '2': 0,
+        'nil': 0
+    };
+    const roundParticipants = {
+        '1': [],
+        '2': [],
+        'nil': []
+    };
+    
+    data.forEach(participant => {
+        const round = (participant['Round Attended'] || '').trim();
+        if (round === '1') {
+            roundCounts['1']++;
+            roundParticipants['1'].push(participant['參加者中文全名']);
+        } else if (round === '2') {
+            roundCounts['2']++;
+            roundParticipants['2'].push(participant['參加者中文全名']);
+        } else {
+            roundCounts['nil']++;
+            roundParticipants['nil'].push(participant['參加者中文全名']);
+        }
+    });
+
+    const summaryContainer = document.getElementById('roundSummary');
+    summaryContainer.innerHTML = '';
+    
+    // Create cards for round attendance
+    Object.entries(roundCounts).forEach(([round, count]) => {
+        const displayRound = round === 'nil' ? 'Never Attended' : `Round ${round}`;
+        const icon = round === 'nil' ? 
+            '<i class="fas fa-calendar-times"></i>' : 
+            '<i class="fas fa-calendar-check"></i>';
+        
+        const card = document.createElement('div');
+        card.className = 'summary-card';
+        card.onclick = () => showPopup(`Workshop Round: ${displayRound}`, roundParticipants[round]);
+        card.innerHTML = `
+            <h3 class="round-info">${icon} ${displayRound}</h3>
             <div class="value">${count}</div>
         `;
         summaryContainer.appendChild(card);
@@ -352,10 +578,10 @@ function renderTransportSummary(data) {
         '自行前往': '自行前往'
     };
 
-    data.forEach(participant => {
-        const pickupRaw = participant['去程集合點 (箭咀位置附近停車。實際停車位置視乎路況。)'];
-        const dropoffRaw = participant['回程解散點 (箭咀位置附近停車。實際停車位置視乎路況。)'];
-        const name = participant['參加者中文全名'];
+    data.forEach(p => {
+        const pickupRaw = p['去程集合點 (箭咀位置附近停車。實際停車位置視乎路況。)'];
+        const dropoffRaw = p['回程解散點 (箭咀位置附近停車。實際停車位置視乎路況。)'];
+        const name = p['參加者中文全名'];
         
         // Normalize pickup point by removing time prefix if present
         let pickup = pickupRaw;

@@ -123,6 +123,34 @@
 
             <div class="info-card">
                 <div class="section-header">
+                    <h2><i class="fas fa-chalkboard-teacher"></i> Workshop Attendance</h2>
+                    <div class="section-controls">
+                        <button class="control-button export-button" onclick="showExportMenu('workshop', this)">
+                            <i class="fas fa-download"></i> Export
+                        </button>
+                    </div>
+                </div>
+                <div id="workshopSummary" class="summary-grid">
+                    <!-- Workshop attendance summary will be loaded here -->
+                </div>
+            </div>
+
+            <div class="info-card">
+                <div class="section-header">
+                    <h2><i class="fas fa-calendar-check"></i> Workshop Round Attendance</h2>
+                    <div class="section-controls">
+                        <button class="control-button export-button" onclick="showExportMenu('round', this)">
+                            <i class="fas fa-download"></i> Export
+                        </button>
+                    </div>
+                </div>
+                <div id="roundSummary" class="summary-grid">
+                    <!-- Workshop round attendance summary will be loaded here -->
+                </div>
+            </div>
+
+            <div class="info-card">
+                <div class="section-header">
                     <h2><i class="fas fa-bus"></i> Transport Summary</h2>
                     <div class="section-controls">
                         <button class="control-button export-button" onclick="showExportMenu('transport', this)">
