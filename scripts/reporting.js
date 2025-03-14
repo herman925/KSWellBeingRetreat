@@ -28,30 +28,27 @@ async function loadRoles() {
     });
 }
 
-// Meal letter mapping
-const mealLetterMap = {
-    '蕃茄牛面脥肉醬長通粉': 'A',
-    '香煎豬柳配蘑茹伴薯角': 'B',
-    '香烤魚柳伴忌廉蔬菜螺絲粉': 'C',
-    '青醬蘑茹長通粉': 'D'
-};
-
 // Export functions
 async function exportParticipants(format) {
     try {
-        const response = await fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vR13cBu2nSz3Aj6QTXaTy6M4yz8nrZ0NWRkfcxABlUUDJ0L-zZUKY9qS1at7mvw4joyh2ihFndmTz2V/pub?gid=1115087104&single=true&output=csv');
+        const response = await fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vQPxa_um6ooJ5f_H_kQQVcAuyGc-TgSmN1BeT019G-gcGwEQUWztwRHu_Xc_W1LRkj9AZIa-fvplTQm/pub?gid=2081403343&single=true&output=csv');
         const text = await response.text();
         const data = parseCSV(text);
 
-        // Add meal letter to each participant's data
+        // Enrich data with relevant fields for better reporting
         const enrichedData = data.map(p => ({
             ...p,
-            'Meal Letter': mealLetterMap[p['午餐']] || '',
-            ...Object.fromEntries(
-                Object.entries(p).map(([key, value]) => 
-                    key === '午餐' ? ['Meal Choice', value] : [key, value]
-                )
-            )
+            'Name': p['參加者中文全名'] || '',
+            'School': p['參加者所屬學校'] || '',
+            'Group': p['Group'] || '',
+            'Contact': p['參加者手提電話'] || '',
+            'Pickup Point': p['去程集合點 (箭咀位置附近停車。實際停車位置視乎路況。)'] || '',
+            'Dropoff Point': p['回程解散點 (箭咀位置附近停車。實際停車位置視乎路況。)'] || '',
+            'Meal Preferences': p['Meal Preferences'] || '',
+            'Pretest Status': p['Pretest Status'] || '',
+            'Attended Workshop': p['Attended Workshop'] || '',
+            'Round Attended': p['Round Attended'] || '',
+            'Remarks': p['Remark'] || ''
         }));
 
         // Sort by timestamp in reverse chronological order
@@ -83,9 +80,9 @@ async function exportAttendanceList() {
 
         const wb = XLSX.utils.book_new();
         
-        // Create attendance worksheet with meal letter
+        // Create attendance worksheet
         const wsData = [
-            ['Attendance', 'Name', 'School', 'Contact', 'Meal Letter', 'Meal Choice', 'Transport Choice']
+            ['Attendance', 'Name', 'School', 'Group', 'Contact', 'Pickup Point', 'Meal Preferences', 'Pretest Status']
         ];
 
         // Sort data by School first, then by Name
@@ -103,10 +100,11 @@ async function exportAttendanceList() {
                 '☐',
                 p['參加者中文全名'],
                 p['參加者所屬學校'],
+                p['Group'],
                 p['參加者手提電話'],
-                mealLetterMap[p['午餐']] || '',
-                p['午餐'],
-                p['去程集合點 (箭咀位置附近停車。實際停車位置視乎路況。)']
+                p['去程集合點 (箭咀位置附近停車。實際停車位置視乎路況。)'],
+                p['Meal Preferences'],
+                p['Pretest Status']
             ]);
         });
 
@@ -117,10 +115,11 @@ async function exportAttendanceList() {
             { wch: 5 },  // Attendance
             { wch: 25 }, // Name
             { wch: 35 }, // School
+            { wch: 10 }, // Group
             { wch: 15 }, // Contact
-            { wch: 12 }, // Meal Letter
-            { wch: 30 }, // Meal Choice
-            { wch: 35 }  // Transport
+            { wch: 35 }, // Pickup Point
+            { wch: 25 }, // Meal Preferences
+            { wch: 15 }  // Pretest Status
         ];
 
         XLSX.utils.book_append_sheet(wb, ws, 'Attendance');
@@ -133,7 +132,7 @@ async function exportAttendanceList() {
 
 async function exportTasks(format) {
     try {
-        const roles = ['hwk', 'cat', 'may', 'herman', 'christine', 'cathy', 'karindi', 'bonnie'];
+        const roles = ['hwk', 'cat', 'may', 'herman', 'christine', 'alvin', 'archie', 'cathy', 'karindi', 'bonnie'];
         const wb = XLSX.utils.book_new();
         let hasData = false;
 
@@ -218,18 +217,19 @@ async function exportTasks(format) {
 
 async function exportSchedule(format) {
     try {
-        // Define the schedule data structure
+        // Define the schedule data structure based on schedule.html
         const scheduleData = [
             ['Time', 'Activity', 'Focused Group'],
             ['10:00~10:15 (15min)', 'Registration', ''],
-            ['10:15~10:30 (15min)', 'Welcome & Introduction (15)', ''],
-            ['10:30~11:10 (40min)', 'Mindfulness Session\n1. Guiding breathing (10)\n2. Body scan (15)\n3. Introspection/intention setting (15)', 'Group 1'],
-            ['11:10~11:50 (40min)', 'Mindful Jar Creation\n→ Creation (30)\n→ Sharing (10)', 'Group 2'],
-            ['11:50~12:30 (40min)', 'Tea Mindfulness\n→ Mindful tea tasting (10)\n→ Tea bag making (20)\n→ Reflection (10)', 'Group 3'],
-            ['12:30~14:00 (90min)', 'Mindful Lunch*', ''],
-            ['14:00~14:10 (10min)', 'Post-lunch Centering (10)', 'Group 4'],
-            ['14:10~15:20 (70min)', 'Mindful Calligraphy\n1. Practice (50)\n2. Gallery walk (10)', 'Group 5'],
-            ['15:20~15:45 (25min)', 'Closing Circle (25)\n1. Centering practice (10)\n2. Personal reflections (10)\n3. Gentle closure (5)', '']
+            ['10:15~10:30 (15min)', 'Welcome & Introduction', ''],
+            ['10:30~11:00 (30min)', 'Mindful Walking (Nature Appreciation)\n→ Contingency if raining: Morning Practices\n→ Guided breathing (10 min)\n→ Body scan (15 min)\n→ Introspection/intention setting (5 min)', ''],
+            ['11:00~12:30 (90min)', 'Mindful Calligraphy\n→ Practice (75 min)\n→ Gallery walk (15 min)', ''],
+            ['12:30~13:00 (30min)', 'Mindful Meditation Journey', 'Group 1 (40)'],
+            ['13:00~13:45 (45min)', 'Mindful Lunch', ''],
+            ['13:45~13:55 (10min)', 'Post-lunch Centering', ''],
+            ['13:55~14:55 (60min)', 'Tea Mindfulness\n→ Mindful tea tasting (20 min)\n→ Tea bag making (30 min)\n→ Reflection (10 min)', ''],
+            ['14:55~15:30 (35min)', 'Sensory Awareness Experience\n→ Sound immersion (20 min)\n→ Mindful chocolate tasting (10 min)\n→ Reflection (5 min)', 'Group 2 (40)'],
+            ['15:30~16:00 (30min)', 'Closing Circle\n→ Centering practice (15 min)\n→ Personal reflections (5 min)\n→ Gentle closure (10 min)', '']
         ];
 
         if (format === 'xlsx') {
