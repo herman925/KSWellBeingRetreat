@@ -35,9 +35,9 @@ async function exportParticipants(format) {
         const text = await response.text();
         const data = parseCSV(text);
 
-        // Enrich data with relevant fields for better reporting
-        const enrichedData = data.map(p => ({
-            ...p,
+        // Create cleaned data with only the desired fields in specific order
+        const cleanedData = data.map(p => ({
+            'Timestamp': p['Timestamp'] || '',
             'Name': p['參加者中文全名'] || '',
             'School': p['參加者所屬學校'] || '',
             'Group': p['Group'] || '',
@@ -52,7 +52,7 @@ async function exportParticipants(format) {
         }));
 
         // Sort by timestamp in reverse chronological order
-        enrichedData.sort((a, b) => {
+        cleanedData.sort((a, b) => {
             const timeA = new Date(a['Timestamp']);
             const timeB = new Date(b['Timestamp']);
             return timeB - timeA; // Reverse chronological order
@@ -60,11 +60,11 @@ async function exportParticipants(format) {
 
         if (format === 'xlsx') {
             const wb = XLSX.utils.book_new();
-            const ws = XLSX.utils.json_to_sheet(enrichedData);
+            const ws = XLSX.utils.json_to_sheet(cleanedData);
             XLSX.utils.book_append_sheet(wb, ws, 'Participants');
             XLSX.writeFile(wb, `participants_${getFormattedDate()}.xlsx`);
         } else {
-            exportToCSV(enrichedData, 'participants');
+            exportToCSV(cleanedData, 'participants');
         }
     } catch (error) {
         console.error('Export failed:', error);
@@ -74,7 +74,7 @@ async function exportParticipants(format) {
 
 async function exportAttendanceList() {
     try {
-        const response = await fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vR13cBu2nSz3Aj6QTXaTy6M4yz8nrZ0NWRkfcxABlUUDJ0L-zZUKY9qS1at7mvw4joyh2ihFndmTz2V/pub?gid=1115087104&single=true&output=csv');
+        const response = await fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vQPxa_um6ooJ5f_H_kQQVcAuyGc-TgSmN1BeT019G-gcGwEQUWztwRHu_Xc_W1LRkj9AZIa-fvplTQm/pub?gid=2081403343&single=true&output=csv');
         const text = await response.text();
         const data = parseCSV(text);
 
@@ -82,7 +82,7 @@ async function exportAttendanceList() {
         
         // Create attendance worksheet
         const wsData = [
-            ['Attendance', 'Name', 'School', 'Group', 'Contact', 'Pickup Point', 'Meal Preferences', 'Pretest Status']
+            ['Attendance', 'Name', 'School', 'Group', 'Contact', 'Pickup Point', 'Dropoff Point', 'Meal Preferences', 'Pretest Status']
         ];
 
         // Sort data by School first, then by Name
@@ -103,6 +103,7 @@ async function exportAttendanceList() {
                 p['Group'],
                 p['參加者手提電話'],
                 p['去程集合點 (箭咀位置附近停車。實際停車位置視乎路況。)'],
+                p['回程解散點 (箭咀位置附近停車。實際停車位置視乎路況。)'],
                 p['Meal Preferences'],
                 p['Pretest Status']
             ]);
