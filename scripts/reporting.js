@@ -136,6 +136,10 @@ async function exportTasks(format) {
         const roles = ['hwk', 'cat', 'may', 'herman', 'christine', 'alvin', 'archie', 'cathy', 'karindi', 'bonnie'];
         const wb = XLSX.utils.book_new();
         let hasData = false;
+        
+        // Array to collect all tasks for combined view
+        const allTaskRows = [];
+        const roleNames = {};
 
         for (const role of roles) {
             try {
@@ -148,6 +152,9 @@ async function exportTasks(format) {
                 const data = await response.json();
                 if (!data.tasks) continue;
                 
+                // Store role name for reference
+                roleNames[role] = data.name || role;
+                
                 // Create worksheet for each role
                 const taskRows = [];
                 
@@ -157,12 +164,20 @@ async function exportTasks(format) {
                     if (Array.isArray(categoryTasks)) {
                         // Direct array of tasks
                         categoryTasks.forEach(task => {
-                            taskRows.push({
+                            const taskRow = {
                                 Category: category,
                                 TimeSlot: '',  // Empty for direct tasks
                                 Time: task.time || '',
                                 Task: task.text,
                                 Tag: task.tag || ''
+                            };
+                            taskRows.push(taskRow);
+                            
+                            // Add to combined tasks with role information
+                            allTaskRows.push({
+                                ...taskRow,
+                                Role: data.name || role,
+                                RoleId: role // For sorting by original role order
                             });
                         });
                     } else if (typeof categoryTasks === 'object') {
@@ -170,12 +185,20 @@ async function exportTasks(format) {
                         Object.entries(categoryTasks).forEach(([timeSlot, tasks]) => {
                             if (Array.isArray(tasks)) {
                                 tasks.forEach(task => {
-                                    taskRows.push({
+                                    const taskRow = {
                                         Category: category,
                                         TimeSlot: timeSlot,
                                         Time: task.time || '',
                                         Task: task.text,
                                         Tag: task.tag || ''
+                                    };
+                                    taskRows.push(taskRow);
+                                    
+                                    // Add to combined tasks with role information
+                                    allTaskRows.push({
+                                        ...taskRow,
+                                        Role: data.name || role,
+                                        RoleId: role // For sorting by original role order
                                     });
                                 });
                             }
@@ -203,6 +226,65 @@ async function exportTasks(format) {
             } catch (error) {
                 console.warn(`Error loading tasks for ${role}:`, error);
             }
+        }
+
+        // Create combined tasks worksheet if we have data
+        if (allTaskRows.length > 0) {
+            // Function to convert time to sortable format
+            function convertTimeToSortable(timeStr) {
+                if (!timeStr) return '99:99'; // Default to end of day if no time
+                
+                // Handle various time formats
+                const timeMatch = timeStr.match(/(\d+):?(\d*)\s*(am|pm)?/i);
+                if (!timeMatch) return '99:99';
+                
+                let hours = parseInt(timeMatch[1]) || 0;
+                const minutes = parseInt(timeMatch[2] || '0') || 0;
+                const ampm = timeMatch[3]?.toLowerCase();
+                
+                // Convert to 24-hour format
+                if (ampm === 'pm' && hours < 12) hours += 12;
+                if (ampm === 'am' && hours === 12) hours = 0;
+                
+                // Format as sortable string
+                return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`;
+            }
+            
+            // Sort combined tasks by time first, then by role order
+            allTaskRows.sort((a, b) => {
+                const timeA = convertTimeToSortable(a.Time);
+                const timeB = convertTimeToSortable(b.Time);
+                
+                if (timeA !== timeB) {
+                    return timeA.localeCompare(timeB);
+                }
+                
+                // If times are equal, sort by role order in the roles array
+                return roles.indexOf(a.RoleId) - roles.indexOf(b.RoleId);
+            });
+            
+            // Remove the RoleId field which was only used for sorting
+            const displayRows = allTaskRows.map(row => {
+                const { RoleId, ...rest } = row;
+                return rest;
+            });
+            
+            // Create the combined worksheet
+            const combinedWs = XLSX.utils.json_to_sheet(displayRows);
+            
+            // Set column widths
+            combinedWs['!cols'] = [
+                { wch: 15 }, // Category
+                { wch: 20 }, // TimeSlot
+                { wch: 15 }, // Time
+                { wch: 50 }, // Task
+                { wch: 15 }, // Tag
+                { wch: 20 }  // Role
+            ];
+            
+            // Add the combined worksheet as first sheet
+            XLSX.utils.book_append_sheet(wb, combinedWs, 'All Tasks', true);
+            hasData = true;
         }
 
         if (!hasData) {

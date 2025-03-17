@@ -4,55 +4,40 @@
     "title": "Core Team",
     "tasks": {
         "pre-event": {
-            "Jan 3 Morning": [
+            "Mar 21 Morning": [
                 { "id": "cat-pre-1", "text": "Review program materials", "category": "Program", "tag": "Preparation" },
                 { "id": "cat-pre-2", "text": "Check activity supplies", "category": "Materials", "tag": "Preparation" }
             ]
         },
         "transport-arrival": {
-            "Jan 4 Morning - Kowloon Tong Stop": [
-                { "id": "cat-trans-1", "text": "Arrive at Kowloon Tong pickup point", "time": "08:30", "category": "Transportation" },
-                { "id": "cat-trans-2", "text": "Place signage at Kowloon Tong shuttle", "time": "08:35", "category": "Transportation" },
-                { "id": "cat-trans-3", "text": "Guide Kowloon Tong participants to shuttle", "time": "08:35-08:40", "category": "Transportation" },
-                { "id": "cat-trans-4", "text": "Mark Kowloon Tong attendance on passenger list", "time": "08:40", "category": "Transportation" },
-                { "id": "cat-trans-5", "text": "Take photo of Kowloon Tong passenger list", "time": "08:45", "category": "Transportation" },
-                { "id": "cat-trans-6", "text": "Report Kowloon Tong headcount to coordinator", "time": "08:45", "category": "Transportation" },
-                { "id": "cat-trans-7", "text": "Depart from Kowloon Tong", "time": "08:50", "category": "Transportation" }
-            ],
-            "Jan 4 Morning - Tai Po Stop": [
-                { "id": "cat-trans-8", "text": "Arrive at Tai Po pickup point", "time": "09:20", "category": "Transportation" },
-                { "id": "cat-trans-9", "text": "Place signage at Tai Po pickup point", "time": "09:20", "category": "Transportation" },
-                { "id": "cat-trans-10", "text": "Guide Tai Po participants to shuttle", "time": "09:20-09:22", "category": "Transportation" },
-                { "id": "cat-trans-11", "text": "Mark Tai Po attendance on passenger list", "time": "09:23", "category": "Transportation" },
-                { "id": "cat-trans-12", "text": "Take photo of final passenger list", "time": "09:24", "category": "Transportation" },
-                { "id": "cat-trans-13", "text": "Report final headcount to coordinator", "time": "09:25", "category": "Transportation" },
-                { "id": "cat-trans-14", "text": "Depart from Tai Po", "time": "09:25", "category": "Transportation" }
+            "Mar 22 Morning": [
+                { "id": "cat-trans-1", "text": "Arrive at venue", "time": "09:00", "category": "Transport", "tag": "Self-Transport" }
             ]
         },
         "site-setup": {
-            "Jan 4 Morning": [
-                { "id": "cat-site-1", "text": "Activity area setup", "category": "Setup", "tag": "Activities" },
-                { "id": "cat-site-2", "text": "Materials distribution", "category": "Setup", "tag": "Materials" }
+            "Mar 22 Morning": [
+                { "id": "cat-site-1", "text": "Set up interview room", "category": "Setup", "tag": "Interview" },
+                { "id": "cat-site-2", "text": "Check room equipment", "category": "Setup", "tag": "Equipment" },
+                { "id": "cat-site-3", "text": "Ready interview room materials", "category": "Setup", "tag": "Interview" }
             ]
         },
         "event-support": {
             "Morning Session": [
-                { "id": "cat-evt-1", "text": "Lead registration desk", "time": "9:45-10:15", "category": "Support", "tag": "Registration" },
+                { "id": "cat-evt-1", "text": "Lead registration desk", "time": "9:50-10:15", "category": "Support", "tag": "Registration" },
                 { "id": "cat-evt-2", "text": "Handle late registrations", "time": "10:15-10:30", "category": "Support", "tag": "Registration" },
-                { "id": "cat-evt-3", "text": "Administrative support", "time": "10:30-11:10", "category": "Support", "tag": "Admin" },
-                { "id": "cat-evt-4", "text": "Document activities", "time": "11:10-11:50", "category": "Documentation", "tag": "Records" },
-                { "id": "cat-evt-5", "text": "Administrative support", "time": "11:50-12:30", "category": "Support", "tag": "Admin" }
+                { "id": "cat-evt-3", "text": "Invite teachers for interview", "time": "12:20-12:25", "category": "Support", "tag": "Registration" },
+                { "id": "cat-evt-4", "text": "Support interview room", "time": "12:30-13:00", "category": "Support", "tag": "Admin" },
+                { "id": "cat-evt-5", "text": "Document activities", "time": "12:30-13:00", "category": "Documentation", "tag": "Records" }
             ],
             "Lunch Break": [
                 { "id": "cat-evt-6", "text": "Check meal options", "time": "12:30-13:45", "category": "Support", "tag": "Meals" }
             ],
             "Afternoon Session": [
-                { "id": "cat-evt-7", "text": "Support room transitions", "time": "13:45-14:00", "category": "Support", "tag": "Coordination" },
-                { "id": "cat-evt-8", "text": "Document activities", "time": "14:00-14:40", "category": "Documentation", "tag": "Records" },
-                { "id": "cat-evt-9", "text": "Administrative support", "time": "14:40-15:20", "category": "Support", "tag": "Admin" },
-                { "id": "cat-evt-10", "text": "Pack up registration materials", "time": "15:20-15:45", "category": "Cleanup", "tag": "Registration" },
-                { "id": "cat-evt-11", "text": "Coordinate bus departures", "time": "15:45-16:00", "category": "Support", "tag": "Transport" },
-                { "id": "cat-evt-12", "text": "Complete materials inventory", "time": "16:00-16:30", "category": "Documentation", "tag": "Materials" }
+                { "id": "cat-evt-7", "text": "Invite teachers for interview", "time": "14:50-14:55", "category": "Support", "tag": "Registration" },
+                { "id": "cat-evt-8", "text": "Support interview room", "time": "14:55-15:30", "category": "Support", "tag": "Admin" },
+                { "id": "cat-evt-9", "text": "Pack up registration materials", "time": "15:20-15:45", "category": "Cleanup", "tag": "Registration" },
+                { "id": "cat-evt-10", "text": "Coordinate bus departures", "time": "15:45-16:00", "category": "Support", "tag": "Transport" },
+                { "id": "cat-evt-11", "text": "Complete materials inventory", "time": "16:00-16:30", "category": "Documentation", "tag": "Materials" }
             ]
         },
         "post-event": {

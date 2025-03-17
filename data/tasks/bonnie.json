@@ -57,7 +57,7 @@
             { "id": "bon-trans-2", "text": "Remove shuttle sticky sign and return forms to Herman", "time": "16:05-16:10", "category": "Transport", "tag": "Kowloon Tong Shuttle" },
             { "id": "bon-trans-3", "text": "Depart by Kowloon Tong shuttle", "time": "16:05", "category": "Transport", "tag": "Kowloon Tong Shuttle" },
             { "id": "bon-trans-4", "text": "Report trip completion at Shatin", "time": "16:20", "category": "Transport", "tag": "Kowloon Tong Shuttle" },
-            { "id": "bon-trans-5", "text": "Report final trip completion at Kowloon Tong", "time": "17:00", "category": "Transport", "tag": "Tai Po Shuttle" }
+            { "id": "bon-trans-5", "text": "Report final trip completion at Kowloon Tong", "time": "17:00", "category": "Transport", "tag": "Kowloon Tong Shuttle" }
         ]
     }
 }

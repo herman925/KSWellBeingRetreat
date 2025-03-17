@@ -1,23 +1,58 @@
 {
-    "role": "prep-archie",
+    "role": "archie",
     "name": "Archie",
     "title": "Preparation Assistant",
     "tasks": {
         "pre-event": {
-            "Jan 3 Morning": [
+            "Mar 21 Morning": [
                 { "id": "arc-pre-1", "text": "Transportation - Final confirmation with bus company", "category": "Transportation" },
                 { "id": "arc-pre-2", "text": "Transportation - Verify pickup times", "category": "Transportation" },
                 { "id": "arc-pre-3", "text": "Transportation - Confirm driver contacts", "category": "Transportation" },
                 { "id": "arc-pre-4", "text": "Transportation - Estimate passenger count", "category": "Transportation" }
             ],
-            "Jan 3 Afternoon": [
+            "Mar 21 Afternoon": [
                 { "id": "arc-pre-5", "text": "Verify Technical Equipment Packing", "category": "Material Check" },
                 { "id": "arc-pre-6", "text": "Pack Health & Safety Materials", "category": "Material Sorting", "tag": "Packing" },
-                { "id": "arc-pre-7", "text": "Test Walkie-talkies", "category": "Equipment Testing", "tag": "Comms Check" },
-                { "id": "arc-pre-8", "text": "Check battery levels", "category": "Equipment Testing", "tag": "Comms Check" },
-                { "id": "arc-pre-9", "text": "Test range in office", "category": "Equipment Testing", "tag": "Comms Check" },
-                { "id": "arc-pre-10", "text": "Set channels", "category": "Equipment Testing", "tag": "Comms Check" }
+                { "id": "arc-pre-7", "text": "Check battery levels", "category": "Equipment Testing", "tag": "Comms Check" }
             ]
-        }
+        },
+        "transport-arrival": {
+            "Mar 22 Morning": [
+                { "id": "arc-trans-1", "text": "Arrive at venue", "time": "09:00", "category": "Transport", "tag": "Self-Transport" }
+            ]
+        },
+        "site-setup": {
+            "Mar 22 Morning": [
+                { "id": "arc-site-1", "text": "Registration area setup", "category": "Setup", "tag": "Registration" },
+                { "id": "arc-site-2", "text": "Coordinate team positions", "category": "Setup", "tag": "Coordination" }
+            ]
+        },
+        "event-support": {
+            "Morning Session": [
+                { "id": "arc-evt-1", "text": "Welcome & direct participants", "time": "09:45-10:15", "category": "Support", "tag": "Registration" },
+                { "id": "arc-evt-2", "text": "Support seating arrangements", "time": "10:15-10:30", "category": "Support", "tag": "Coordination" },
+                { "id": "arc-evt-3", "text": "Hall support", "time": "10:30-12:30", "category": "Support", "tag": "Coordination" }
+            ],
+            "Lunch Break": [
+                { "id": "arc-evt-6", "text": "Break & lunch", "time": "13:00-13:45", "category": "Break", "tag": "Break" }
+            ],
+            "Afternoon Session": [
+                { "id": "arc-evt-7", "text": "Hall support", "time": "13:45-15:20", "category": "Support", "tag": "Coordination" },
+                { "id": "arc-evt-8", "text": "Pack materials", "time": "15:20-15:45", "category": "Support", "tag": "Materials" }
+            ]
+        },
+        "post-event": {
+            "Clean Up": [
+                { "id": "arc-post-1", "text": "Pack materials", "time": "15:45-16:00", "category": "Cleanup", "tag": "Materials" }
+            ],
+            "Final Checks": [
+                { "id": "arc-post-2", "text": "Clean Registration Area with May and Herman ", "time": "16:00-16:15", "category": "Cleanup", "tag": "Venue" },
+                { "id": "arc-post-3", "text": "Final Walkthrough", "time": "16:15-16:30", "category": "Cleanup", "tag": "Venue" },
+                { "id": "arc-post-4", "text": "Pack and Go", "time": "16:30-17:00", "category": "Cleanup", "tag": "Venue" }
+            ]
+        },
+        "transport-departure": [
+            { "id": "arc-trans-1", "text": "Depart by own transport", "time": "17:00", "category": "Transport", "tag": "Self-Transport" }
+        ]
     }
-} 
+}
