@@ -47,6 +47,61 @@
             margin-bottom: 1rem;
             font-size: 1.4rem;
         }
+        
+        .seating-info {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: var(--card-shadow);
+            margin-bottom: 2rem;
+        }
+        
+        .tables-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .table-container {
+            margin-top: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+        
+        .seating-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1rem;
+        }
+        
+        .seating-table th {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: left;
+            padding: 0.75rem 1rem;
+        }
+        
+        .seating-table td {
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .seating-table tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        
+        .seating-table tr:hover {
+            background-color: #f1f8ff;
+        }
+        
+        .table-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--secondary-color);
+        }
     </style>
 </head>
 <body>
@@ -95,6 +150,213 @@
                     <h3><i class="fas fa-exclamation-circle"></i> Special Arrangements</h3>
                     <p>For Table 1, a special arrangement has been made:</p>
                     <p>The dish <strong>時菜炒牛肉</strong> is changed to <strong>時菜炒雞柳</strong> due to food preferences of some teachers.</p>
+                </div>
+            </div>
+            
+            <div class="seating-info">
+                <h3><i class="fas fa-users"></i> Table Seating</h3>
+                <p>Below is the seating arrangement for all participants:</p>
+                
+                <div class="tables-grid">
+                    <div class="table-container">
+                        <div class="table-title">Table 1</div>
+                        <table class="seating-table">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>School</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>尹嘉程</td>
+                                    <td>世佛會觀自在幼兒學校</td>
+                                </tr>
+                                <tr>
+                                    <td>凌嘉麗</td>
+                                    <td>仁愛堂龐盧淑燕幼稚園</td>
+                                </tr>
+                                <tr>
+                                    <td>萬婉荺</td>
+                                    <td>博愛醫院朱國京夫人紀念幼稚園</td>
+                                </tr>
+                                <tr>
+                                    <td>曾雅婷</td>
+                                    <td>博愛醫院朱國京夫人紀念幼稚園</td>
+                                </tr>
+                                <tr>
+                                    <td>鄧愛霞</td>
+                                    <td>博愛醫院朱國京夫人紀念幼稚園</td>
+                                </tr>
+                                <tr>
+                                    <td>Herman</td>
+                                    <td>EdUHK</td>
+                                </tr>
+                                <tr>
+                                    <td>Alvin</td>
+                                    <td>EdUHK</td>
+                                </tr>
+                                <tr>
+                                    <td>Karindi</td>
+                                    <td>EdUHK</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="table-container">
+                        <div class="table-title">Table 2</div>
+                        <table class="seating-table">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>School</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>張彩霞</td>
+                                    <td>博愛醫院朱國京夫人紀念幼稚園</td>
+                                </tr>
+                                <tr>
+                                    <td>陳惠妮</td>
+                                    <td>博愛醫院朱國京夫人紀念幼稚園</td>
+                                </tr>
+                                <tr>
+                                    <td>黎正賢</td>
+                                    <td>博愛醫院朱國京夫人紀念幼稚園</td>
+                                </tr>
+                                <tr>
+                                    <td>曾妙如</td>
+                                    <td>博愛醫院朱國京夫人紀念幼稚園</td>
+                                </tr>
+                                <tr>
+                                    <td>郭玉芬</td>
+                                    <td>博愛醫院朱國京夫人紀念幼稚園</td>
+                                </tr>
+                                <tr>
+                                    <td>黃家寶</td>
+                                    <td>博愛醫院朱國京夫人紀念幼稚園</td>
+                                </tr>
+                                <tr>
+                                    <td>May</td>
+                                    <td>EdUHK</td>
+                                </tr>
+                                <tr>
+                                    <td>Archie</td>
+                                    <td>EdUHK</td>
+                                </tr>
+                                <tr>
+                                    <td>Bonnie</td>
+                                    <td>EdUHK</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="table-container">
+                        <div class="table-title">Table 3</div>
+                        <table class="seating-table">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>School</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>陳敏儀</td>
+                                    <td>博愛醫院朱國京夫人紀念幼稚園</td>
+                                </tr>
+                                <tr>
+                                    <td>楊翠珊</td>
+                                    <td>博愛醫院朱國京夫人紀念幼稚園</td>
+                                </tr>
+                                <tr>
+                                    <td>郭曉霖</td>
+                                    <td>博愛醫院朱國京夫人紀念幼稚園</td>
+                                </tr>
+                                <tr>
+                                    <td>鄧麗娟</td>
+                                    <td>博愛醫院朱國京夫人紀念幼稚園</td>
+                                </tr>
+                                <tr>
+                                    <td>鄧韻珊</td>
+                                    <td>博愛醫院朱國京夫人紀念幼稚園</td>
+                                </tr>
+                                <tr>
+                                    <td>劉潔</td>
+                                    <td>深水埗童亮館</td>
+                                </tr>
+                                <tr>
+                                    <td>陳芷珊</td>
+                                    <td>深水埗童亮館</td>
+                                </tr>
+                                <tr>
+                                    <td>劉家曦</td>
+                                    <td>深水埗童亮館</td>
+                                </tr>
+                                <tr>
+                                    <td>Cathy</td>
+                                    <td>EdUHK</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="table-container">
+                        <div class="table-title">Table 4</div>
+                        <table class="seating-table">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>School</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>尹綺華</td>
+                                    <td>香港基督教服務處李鄭屋幼兒學校</td>
+                                </tr>
+                                <tr>
+                                    <td>阮翎虹</td>
+                                    <td>東華三院馬陳景霞幼稚園</td>
+                                </tr>
+                                <tr>
+                                    <td>黎詩敏</td>
+                                    <td>聖公會青山聖彼得堂兆麟苑幼稚園</td>
+                                </tr>
+                                <tr>
+                                    <td>何海珊</td>
+                                    <td>聖公會青山聖彼得堂兆麟苑幼稚園</td>
+                                </tr>
+                                <tr>
+                                    <td>高麗明</td>
+                                    <td>仁愛堂龐盧淑燕幼稚園</td>
+                                </tr>
+                                <tr>
+                                    <td>林承恩</td>
+                                    <td>聖馬可堂白普理幼稚園</td>
+                                </tr>
+                                <tr>
+                                    <td>李桂蘭</td>
+                                    <td>聖馬可堂白普理幼稚園</td>
+                                </tr>
+                                <tr>
+                                    <td>許麗娜</td>
+                                    <td>聖馬可堂白普理幼稚園</td>
+                                </tr>
+                                <tr>
+                                    <td>謝燕玲</td>
+                                    <td>香港保護兒童會新航黃埔幼兒學校</td>
+                                </tr>
+                                <tr>
+                                    <td>Christine</td>
+                                    <td>EdUHK</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </section>
