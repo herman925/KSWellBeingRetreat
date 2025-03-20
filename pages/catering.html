@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catering - Teacher Well-Being Retreat</title>
+    <link rel="stylesheet" href="../styles/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .meal-info {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: var(--card-shadow);
+            margin-bottom: 2rem;
+        }
+        
+        .meal-list {
+            margin: 1.5rem 0;
+            padding-left: 1.5rem;
+        }
+        
+        .meal-list li {
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .table-info {
+            margin-top: 2rem;
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--secondary-color);
+        }
+        
+        .special-note {
+            margin-top: 1.5rem;
+            background: #fff8e1;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #ffc107;
+        }
+        
+        h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="nav-wrapper">
+            <a href="../index.html" class="back-button">
+                <i class="fas fa-arrow-left"></i> Back to Dashboard
+            </a>
+            <div class="person-selector">
+                <select id="roleSelect">
+                    <option value="">Select Your Role</option>
+                </select>
+            </div>
+        </nav>
+    </header>
+
+    <main class="content-wrapper">
+        <section class="page-header">
+            <h1><i class="fas fa-utensils"></i> Catering</h1>
+            <p class="subtitle">KeySteps@JC (Phase Two)</p>
+            <p class="subtitle">Teacher Well-Being Round 2 Retreat</p>
+            <div class="date-info"><i class="far fa-clock"></i> March 22, 2025 (Saturday)</div>
+        </section>
+
+        <section class="catering-content">
+            <div class="meal-info">
+                <h3><i class="fas fa-clipboard-list"></i> Meal Menu</h3>
+                <p>Each table will be served the following dishes:</p>
+                <ul class="meal-list">
+                    <li>桶子豉油雞</li>
+                    <li>古法蒸海上鮮</li>
+                    <li>雜果鎮糖骨</li>
+                    <li>翠塘滑豆腐</li>
+                    <li>西蘭花鮮魷</li>
+                    <li>西檸素鴨</li>
+                    <li>時菜炒牛肉</li>
+                    <li>菠蘿生炒骨</li>
+                </ul>
+                
+                <div class="table-info">
+                    <h3><i class="fas fa-chair"></i> Table Arrangements</h3>
+                    <p>There will be a total of 4 tables for the retreat lunch.</p>
+                </div>
+                
+                <div class="special-note">
+                    <h3><i class="fas fa-exclamation-circle"></i> Special Arrangements</h3>
+                    <p>For Table 1, a special arrangement has been made:</p>
+                    <p>The dish <strong>時菜炒牛肉</strong> is changed to <strong>時菜炒雞柳</strong> due to food preferences of some teachers.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Last Updated: March 20, 2025</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', async function() {
+            const roleSelect = document.getElementById('roleSelect');
+            
+            // Load roles from JSON
+            try {
+                const response = await fetch('../data/roles.json');
+                const data = await response.json();
+                
+                // Clear existing options except the default one
+                roleSelect.innerHTML = '<option value="">Select Your Role</option>';
+                
+                // Add roles from JSON
+                data.roles.forEach(role => {
+                    const option = document.createElement('option');
+                    option.value = role.id;
+                    option.textContent = `${role.name}${role.title ? ` (${role.title})` : ''}`;
+                    roleSelect.appendChild(option);
+                });
+                
+                // Load saved role from localStorage
+                const savedRole = localStorage.getItem('selectedRole');
+                if (savedRole) {
+                    roleSelect.value = savedRole;
+                }
+            } catch (error) {
+                console.error('Error loading roles:', error);
+            }
+
+            // Role selection handler
+            roleSelect.addEventListener('change', function() {
+                const selectedRole = this.value;
+                localStorage.setItem('selectedRole', selectedRole);
+            });
+        });
+    </script>
+</body>
+</html>
